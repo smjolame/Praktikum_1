@@ -1,8 +1,10 @@
 all: build/main.pdf
-
-# hier Python-Skripte:
-plots: plot.py matplotlibrc header-matplotlib.tex | build
-	TEXINPUTS=$$(pwd): python plot.py
+ 
+# hier Python-Skripte: 
+plots: FORCE | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: plots
@@ -10,7 +12,6 @@ build/main.pdf: plots
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
 	  BIBINPUTS=build: \
-	  max_print_line=1048576 \
 	latexmk \
 	  --lualatex \
 	  --output-directory=build \
