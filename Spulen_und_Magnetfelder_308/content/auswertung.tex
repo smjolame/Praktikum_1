@@ -158,6 +158,10 @@
 
 \subsection{Ringspule}
 
+
+
+
+
 \begin{table}
     \centering
     \caption{Messdaten der Ringspule.}
@@ -221,12 +225,98 @@
   \end{tabular}
 \end{table}
 
-
-
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{build/Hysteresekurve.pdf}
   \caption{Messdaten der Ringspule zu einer Hysteresekurve aufgetragen.}\label{fig:hysterese}
 \end{figure}
+
+Anhand der Messdaten der Tabelle wird die Koerzitivfeldstärke, die Remanenz
+und Sättigungsmagnetisierung bestimmt.
+Die Remanenz kann dabei direkt der Tabelle entnommen werden. Sie nimmt je nach dem, welcher Weg 
+auf der Hysteresekurve genommen wird, zwei verschiedene Werte an.\\
+
+$B_{R}^1=430 \si{\milli\tesla}$\\
+$B_{R}^2=550 \si{\milli\tesla}$\\
+
+Um die Hysteresekurve zu erstellen muss vorerst die magnetische Feldstärke im inneren der Ringspule berechnet werden.
+Zum Berechnen der Feldstärke im inneren einer Ringspule kann die Gleichung 
+
+\begin{equation}
+H=\frac{NI}{2\pi R}
+\end{equation}
+
+verwendet werden. Hierbei entspricht $N$ die Anzahl der Windungen, I ist der anliegende Strom und 
+R entspricht dem Radius des Torus. Da es sich aber ledeglich um eine fast geschlossene Ringspule handelt, muss die Breite des Luftspaltes
+noch von der Länge der Spule abgezogen werden. Damit ergibt sich die Gleichung:
+
+\begin{equation}
+H=\frac{NI}{2\pi R-d_l}
+\end{equation}
+
+Da laut Konvention der Strom beim entlang gehen der Neukurve im Uhrzeigersinn fließen soll, aber 
+bei der Versuchsdurchführung links laufendem Strom begonnen worden ist, wird die Ausrichtung der Hysteresekurve
+durch das Hinzufügen eines negativen Vorzeichens der Konvention angepasst. Dabei wird das experiementelle
+Ergebnis nicht verändert.
+Nach einfügen aller bekannter Werte kann $H$ als Funktion von $I$ bestimmt werden:
+
+\begin{equation}
+H(I)=-\frac{595\cdot I}{2\pi \cdot 0.185\si{\m}-0.003\si{\m}}
+\end{equation}
+
+Die Koerzitivfeldstärke wird auf Grund der wenigen Messdaten durch eine Ausgleichsgerade bestimmt, dessen
+Nulldurchgang in guter Näherung der Koerzitivfeldstärke entspicht.
+
+\begin{equation}
+g_i(H)=m_i\cdot H+b_i
+\end{equation}
+  
+Dabei berechnen sich die $m_i$ und $b_i$ wie folgt:
+
+\begin{gather}
+m_1=\frac{H(4)-H(3)}{-60-10} \\
+m_2=\frac{H(4)-H(5)}{50-(-250)}\\
+b_1=10-m_1\cdot H(3)\\
+b_2=50-m_2\cdot H(4)
+\end{gather}
+
+Um die Koerzitivfeldstärken zu erhalten, muss die Nullstelle der beiden Geraden berechnet werden. \quad $g_i(H) \stackrel{!}{=}0$\\
+Das nach $H$ umgeformt ergibt:
+
+\begin{equation}
+H_{i}^{c}=\frac{-b_i}{m_i}
+\end{equation}
+
+Nach Einsetzen aller Werte folgt für die Koerzitivfeldstärken:
+
+\quad $H_{1}^{c}\cong -1612.9181 \frac{\si{\ampere}}{\si{\m}}$
+\quad $H_{2}^{c}\cong -2138.3384 \frac{\si{\ampere}}{\si{\m}}$
+
+Die Sättigungsmagnetisierung lässt sich näherungsweise aus der Tabelle ablesen, da bei betragsmäßig hohen
+Strömen sich der magnetische Fluss kaum ändert. So ergeben sich zwei Werte für die Sättigungsmagnetisierung:
+
+\quad $B_{1}^{s}\cong -300 \si{\milli\tesla}$
+\quad $B_{2}^{s}\cong 1210 \si{\milli\tesla}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
