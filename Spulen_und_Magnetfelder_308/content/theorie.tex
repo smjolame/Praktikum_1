@@ -3,8 +3,6 @@
 
 
 
-
-
 Durch bewegte elektrische Ladungen werden Magnetfelder induziert.
 Im Allgemeinen kann ein Mgnetfeld über die beiden vektoriellen Größen 
 $\vec H$ und $\vec B$ beschrieben werden. Dabei ist $\vec H$ die 
@@ -18,7 +16,7 @@ $\mu_r$. Der physikalische Zusammenhang zwischen $\vec H$ und $\vec B$ zeigt sic
 \end{equation}
 
 Die relative Permeabilität diamagnetischer Stoffe ist dabei $\mu_r$ < 1, für 
-Paramagnetika ist $\mu_r$ > 1. Dabei weicht der Wert je nach Material teilweise 
+Paramagnetika ist $\mu_r$ > 1, dabei weicht der Wert je nach Material teilweise 
 nur sehr geringfügig vom Wert 1 ab. Bei Ferromagnetika ist $\mu_r$ $\gg$ 1. Des Weiteren
 können deren Magnetfelder auch ohne den aktiven Einfluss bewegter, elektrischer Ladungen
 bestehen bleiben, wie beim Teilversuch Hysteresekurve zu sehen ist. Dabei richten sich 
@@ -46,7 +44,16 @@ Berücksichtigung von Randeffekten als homogen angenommen und durch
     B = \mu_0 \mu_r \frac{NI}l 
 \end{equation}
 
-beschrieben. Außerhalb der Spule verhält sich das Magnetfeld ...
+beschrieben. Außerhalb einer einzelnen Leiterschleife des Radius $R$ ergibt sich über das 
+Biot-Savart Gesetz das $B$ Feld über die folgende Formel, wobei $x$ der Abstand zum Mittelpunkt
+der Leiterschleife ist:
+
+\begin{equation}
+    \vec B(x)= \frac{\mu_0 I}{2} \frac{R^2}{(R^2 + x^2)^\frac{3}2}\cdot x
+\end{equation}
+
+Für eine Spule mit $R \gg l$ kann außerhalb der Spule auf deren Symmetrieachse der Abfall des Feldes 
+als ungefähr analog angenommen werden.
 
 Für das Magnetfeld eines Helmholtz-Spulenpaares, bei dem der Abstand der beiden 
 Spulen deren Radius $R$ entspricht, gilt in dessen Zentrum:
