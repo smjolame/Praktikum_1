@@ -7,7 +7,7 @@ plots: FORCE | build
 	python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: plots
+build/main.pdf: 
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
