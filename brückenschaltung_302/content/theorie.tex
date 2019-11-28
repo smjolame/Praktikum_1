@@ -1,8 +1,81 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-%In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
+\subsection{Allgemeine Funktionsweise}
 
-%(eventuell die Aufgaben)
+Brückenschaltungen werden im Allgemeinen hauptsächlich zur Messung unbekannter Größen 
+gebraucht, die sich eideutig auf ihren Widerstand reduzieren lassen. Darunter fallen für
+die folgende Versuchsreihe Ohm'sche Widerstände, Kapazitäten von Kondenstatoren und 
+Induktivitäten von Spulen. Der grundsätzliche Aufbau [ref abb1] funktioniert dabei, wie folgt:
+Zwischen den Stellen $C$ und $D$ wird eine Spannung abgegriffen, die von den in der Masche 
+enthaltenen Widerständen abhängig ist. Anhand dessen lässt sich unter der Bedingung, dass 
+nur einer der in dem Fall ohmschen Widerstände unbekannt ist, dieser über die Beziehung
+von Spannung und Widerständen bestimmen. 
+[abb1]
 
-%Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
+Um dies zu können, müssen die zwei Kirchhoff'schen Gesetze in Betracht gezogen werden:
+
+1.  Die Summe der zufließenden Ströme inn einem Knotenpunkt eines Stromkreises entspricht
+    der Summe der abfließenden Ströme.
+
+2.  Die Summe aller Spannungen innerhalb einer Masche eines geschlossenen Stromkreises
+    ist null.
+
+Auf [ref abb1] bezogen folgt daraus:
+
+\begin{equation}
+    U = \frac{{R_2}{R_3}-{R_1}{R_4}}{({R_3}+{R_4})({R_1}{R_2})}U_s 
+\end{equation}
+
+Das bedeutet, dass die resultierende Spannung $U$ null wird, wenn 
+\begin{equation}
+    R_2 R_3 - R_1 R_4 = 0
+\end{equation}
+
+Wenn daher nur einer der Widerstände unbekannt ist, und sich aus beiden Summen mindestens einer
+der bekannten Widerstände variieren lässt, ist damit für den Fall $U$ = 0 der unbekannte Widerstand
+auszurechnen.
+
+\subsection{komplexe Widerstände}
+
+Bei Wechselstrom haben Kondenstatoren sowie Spulen jeweils komplexe Widerstände, bzw. Impedanzen.
+
+Die Impedanz ist allgemein beschrieben durch
+
+\begin{equation}
+    Z = R + iX
+\end{equation}
+
+, wbei der Realteil $R$ der Wirkwiderstand, analog zum ohm'schen Widerstand und  der Imaginärteil
+X der Blindwiderstand ist. 
+
+Speziell gilt für den Widerstand eines Kondensators der Kapazität $C$ \begin{equation}
+    Z_C = \frac{-i}{\omega C}
+\end{equation} für den einer Spule mit Induktivität $L$ \begin{equation}
+    Z_L = i\omega L
+\end{equation} und für einen ohm'schen Widerstand \begin{equation}
+    Z_R = R
+\end{equation}
+
+\subsection{Spezielle Brückenschaltungen}
+
+\subsubsection{Wheaton'sche Brücke}
+[abb2]
+Diese Schaltung kann sowohl mit Gleichstrom, als auch mit Wechselstrom betrieben werden, da sie ausschließlich
+ohm'sche Widerstände enthält. 
+Aus [eq2] folgt für $R_x$:
+\begin{equation}
+    R_x = R_2 \frac{R_3}{R_4}
+\end{equation}
+
+$\frac{R_3}{R_4}$ ist dabei als Potentiometer anzusehen, mit dem das Verhältnis zwischen $R_3$ und $R_4$ 
+variiert werden kann. 
+
+\subsubsection{Kapazitätsmessbrücke}
+[abb3]
+
+
+
+
+
+
