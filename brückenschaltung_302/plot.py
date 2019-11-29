@@ -1,21 +1,38 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
 
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
+f0  = 250 #Hz  Berechneter Wert der Minimalfrequenz
+Us=2.5 #V
+R=664 #Ohm
+C=994*10**(-9) #F
+R_s=500 #Ohm
+f, Ubr =np.genfromtxt('data/e.txt', delimiter=',', unpack=True)
 
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
 
-# in matplotlibrc leider (noch) nicht möglich
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/plot.pdf')
+U=(Ubr/Us) #V
+
+Omega=(f/f0)
+
+f0_t=1/(2*np.pi*C*R)  #theoretischer Wert der Minimalfrequenz
+
+f_t=np.linspace(0,30100,10000)
+Omega_t=(f_t/f0_t)  #Theoretischer Wert des Frequnzverhältnisses
+
+
+U_t=np.sqrt(((Omega_t**2-1)**2)/(9*(1-Omega_t**2)**2+9*Omega_t**2))
+
+
+
+plt.plot(Omega, U,'rx', label='Messwerte')
+plt.xlabel(r'$\Omega$')
+plt.ylabel(r'$\frac{U_{\text{Br}}}{U_{\text{S}}}$')
+plt.xscale(r'log')
+plt.legend()
+
+plt.plot(Omega_t, U_t,'b', label='theoretische Kurve')
+plt.xscale('log')
+plt.legend()
+plt.savefig('build/e.pdf')
+
+
