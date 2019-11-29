@@ -73,7 +73,68 @@ variiert werden kann.
 
 \subsubsection{Kapazitätsmessbrücke}
 [abb3]
+Wie in [ref abb3] zu sehen ist, unterscheidet sich dieser Aufbau von [ref abb2] durch 
+einen Kondenstator unbekannter Kapazität, der anstelle des ohm'schen Widerstands verbaut ist, und einen zweiten
+bekannten Kondensators, der vor $R_2$ geschaltet ist. 
+Ein Kondenstator hat in der 
+Realität die Eigenschaft, dass er beim Speichern elektrischer Energie einen Teil dieser in Wärmeenergie umwandelt
+(analog zum ohm'schen Widerstand),
+wodurch als Ersatzschaltbild für $C_x$ zusätzlich ein $R_x$ eingezeichnet wird. 
+Dadurch ergibt sich in diesem Fall für den Widerstand des Kondensators $ Z_R$ = $R - \frac{i}{\omega C}$
+Für $R_x$ und $C_x$ gilt dann 
 
+$R_x$ = $R_2 \frac{R_3}{R_4}$ und 
+$C_x$ = $C_2 \frac{R_4}{R_3}$
+
+$R_2$ ist hierbei variabel, um die Phasenverschiebung, die durch $R_x$ zustande kommt, ausgleichen zu können.
+Hat der Kondenstator nur sehr geringe dielektrische Versluste, so ist ein Einbau von $R_2$ nicht notwendig, 
+da dann bei Frequenzen von etwa $10^4\si{\hertz}$ bis $10^5\si{\hertz}$ $R_x \ll \frac{1}{\omega C}$ und 
+$R_2 \approx 0$
+
+\subsubsection{Induktivitätsmessbrücke}
+
+[abb4]
+Diese Schaltung funktioniert grundsätzlich analog zur Kapazitätsmessbrücke, mit dem Unterschied, dass 
+\begin{equation*}
+    Z_L = R - i\omega L
+\end{equation*}
+ist. Dadurch ist die Induktivität über \begin{equation}
+    L_x = L_2 \frac{R_3}{R_4}
+\end{equation} beschrieben.
+
+Die Verslustleistung von $L_2$ sollte dabei so klein wie möglich sein, da der Wirkwiderstand in diesem Abschnitt
+der Masche
+ausschließlich aus $R_2$ bestehen sollte. In der Realität ist dies, vor allem bei niedrigen Frequenzen, nur schwierig 
+zu erreichen. Aus diesem Grund ist es oft sinnvoller, die Induktivität einer Spule durch eine Maxwell-Brücke zu 
+bestimmen, wie sie im nächsten Teilabschnitt beschrieben ist.
+
+\subsubsection{Maxwell-Brücke}
+
+[abb5]
+Die Abgleichelemente entalten hierbei keine bekannte Spule der Induktivität $L_2$, wodurch das Problem der 
+standardmäßigen Induktivitätsmessbrücke aufgehoben wird. Stattdessen wird hier ein verlustarmer Kondenstator
+der Kapazität $C_4$ mit einem, wie der Skizze zu sehen ist, leicht variiertem Aufbau verwendet. Die dabei
+in Wärme umgewandelte Energie ist in diesem Fall einfacher gering zu halten, wodurch das Messen von $L_x$
+im Regelfall präziser gelingt.
+
+$Z_L$ ist gleich, wie bei der Induktivitätsmessbrücke, über die Kirchhoff'schen Gesetze folgt daraus für
+diesen Aufbau \begin{equation}
+    $L_x$ = R_2 R_3 C_4
+\end{equation}
+
+\subsubsection{Wien-Robinson-Brücke}
+
+[abb6]
+Mit diesem Aufbau ist die frequenzabhängige Brückenspannung $U_Br$ zu bestimmen. Das Spannungsverhältnis
+zwischen der Speisespannung $U_S$ und $U_r$ lässt sich durch \begin{equation}
+    \abs{\frac{U_Br}{U_S}}^2 = \frac{(\omega^2 R^2 C^2 -1)^2}{9\bigl (1- \omega^2 R^2 C^2)^2 + 9\omega^2 R^2 C^2\bigr}
+\end{equation}
+Der Term wird null, wenn \begin{equation}
+    \omega_0 = \frac{1}{RC}
+\end{equation} ist. Daher wird das Frequenzverhältnis $\Omega$ := $\frac{\omega}{\omega_0}$ definiert, woraus für das
+Spannungsverhältnis \begin{equation}
+    \abs{\frac{U_Br}{U_S}}^2 = \frac{(\Omega^2 -1)^2}{9(1- \Omega^2)^2 + 9\Omega^2}
+\end{equation}
 
 
 
