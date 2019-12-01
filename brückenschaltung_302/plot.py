@@ -33,6 +33,7 @@ plt.legend()
 plt.plot(Omega_t, U_t,'b', label='theoretische Kurve')
 plt.xscale('log')
 plt.legend()
+plt.grid()
 plt.savefig('build/e.pdf')
 
 

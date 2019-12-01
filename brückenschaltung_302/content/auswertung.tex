@@ -1,13 +1,17 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-\subsection{a)}
 
 
+Im folgenden werden die einzelnen Versuche ausgewertet. Dabei werden öfters der Mittelwert und der Standardfehler (SEM) des
+unbekannten Bauteils \enquote{Wert x} bestimmt. Die jeweilige Berechnung des Mittelwertes und des Standardfehlers wird mithilfe 
+der Progamme \enquote{Numpy} \cite{numpy} und \enquote{Scipy} \cite{scipy} durchgeführt. Dabei werden die progamminternen Funktionen 
+\enquote{numpy.mean} für die Mittelwertberechnung und von scipy.stats \enquote{sem} für den Standardfehler des Mittelwerts verwendet.
 
+\subsection{Wheaton'sche Brücke}
 \begin{table}
     \centering
     \caption{Wert 12 }
-    \label{tab:}
+    \label{tab:1}
     \sisetup{table-format=}
     \begin{tabular}{c| r c c S[table-format=3.2]}
         \toprule
@@ -24,10 +28,11 @@
 \end{table}
 
 
+
 \begin{table}
     \centering
     \caption{Wert 13}
-    \label{tab:}
+    \label{tab:2}
     \sisetup{table-format=}
     \begin{tabular}{c| r c c c}
         \toprule
@@ -43,12 +48,17 @@
     \end{tabular}
 \end{table}
 
-\subsection{b)}
+Mit Hilfe der Gleichung \eqref{eqn:wheaton} und den Daten der Tabellen \ref{tab:1} und \ref{tab:2} lassen sich 
+die jeweils unbekannten Widerstände \enquote{Wert 12} und \enquote{Wert 13} bestimmen, welche schon am Boden der jeweiligen
+Tabelle aufgeführt sind.
+
+
+\subsection{Kapazitätsmessbrücke}
 
 \begin{table}
     \centering
     \caption{Wert 9}
-    \label{tab:}
+    \label{tab:3}
     \sisetup{table-format=}
     \begin{tabular}{c| r c c c c S[table-format=4.2]}
         \toprule
@@ -65,12 +75,16 @@
     \end{tabular}
 \end{table}
 
-\subsection{c)}
+Die unbekannten Werte $C_x$ und $R_x$ des realen Kondensators \enquote{Wert 9} können über die Gleichungen \eqref{eqn:kapa1} und \eqref{eqn:kapa2}
+berechnet werden. Die Werte können der Tabelle \ref{tab:3} entnommen werden. Die gemittelten Werte des realen Kondensators
+sind wieder am Boden der Tabelle aufgeführt.
+
+\subsection{Induktivitätsmessbrücke}
 
 \begin{table}
     \centering
     \caption{Wert 16}
-    \label{tab:}
+    \label{tab:4}
     \sisetup{table-format=}
     \begin{tabular}{c| r c c S[table-format=2.2] c}
         \toprule
@@ -93,7 +107,7 @@
 \begin{table}
     \centering
     \caption{Wert 19}
-    \label{tab:}
+    \label{tab:5}
     \sisetup{table-format=}
     \begin{tabular}{c| r r c S[table-format=3.2] c}
         \toprule
@@ -110,12 +124,18 @@
     \end{tabular}
 \end{table}
 
-\subsection{d)}
+Die zu bestimmende Induktivität der realen Spulen \enquote{Wert 16} und \enquote{Wert 19} werden mit Hilfe der Gleichung
+\eqref{eqn:induk} berechnet. Dabei ist, wie schon in dem Abschnitt \ref{sec:Induktivitätsmessbrücke} erwähnt, die Induktivität der Spule $L_2=20.1\si{\milli\henry}$.
+Der ohmsche Widerstand lässt sich analog zu den vorherigen Versuchen wieder mit der Gleichung
+\eqref{eqn:wheaton} bestimmen. Auch hier sind die jeweiligen Werte und Ergebnisse den Tabellen \ref{tab:4} und \ref{tab:6}
+zu entnehmen.
+
+\subsection{Maxwell-Brücke}
 
 \begin{table}
     \centering
     \caption{Wert 19}
-    \label{tab:}
+    \label{tab:6}
     \sisetup{table-format=}
     \begin{tabular}{c| r r c c c c}
         \toprule
@@ -134,12 +154,16 @@
     \end{tabular}
 \end{table}
 
-\subsection{e)}
+Die Tabelle \ref{tab:6} zeigt die gemessenen Daten, aus denen erneut die Induktivität der Spule \enquote{Wert 19}
+berechnet werden kann. Diesmal wird dafür, da es sich jetzt um eine Maxwell-Brücke handelt, die Gleichung \eqref{eqn:maxwell} verwendet.
+Das Ergebnis ist erneut am Boden der Tabelle aufgeführt.
+
+\subsection{Wien-Robinson-Brücke}
 
 \begin{table}
     \centering
-    \caption{Wien-Robinson}
-    \label{tab:}
+    \caption{Messdaten der Wien-Robinson-Brücke}
+    \label{tab:7}
     \begin{tabular}{r| S[table-format=1.2]}
         \toprule
         {$f \:/\: \si{\hertz} $} & {$U_{Br} \:/\: \si{\volt} $}\\
@@ -175,6 +199,28 @@
     \end{tabular}
 \end{table}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/e.pdf}
+    \caption{Plot zur Wien-Robinson-Brücke}
+    \label{fig:wien}
+\end{figure}
+
+
+Bei dem Versuch wird die Frequenzabhängigkeit einer Wien-Robinson-Brücke ermittelt. Dabei sollen die theoretischen und gemessenen Werte und Ergebnisse verglichen werden.
+Die aus dem Versuch gewonnenen Daten können der Tabelle \ref{tab:7} entnommen werden. So lässt sich die Minimalfrequenz
+$f_0=250\si{\hertz}$ direkt ablesen. Die Minimalfrequenz ist die Frequenz, bei der die Brückenspannung minimal wird. Die Speisspannung 
+$U_S$ ist dabei bei jeder Messung $U_S=2.5 \si{\volt}$. Die anderen Daten sind in dem Abschnitt \ref{sec:wien} aufgeführt.
+Es wird das Spannungsverhältnis $U_v=\frac{U_{Br}}{U_s}$ eingeführt. Dieses Spannungsverhältnis ist im Plot \ref{fig:wien}
+gegen das Frequenzverhältnis $\Omega=\frac{f}{f_0}$ aufgetragen. Bei dem Berechnen der theoretischen Kurve muss dabei beachetet werden,
+dass es sich in \ref{sec:wien} aufgeführten Frequenzen um Kreisfrequenzen handelt. Damit die Saklierung im Plot \ref{fig:wien} passend bleibt,
+muss also die Minimalfrequenz der Theorie durch 
+\begin{equation}
+    f_{0}^{t}=\frac{1}{2\pi RC}
+\end{equation} 
+berechnet werden. So ergibt sich $f_{0}^{t}=241.14\si{\hertz}$. Der theoretische Wert für das Frequenzverhältnis ergibt sich dann aus $\Omega^{t}=\frac{f}{f_{0}^{t}}$.
+Mit Gleichung \eqref{eqn:u} kann das theoretische Spannungsverhältnis $U_{v}^{t}$ in Abhängigkeit von $\Omega^{t}$ in der Grafik
+\ref{fig:wien} aufgetragen werden.
 
 
 
