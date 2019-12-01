@@ -1,20 +1,25 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 \subsection{a)}
+
+
+
 \begin{table}
     \centering
     \caption{Wert 12 }
     \label{tab:}
     \sisetup{table-format=}
-    \begin{tabular}{c| c c c c}
+    \begin{tabular}{c| r c c S[table-format=3.2]}
         \toprule
-{Messung} & {$R2 \:/\: \si{\ohm} $} & {$R3 \:/\: \si{\ohm}  $} & {$R4 \:/\: \si{\ohm}  $} & {$Rx \:/\: \si{\ohm} $}\\
+{Messung} & {$R_2 \:/\: \si{\ohm} $} & {$R_3 \:/\: \si{\ohm}  $} & {$R_4 \:/\: \si{\ohm}  $} & {$R_x \:/\: \si{\ohm} $}\\
         \midrule
  1 & 664 & 334 & 666 & 212.26\\
  2 & 1000 & 268 & 732  &  300.39\\
  3 & 332 & 452 & 547 & 262.08\\
 
       \bottomrule
+      \\
+    & \multicolumn{4}{l} {Mittelwert: $ R_x=(\num{258.24+-25.51})\si{\ohm}$}\\
     \end{tabular}
 \end{table}
 
@@ -24,15 +29,17 @@
     \caption{Wert 13}
     \label{tab:}
     \sisetup{table-format=}
-    \begin{tabular}{c| c c c c}
+    \begin{tabular}{c| r c c c}
         \toprule
-       {Messung} &  {$R2 \:/\: \si{\ohm} $} & {$R3 \:/\: \si{\ohm}  $} & {$R4 \:/\: \si{\ohm}  $} & {$Rx \:/\: \si{\ohm} $}\\
+       {Messung} &  {$R_2 \:/\: \si{\ohm} $} & {$R_3 \:/\: \si{\ohm}  $} & {$R_4 \:/\: \si{\ohm}  $} & {$R_x \:/\: \si{\ohm} $}\\
         \midrule
  1 & 332 & 390 & 610 & 332.99\\
  2 & 1000 & 231 & 769 & 366.12\\
  3 & 664 & 283 & 717 & 274.34\\
 
       \bottomrule
+            \\
+    & \multicolumn{4}{l} {Mittelwert: $ R_x=(\num{324.49+-26.83})\si{\ohm}$}\\
     \end{tabular}
 \end{table}
 
@@ -43,15 +50,18 @@
     \caption{Wert 9}
     \label{tab:}
     \sisetup{table-format=}
-    \begin{tabular}{c| c c c c c c}
+    \begin{tabular}{c| r c c c c S[table-format=4.2]}
         \toprule
-       {Messung} &  {$R2 \:/\: \si{\ohm} $} & {$R3 \:/\: \si{\ohm}  $} & {$R4 \:/\: \si{\ohm}  $} & {$C2 \:/\: \si{\nano\farad}  $} & {$Rx \:/\: \si{\ohm} $} &  {$Cx \:/\: \si{\nano\farad}$}\\
+       {Messung} &  {$R_2 \:/\: \si{\ohm} $} & {$R_3 \:/\: \si{\ohm}  $} & {$R_4 \:/\: \si{\ohm}  $} & {$C_2 \:/\: \si{\nano\farad}  $} & {$R_x \:/\: \si{\ohm} $} &  {$C_x \:/\: \si{\nano\farad}$}\\
         \midrule
  1 & 664 & 455 & 545 & 399 & 554.35 & 477.92\\
  2 & 1000 & 435 & 565 & 992 & 769.91 & 1288.46\\
  3 & 332 & 655 & 345 & 992 & 630.32 & 522.51\\
 
       \bottomrule
+            \\
+    & \multicolumn{6}{l} {Mittelwert: $ R_x=(\num{651.53+-63.12})\si{\ohm}$}\\
+    & \multicolumn{6}{l} {Mittelwert: $ C_x=(\num{762.96+-263.06})\si{\nano\farad}$}\\
     \end{tabular}
 \end{table}
 
@@ -62,16 +72,19 @@
     \caption{Wert 16}
     \label{tab:}
     \sisetup{table-format=}
-    \begin{tabular}{c| c c c c c}
+    \begin{tabular}{c| r c c S[table-format=2.2] c}
         \toprule
-       {Messung} &  {$R2 \:/\: \si{\ohm} $} & {$R3 \:/\: \si{\ohm}  $} & {$R4 \:/\: \si{\ohm}  $} & {$Rx \:/\: \si{\ohm} $} &  {$Lx \:/\: \si{\milli\henry}$}\\
+       {Messung} &  {$R_2 \:/\: \si{\ohm} $} & {$R_3 \:/\: \si{\ohm}  $} & {$R_4 \:/\: \si{\ohm}  $} & {$R_x \:/\: \si{\ohm} $} &  {$L_x \:/\: \si{\milli\henry}$}\\
         \midrule
  1 & 332 & 60 & 940 & 21.19 & 1.28\\
- 2 & 1000 & 60 & 940 & 63.823 & 1.28\\
+ 2 & 1000 & 60 & 940 & 63.82 & 1.28\\
  3 & 500 & 60 & 940 & 31.92 & 1.28\\
- 4 & 0 & 86 & 914 & 0 & 1.89\\
+ 4 & 0 & 86 & 914 & 0.00 & 1.89\\
 
       \bottomrule
+            \\
+    & \multicolumn{5}{l} {Mittelwert: $ R_x=(\num{29.23+-13.30})\si{\ohm}$}\\
+     & \multicolumn{5}{l} {Mittelwert: $ L_x=(\num{1.44+-0.15})\si{\milli\henry}$}\\
     \end{tabular}
 \end{table}
 
@@ -82,15 +95,18 @@
     \caption{Wert 19}
     \label{tab:}
     \sisetup{table-format=}
-    \begin{tabular}{c| c c c c c}
+    \begin{tabular}{c| r r c S[table-format=3.2] c}
         \toprule
-       {Messung} &  {$R2 \:/\: \si{\ohm} $} & {$R3 \:/\: \si{\ohm}  $} & {$R4 \:/\: \si{\ohm}  $} & {$Rx \:/\: \si{\ohm} $} &  {$Lx \:/\: \si{\milli\henry}$}\\
+       {Messung} &  {$R_2 \:/\: \si{\ohm} $} & {$R_3 \:/\: \si{\ohm}  $} & {$R_4 \:/\: \si{\ohm}  $} & {$R_x \:/\: \si{\ohm} $} &  {$L_x \:/\: \si{\milli\henry}$}\\
         \midrule
  1 & 1000 & 100 & 900 & 111.11 & 2.23\\
  2 & 500 & 60 & 940 & 31.91 & 1.28\\
- 3 & 0 & 50 & 950 & 0 & 1.06\\
+ 3 & 0 & 50 & 950 & 0.00 & 1.06\\
 
       \bottomrule
+            \\
+    & \multicolumn{5}{l} {Mittelwert: $ R_x=(\num{47.68+-33.03})\si{\ohm}$}\\
+     & \multicolumn{5}{l} {Mittelwert: $ L_x=(\num{1.52+-0.36})\si{\milli\henry}$}\\
     \end{tabular}
 \end{table}
 
@@ -101,9 +117,9 @@
     \caption{Wert 19}
     \label{tab:}
     \sisetup{table-format=}
-    \begin{tabular}{c| c c c c c c}
+    \begin{tabular}{c| r r c c c c}
         \toprule
-       {Messung} &  {$R2 \:/\: \si{\ohm} $} & {$R3 \:/\: \si{\ohm}  $} & {$R4 \:/\: \si{\ohm}  $}& {$C4 \:/\: \si{\nano\farad}  $} & {$Rx \:/\: \si{\ohm} $} &  {$Lx \:/\: \si{\milli\henry}$}\\
+       {Messung} &  {$R_2 \:/\: \si{\ohm} $} & {$R_3 \:/\: \si{\ohm}  $} & {$R_4 \:/\: \si{\ohm}  $}& {$C_4 \:/\: \si{\nano\farad}  $} & {$R_x \:/\: \si{\ohm} $} &  {$L_x \:/\: \si{\milli\henry}$}\\
         \midrule
 
  1 & 500 & 125 & 875 & 597 & 71.43 & 37.31\\
@@ -112,6 +128,9 @@
 
 
       \bottomrule
+            \\
+    & \multicolumn{6}{l} {Mittelwert: $ R_x=(\num{84.88+-7.85})\si{\ohm}$}\\
+     & \multicolumn{6}{l} {Mittelwert: $ L_x=(\num{32.92+-2.21})\si{\milli\henry}$}\\
     \end{tabular}
 \end{table}
 
@@ -121,10 +140,9 @@
     \centering
     \caption{Wien-Robinson}
     \label{tab:}
-    \sisetup{table-format=}
-    \begin{tabular}{c c}
+    \begin{tabular}{r| S[table-format=1.2]}
         \toprule
-        {$ $} & {$ $}\\
+        {$f \:/\: \si{\hertz} $} & {$U_{Br} \:/\: \si{\volt} $}\\
         \midrule
 20 & 1.28\\
 30 & 1.24\\

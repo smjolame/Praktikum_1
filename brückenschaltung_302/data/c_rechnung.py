@@ -1,4 +1,5 @@
 import numpy as np 
+from scipy.stats import sem
 
 #16
 
@@ -23,3 +24,15 @@ print(rx)
 
 lx=L2*(r3/r4) #mh
 print(lx)
+
+
+Rxm=np.mean(Rx)
+Rxs=sem(Rx)
+Lxm=np.mean(Lx)
+Lxs=sem(Lx)
+print(f"Rxm={Rxm}, Rxs={Rxs}, Lxm={Lxm}, Lxs={Lxs}")
+rxm=np.mean(rx)
+rxs=sem(rx)
+lxm=np.mean(lx)
+lxs=sem(lx)
+print(f"rxm={rxm}, rxs={rxs}, lxm={lxm}, lxs={lxs}")
