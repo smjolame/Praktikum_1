@@ -66,7 +66,8 @@ Diese Schaltung kann sowohl mit Gleichstrom, als auch mit Wechselstrom betrieben
 ohm'sche Widerstände enthält. 
 Aus [eq2] folgt für $R_x$:
 \begin{equation}
-    R_x = R_2 \frac{R_3}{R_4}
+\label{eqn:wheaton}
+ R_x = R_2 \frac{R_3}{R_4}
 \end{equation}
 
 $\frac{R_3}{R_4}$ ist dabei als Potentiometer anzusehen, mit dem das Verhältnis zwischen $R_3$ und $R_4$ 
@@ -83,14 +84,21 @@ Realität die Eigenschaft, dass er beim Speichern elektrischer Energie einen Tei
 wodurch als Ersatzschaltbild für $C_x$ zusätzlich ein $R_x$ eingezeichnet wird. 
 Dadurch ergibt sich in diesem Fall für den Widerstand des Kondensators $ Z_R$ = $R - \frac{i}{\omega C}$
 Für $R_x$ und $C_x$ gilt dann 
+\begin{equation}
+\label{eqn:kapa1}
+  R_x = R_2 \frac{R_3}{R_4} 
+\end{equation}
+ \quad und
+\begin{equation}
+\label{eqn:kapa2}
+   C_x = C_2 \frac{R_4}{R_3} 
+\end{equation}
 
-$R_x$ = $R_2 \frac{R_3}{R_4}$ und 
-$C_x$ = $C_2 \frac{R_4}{R_3}$
 
 $R_2$ ist hierbei variabel, um die Phasenverschiebung, die durch $R_x$ zustande kommt, ausgleichen zu können.
-Hat der Kondenstator nur sehr geringe dielektrische Versluste, so ist ein Einbau von $R_2$ nicht notwendig, 
-da dann bei Frequenzen von etwa $10^4\si{\hertz}$ bis $10^5\si{\hertz}$ $R_x \ll \frac{1}{\omega C}$ und 
-$R_2 \approx 0$
+Hat der Kondensator nur sehr geringe dielektrische Verluste, so ist ein Einbau von $R_2$ nicht notwendig, 
+da dann bis zu Frequenzen von etwa $10^4\si{\hertz}$ $R_x \ll \frac{1}{\omega C}$ und 
+$R_2 \approx 0$ ist.
 
 \subsubsection{Induktivitätsmessbrücke}
 
@@ -100,6 +108,7 @@ Diese Schaltung funktioniert grundsätzlich analog zur Kapazitätsmessbrücke, m
     Z_L = R - i\omega L
 \end{equation*}
 ist. Dadurch ist die Induktivität über \begin{equation}
+\label{eqn:induk}
     L_x = L_2 \frac{R_3}{R_4}
 \end{equation} beschrieben.
 
@@ -120,6 +129,7 @@ im Regelfall präziser gelingt.
 
 $Z_L$ ist gleich, wie bei der Induktivitätsmessbrücke, über die Kirchhoff'schen Gesetze folgt daraus für
 diesen Aufbau \begin{equation}
+\label{eqn:maxwell}
     L_x = R_2 R_3 C_4
 \end{equation}
 
