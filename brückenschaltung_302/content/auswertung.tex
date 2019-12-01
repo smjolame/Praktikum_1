@@ -166,7 +166,7 @@ Das Ergebnis ist erneut am Boden der Tabelle aufgeführt.
     \label{tab:7}
     \begin{tabular}{r| S[table-format=1.2]}
         \toprule
-        {$f \:/\: \si{\hertz} $} & {$U_{Br} \:/\: \si{\volt} $}\\
+        {$f \:/\: \si{\hertz} $} & {$U_{\text{Br}} \:/\: \si{\volt} $}\\
         \midrule
 20 & 1.28\\
 30 & 1.24\\
@@ -210,8 +210,8 @@ Das Ergebnis ist erneut am Boden der Tabelle aufgeführt.
 Bei dem Versuch wird die Frequenzabhängigkeit einer Wien-Robinson-Brücke ermittelt. Dabei sollen die theoretischen und gemessenen Werte und Ergebnisse verglichen werden.
 Die aus dem Versuch gewonnenen Daten können der Tabelle \ref{tab:7} entnommen werden. So lässt sich die Minimalfrequenz
 $f_0=250\si{\hertz}$ direkt ablesen. Die Minimalfrequenz ist die Frequenz, bei der die Brückenspannung minimal wird. Die Speisspannung 
-$U_S$ ist dabei bei jeder Messung $U_S=2.5 \si{\volt}$. Die anderen Daten sind in dem Abschnitt \ref{sec:wien} aufgeführt.
-Es wird das Spannungsverhältnis $U_v=\frac{U_{Br}}{U_s}$ eingeführt. Dieses Spannungsverhältnis ist im Plot \ref{fig:wien}
+$U_{\text{S}}$ ist dabei bei jeder Messung $U_{\text{S}}=2.5 \si{\volt}$. Die anderen Daten sind in dem Abschnitt \ref{sec:wien} aufgeführt.
+Es wird das Spannungsverhältnis $U_{\text{v}}=\frac{U_{\text{Br}}}{U_{\text{S}}}$ eingeführt. Dieses Spannungsverhältnis ist im Plot \ref{fig:wien}
 gegen das Frequenzverhältnis $\Omega=\frac{f}{f_0}$ aufgetragen. Bei dem Berechnen der theoretischen Kurve muss dabei beachetet werden,
 dass es sich in \ref{sec:wien} aufgeführten Frequenzen um Kreisfrequenzen handelt. Damit die Saklierung im Plot \ref{fig:wien} passend bleibt,
 muss also die Minimalfrequenz der Theorie durch 
@@ -221,6 +221,18 @@ muss also die Minimalfrequenz der Theorie durch
 berechnet werden. So ergibt sich $f_{0}^{t}=241.14\si{\hertz}$. Der theoretische Wert für das Frequenzverhältnis ergibt sich dann aus $\Omega^{t}=\frac{f}{f_{0}^{t}}$.
 Mit Gleichung \eqref{eqn:u} kann das theoretische Spannungsverhältnis $U_{v}^{t}$ in Abhängigkeit von $\Omega^{t}$ in der Grafik
 \ref{fig:wien} aufgetragen werden.
+
+\subsection{Klirrfaktorbestimmung} % (fold)
+\label{sub:Klirrfaktorbestimmung}
+
+Im folgenden wird der Klirrfaktor der Brückenspannung berechnet. Dazu wird die Gleichung \eqref{eqn:k} verwendet. 
+Als vereinfachung wird dabei angenommen, dass die Summe der Oberwelen jedeglich nur aus der zweiten Oberwelle besteht.
+Damit vereinfacht sich die Gleichung zu $k = \sqrt{\frac{ {U_2}^2}{U_1}}$. $U_2$ wird dabei durch $U_2=U_{\text{Br}_\text{eff}}\cdot U_{\text{v}}(2)=U_{\text{Br}_\text{eff}}\cdot \sqrt{45}$ berechnet.
+$U_{\text{Br}_\text{eff}}$ entspricht der effektiven Brückenspannung und wird über $U_{\text{Br}_\text{eff}}=\frac{U_{\text{Br}}}{\sqrt{2}\cdot2}$ bestimmt.
+Mit der Speisespannung $U_1=2.5\si{\volt}$ ergibt sich für $k\approx 0.0759$.
+ 
+
+% subsection Klirrfaktorbestimmung (end)
 
 
 

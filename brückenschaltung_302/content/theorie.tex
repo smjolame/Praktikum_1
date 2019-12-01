@@ -24,7 +24,7 @@ Um dies zu können, müssen die zwei Kirchhoff'schen Gesetze in Betracht gezogen
 Auf [ref abb1] bezogen folgt daraus:
 
 \begin{equation}
-    U = \frac{{R_2}{R_3}-{R_1}{R_4}}{({R_3}+{R_4})({R_1}{R_2})}U_S 
+    U = \frac{{R_2}{R_3}-{R_1}{R_4}}{({R_3}+{R_4})({R_1}{R_2})}U_{\text{S}} 
 \end{equation}
 
 Das bedeutet, dass die resultierende Spannung $U$ null wird, wenn 
@@ -136,17 +136,24 @@ diesen Aufbau \begin{equation}
 \subsubsection{Wien-Robinson-Brücke}
 \label{sec:wien}
 [abb6]
-Mit diesem Aufbau ist die frequenzabhängige Brückenspannung $U_{Br}$ zu bestimmen. Das Spannungsverhältnis
-zwischen der Speisespannung $U_S$ und $U_{Br}$ lässt sich durch \begin{equation}
-    \left|\frac{U_{Br}}{U_S}\right|^2 = \frac{1}{9}\frac{(\omega^2 R^2 C^2 -1)^2}{\bigl (1- \omega^2 R^2 C^2\bigr)^2 + 9\omega^2 R^2 C^2} 	
+Mit diesem Aufbau ist die frequenzabhängige Brückenspannung $U_{\text{Br}}$ zu bestimmen. Das Spannungsverhältnis
+zwischen der Speisespannung $U_{\text{S}}$ und $U_{\text{Br}}$ lässt sich durch \begin{equation}
+    \left|\frac{U_{\text{Br}}}{U_{\text{S}}}\right|^2 = \frac{1}{9}\frac{(\omega^2 R^2 C^2 -1)^2}{\bigl (1- \omega^2 R^2 C^2\bigr)^2 + 9\omega^2 R^2 C^2} 	
 \end{equation}
 Der Term wird null, wenn \begin{equation}
     \omega_0 = \frac{1}{RC}
 \end{equation} ist. Daher wird das Frequenzverhältnis $\Omega$ := $\frac{\omega}{\omega_0}$ definiert, woraus für das
 Spannungsverhältnis \begin{equation}
 \label{eqn:u}
-    \left|\frac{U_{Br}}{U_S}\right|^2 = \frac{1}{9}\frac{(\Omega^2 -1)^2}{(1- \Omega^2)^2 + 9\Omega^2}
+    \left|\frac{U_{\text{Br}}}{U_{\text{S}}}\right|^2 = \frac{1}{9}\frac{(\Omega^2 -1)^2}{(1- \Omega^2)^2 + 9\Omega^2}
 \end{equation}
+
+Dieses Spannungsverhältnis als $U_{\text{v}}$ wird für die später einfachere Referenzierzung zu
+\begin{equation}
+   U_{\text{v}}\coloneq \left|\frac{U_{\text{Br}}}{U_{\text{S}}}\right| = \sqrt{\frac{1}{9}\frac{(\Omega^2 -1)^2}{(1- \Omega^2)^2 + 9\Omega^2}}
+\end{equation}
+umgeformt und definiert.
+
 
 Die Wien-Robinson-Brücke dient also Sperrfilter. Aus einem kontinuierlichen Frequenzspektrum können damit 
 Schwingungen der Frequenz $\omega_0$ entfernt werden. Schwingungen, deren Frequenzen in der Umgebung von 
