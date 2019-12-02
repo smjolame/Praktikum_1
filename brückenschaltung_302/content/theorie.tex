@@ -6,7 +6,7 @@
 Brückenschaltungen werden im Allgemeinen hauptsächlich zur Messung unbekannter Größen 
 gebraucht, die sich eideutig auf ihren Widerstand reduzieren lassen. Darunter fallen für
 die folgende Versuchsreihe Ohm'sche Widerstände, Kapazitäten von Kondenstatoren und 
-Induktivitäten von Spulen. Der grundsätzliche Aufbau \ref{fig:allg} funktioniert dabei, wie folgt:
+Induktivitäten von Spulen. Der grundsätzliche Aufbau \ref{fig:allg} funktioniert dabei, wie folgt:\\
 Zwischen den Stellen $C$ und $D$ wird eine Spannung abgegriffen, die von den in der Masche 
 enthaltenen Widerständen abhängig ist. Anhand dessen lässt sich unter der Bedingung, dass 
 nur einer der in dem Fall ohmschen Widerstände unbekannt ist, dieser über die Beziehung
@@ -34,6 +34,7 @@ Auf \ref{fig:allg} bezogen folgt daraus:
 
 Das bedeutet, dass die resultierende Spannung $U$ null wird, wenn 
 \begin{equation}
+    \label{null}
     R_2 R_3 - R_1 R_4 = 0
 \end{equation}
 gilt.
@@ -46,13 +47,13 @@ auszurechnen.
 
 Bei Wechselstrom haben Kondenstatoren sowie Spulen jeweils komplexe Widerstände, bzw. Impedanzen.
 
-Die Impedanz ist allgemein beschrieben durch
+Die Impedanz ist allgemein durch
 
 \begin{equation}
     Z = R + iX
 \end{equation}
 
-, wobei der Realteil $R$ der Wirkwiderstand, analog zum ohm'schen Widerstand und  der Imaginärteil
+beschrieben, wobei der Realteil $R$ der Wirkwiderstand, analog zum ohm'schen Widerstand und  der Imaginärteil
 X der Blindwiderstand ist. 
 
 Speziell gilt für den Widerstand eines Kondensators der Kapazität $C$ \begin{equation}
@@ -74,7 +75,7 @@ Speziell gilt für den Widerstand eines Kondensators der Kapazität $C$ \begin{e
 \end{figure}
 Diese Schaltung kann sowohl mit Gleichstrom, als auch mit Wechselstrom betrieben werden, da sie ausschließlich
 ohm'sche Widerstände enthält. 
-Aus [eq2] folgt für $R_x$:
+Aus Gleichung \ref{eqn:null} folgt für $R_x$:
 \begin{equation}
 \label{eqn:wheaton}
  R_x = R_2 \frac{R_3}{R_4}
@@ -97,7 +98,8 @@ Ein Kondenstator hat in der
 Realität die Eigenschaft, dass er beim Speichern elektrischer Energie einen Teil dieser in Wärmeenergie umwandelt
 (analog zum ohm'schen Widerstand),
 wodurch als Ersatzschaltbild für $C_x$ zusätzlich ein $R_x$ eingezeichnet wird. 
-Dadurch ergibt sich in diesem Fall für den Widerstand des Kondensators $ Z_R$ = $R - \frac{i}{\omega C}$
+Dadurch ergibt sich in diesem Fall für den Widerstand des Kondensators  \begin{equation} Z_R = R - \frac{i}{\omega C}
+\end{equation}.
 Für $R_x$ und $C_x$ gilt dann 
 \begin{equation}
 \label{eqn:kapa1}
@@ -176,7 +178,7 @@ Der Term wird null, wenn \begin{equation}
 Spannungsverhältnis \begin{equation}
 \label{eqn:u}
     \left|\frac{U_{\text{Br}}}{U_{\text{S}}}\right|^2 = \frac{1}{9}\frac{(\Omega^2 -1)^2}{(1- \Omega^2)^2 + 9\Omega^2}
-\end{equation}
+\end{equation} folgt.
 
 Dieses Spannungsverhältnis als $U_{\text{v}}$ wird für die später einfachere Referenzierzung zu
 \begin{equation}
@@ -193,7 +195,7 @@ stärker ist diese Abschwächung.
 Darüber hinaus kann mit diesem Aufbau ein Klirrfaktor $k$ gemessen werden. Dieser beschreibt ein Verhältnis der 
 Oberwellen zur Grundwelle einer Sinusschwingung. Eine perfekte Sinusschwingung enthält keine Oberwellen, wodurch deren 
 Klirrfaktor null wird. In der Realität ist dies jedoch nur sehr schwierig zu erreichen. Die Qualität eines Sinusgenerators
-kann daher über den Wert des Klirrfaktors bestimmt werden, der geringer wird, je besser genauer die Sinusschwingung ist, 
+kann daher über den Wert des Klirrfaktors bestimmt werden, der geringer wird, je genauer die Sinusschwingung ist, 
 d.h. je geringer die Oberwellen von der Grundwelle abweichen. Der Klirrfaktor lässt sich im Allgemeinen über folgende
 Formel angeben: \begin{equation}
     \label{eqn:k}

@@ -2,8 +2,8 @@
 \label{sec:Auswertung}
 
 
-Im folgenden werden die einzelnen Versuche ausgewertet. Dabei werden öfters der Mittelwert und der Standardfehler (SEM) des
-unbekannten Bauteils \enquote{Wert x} bestimmt. Die jeweilige Berechnung des Mittelwertes und des Standardfehlers wird mithilfe 
+Im Folgenden werden die einzelnen Versuche ausgewertet. Dabei werden öfters der Mittelwert und der Standardfehler (SEM) des
+unbekannten Bauteils \enquote{Wert x} bestimmt. Die jeweilige Berechnung des Mittelwertes und des Standardfehlers werden mithilfe 
 der Progamme \enquote{Numpy} \cite{numpy} und \enquote{Scipy} \cite{scipy} durchgeführt. Dabei werden die progamminternen Funktionen 
 \enquote{numpy.mean} für die Mittelwertberechnung und von scipy.stats \enquote{sem} für den Standardfehler des Mittelwerts verwendet.
 
@@ -124,8 +124,8 @@ sind wieder am Boden der Tabelle aufgeführt.
     \end{tabular}
 \end{table}
 
-Die zu bestimmende Induktivität der realen Spulen \enquote{Wert 16} und \enquote{Wert 19} werden mit Hilfe der Gleichung
-\eqref{eqn:induk} berechnet. Dabei ist, wie schon in dem Abschnitt \ref{sec:Induktivitätsmessbrücke} erwähnt, die Induktivität der Spule $L_2=20.1\si{\milli\henry}$.
+Die zu bestimmenden Induktivitäten der realen Spulen \enquote{Wert 16} und \enquote{Wert 19} werden mit Hilfe der Gleichung
+\eqref{eqn:induk} berechnet. Dabei ist, wie schon in dem Abschnitt \ref{sec:Induktivitätsmessbrücke} erwähnt, die Induktivität der Spule $L_2=20,1\si{\milli\henry}$.
 Der ohmsche Widerstand lässt sich analog zu den vorherigen Versuchen wieder mit der Gleichung
 \eqref{eqn:wheaton} bestimmen. Auch hier sind die jeweiligen Werte und Ergebnisse den Tabellen \ref{tab:4} und \ref{tab:6}
 zu entnehmen.
@@ -226,7 +226,7 @@ Mit Gleichung \eqref{eqn:u} kann das theoretische Spannungsverhältnis $U_{\text
 \label{sub:Klirrfaktorbestimmung}
 
 Im folgenden wird der Klirrfaktor der Brückenspannung berechnet. Dazu wird die Gleichung \eqref{eqn:k} verwendet. 
-Als vereinfachung wird dabei angenommen, dass die Summe der Oberwelen jedeglich nur aus der zweiten Oberwelle besteht.
+Als vereinfachung wird dabei angenommen, dass die Summe der Oberwellen jedeglich nur aus der zweiten Oberwelle besteht.
 Damit wird die Gleichung zu $k = \sqrt{\frac{ {U_2}^2}{U_1}}$ vereinfacht. $U_2$ wird dabei durch $U_2=U_{\text{Br}_\text{eff}}\cdot U_{\text{v}}(2)=U_{\text{Br}_\text{eff}}\cdot \sqrt{45}$ berechnet.
 $U_{\text{Br}_\text{eff}}$ entspricht der effektiven Brückenspannung und wird über $U_{\text{Br}_\text{eff}}=\frac{U_{\text{Br}}}{\sqrt{2}\cdot2}$ bestimmt.
 Mit der Speisespannung $U_1=2.5\si{\volt}$ ergibt sich für $k\approx 0.0759$.
