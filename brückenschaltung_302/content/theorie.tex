@@ -6,12 +6,17 @@
 Brückenschaltungen werden im Allgemeinen hauptsächlich zur Messung unbekannter Größen 
 gebraucht, die sich eideutig auf ihren Widerstand reduzieren lassen. Darunter fallen für
 die folgende Versuchsreihe Ohm'sche Widerstände, Kapazitäten von Kondenstatoren und 
-Induktivitäten von Spulen. Der grundsätzliche Aufbau [ref abb1] funktioniert dabei, wie folgt:
+Induktivitäten von Spulen. Der grundsätzliche Aufbau \ref{fig:allg} funktioniert dabei, wie folgt:
 Zwischen den Stellen $C$ und $D$ wird eine Spannung abgegriffen, die von den in der Masche 
 enthaltenen Widerständen abhängig ist. Anhand dessen lässt sich unter der Bedingung, dass 
 nur einer der in dem Fall ohmschen Widerstände unbekannt ist, dieser über die Beziehung
 von Spannung und Widerständen bestimmen. 
-[abb1]
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{allgemeine_bs.png}
+\caption{Allgemeine Brückenschaltungen}
+\label{fig:allg}
+\end{figure}
 
 Um dies zu können, müssen die zwei Kirchhoff'schen Gesetze in Betracht gezogen werden:
 
@@ -61,7 +66,12 @@ Speziell gilt für den Widerstand eines Kondensators der Kapazität $C$ \begin{e
 \subsection{Spezielle Brückenschaltungen}
 
 \subsubsection{Wheaton'sche Brücke}
-[abb2]
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{wheaton_bs.png}
+\caption{Wheaton'sche Brückenschaltung}
+\label{fig:wheaton}
+\end{figure}
 Diese Schaltung kann sowohl mit Gleichstrom, als auch mit Wechselstrom betrieben werden, da sie ausschließlich
 ohm'sche Widerstände enthält. 
 Aus [eq2] folgt für $R_x$:
@@ -74,8 +84,13 @@ $\frac{R_3}{R_4}$ ist dabei als Potentiometer anzusehen, mit dem das Verhältnis
 variiert werden kann. 
 
 \subsubsection{Kapazitätsmessbrücke}
-[abb3]
-Wie in [ref abb3] zu sehen ist, unterscheidet sich dieser Aufbau von [ref abb2] durch 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{kondensator_bs.png}
+\caption{Kapazitätsmessbrücke}
+\label{fig:kapa}
+\end{figure}
+Wie in hier zu sehen ist, unterscheidet sich dieser Aufbau von \ref{fig:wheaton} durch 
 einen Kondenstator unbekannter Kapazität, der anstelle des ohm'schen Widerstands verbaut ist, und einen zweiten
 bekannten Kondensators, der vor $R_2$ geschaltet ist. 
 Ein Kondenstator hat in der 
@@ -102,7 +117,12 @@ $R_2 \approx 0$ ist.
 
 \subsubsection{Induktivitätsmessbrücke}
 
-[abb4]
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{spule_bs.png}
+\caption{Induktionsmessbrücke}
+\label{fig:spule}
+\end{figure}
 Diese Schaltung funktioniert grundsätzlich analog zur Kapazitätsmessbrücke, mit dem Unterschied, dass 
 \begin{equation*}
     Z_L = R - i\omega L
@@ -120,7 +140,12 @@ bestimmen, wie sie im nächsten Teilabschnitt beschrieben ist.
 
 \subsubsection{Maxwell-Brücke}
 
-[abb5]
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{maxwell_bs.png}
+\caption{Maxwell'sche Brückenschaltung}
+\label{fig:maxwell}
+\end{figure}
 Die Abgleichelemente entalten hierbei keine bekannte Spule der Induktivität $L_2$, wodurch das Problem der 
 standardmäßigen Induktivitätsmessbrücke aufgehoben wird. Stattdessen wird hier ein verlustarmer Kondenstator
 der Kapazität $C_4$ mit einem, wie der Skizze zu sehen ist, leicht variiertem Aufbau verwendet. Die dabei
@@ -135,7 +160,12 @@ diesen Aufbau \begin{equation}
 
 \subsubsection{Wien-Robinson-Brücke}
 \label{sec:wien}
-[abb6]
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{wien_robinson_bs.png}
+\caption{Wien-Robinson-Brücke}
+\label{fig:wien}
+\end{figure}
 Mit diesem Aufbau ist die frequenzabhängige Brückenspannung $U_{\text{Br}}$ zu bestimmen. Das Spannungsverhältnis
 zwischen der Speisespannung $U_{\text{S}}$ und $U_{\text{Br}}$ lässt sich durch \begin{equation}
     \left|\frac{U_{\text{Br}}}{U_{\text{S}}}\right|^2 = \frac{1}{9}\frac{(\omega^2 R^2 C^2 -1)^2}{\bigl (1- \omega^2 R^2 C^2\bigr)^2 + 9\omega^2 R^2 C^2} 	
