@@ -13,11 +13,11 @@
     Es scheint sich jedoch lediglich um eine sehr starke Ungenauigkeit zu handeln, denn wie 
     zu sehen ist, ist das Steigungsverhalten der Kurve grundsätzlich so, wie es vom Zusammenhang 
     zwischen $H$ und $B$ zu erwarten ist. Das $B$ Feld steigt mit steigendem $H$
-    bis zu einem Sättigunswert $B_s$ \approx $1210\si{\milli\tesla}$ an. Nachdem $H$ wieder
+    bis zu einem Sättigunswert $B_s \approx$ $1210\si{\milli\tesla}$ an. Nachdem $H$ wieder
     auf null reduziert wurde, ist der neu gemessene $B$ Wert bei $H$=0 um 80\si{\milli\tesla} 
     größer, als der ursprüngliche. Der $B$ Wert stieg allerdings ursprünglich in negative Richtung an,
     wodurch der zweite $B$ Wert bei $H$=0 durch die Restmagnetisierung kleiner als der erste sein müsste.
-    Diese Abweichung von ist in diesem Fall auf die starke Messungenauigkeit zurückzuführen. Wie im Plot \ref{fig:hysterese} zu sehen ist,
+    Diese Abweichung ist in diesem Fall auf die starke Messungenauigkeit zurückzuführen. Wie im Plot \ref{fig:hysterese} zu sehen ist,
     weichen auch nah am Sättigunswert die unterschiedlichen $B$ Werte ähnlich stark voneinander ab, was in der Theorie
     so nicht der Fall ist. Was in diesem Versuch also eigentlich zu zeigen ist, nämlich dass das $B$ Feld bei gleichem
     $H$ unterschiedliche Werte, die durch Restmagnetisierung beeinflusst sind, annimmt, kann in diesem Fall nicht gezeigt
@@ -34,9 +34,12 @@
         homogenes Magnetfeld, welches durch \eqref{eqn:bhom} beschrieben werden kann. Dies ist nur dann der Fall, wenn die Länge $l$
         der Spule groß genug ist, und der Bereich, in dem gemessen wird, weit genug von den Spulenenden entfernt ist, da sonst
         Randeffekte auftreten, was zu einem inhomogenen Feld führt. Dabei kam es bei den drei zur Verfügung stehenden Spulen zu
-        foglenden Problemen. Die Länge $l$ der kurzen Spule ist zu kurz, damit Randeffekte ihre Wirkung im Inneren der Spule verlieren.
-        Im Plot der kurzen Spulen ist diesbezüglich zu sehen, dass $B$ an keiner Stelle konstant ist, obweohl Messungen bis über die
-        Mitte der Spule vorgenommen wurden. Der Verlauf des hier gemessenen $B$ Feldes entspricht etwa dem einer einzelnen Leiterschleife,
+        folgenden Problemen. Die Länge $l$ der kurzen Spule ist zu kurz, damit Randeffekte ihre Wirkung im Inneren der Spule verlieren.
+        Im Plot der kurzen Spulen ist diesbezüglich zu sehen, dass $B$ an keiner Stelle konstant ist, obwohl Messungen bis über die
+        Mitte der Spule vorgenommen wurden. Der theoretisch errechnete Wert ist im Zentrum der Spule B=$2.371\si{\milli\tesla}$ und weicht dabei 
+        $54.36$\% von dem gemessenen Maximalwert $B_{\text{max}}=1.082\si{\milli\tesla}$ ab. Dies liegt an der ursprünglichen
+        Bedingung der Gleichung \eqref{eqn:bhom}, welche eine deutlich größere Länge gegenüber des Radius der Spule vorschreibt. 
+        Diese ist bei der kurzen Spule nicht erfüllt, wodurch ein deutlich nach oben abweichender Theoriewert zu stande kommt. Der Verlauf des hier gemessenen $B$ Feldes entspricht etwa dem einer einzelnen Leiterschleife,
         bei der das Magnetfeld im Zentrum maximal ist und außerhalb in beide Richtungen abfällt. Der Abfall des $B$ Feldes kann dabei
         durch \eqref{eqn:bvonx} beschieben werden. 
 
@@ -45,10 +48,16 @@
         die Hallsonde nicht ganz bis zur Hälfte der jeweiligen Spulenlänge in die Spule eingeführt werden. Wie im zugehörigen Plot
         zu erkennen ist, ist für keine der beiden Spulen sicher deren maximales Magnetfeld gemessen worden. Daher kann nicht sicher 
         gesagt werden, ob das Magnetfeld in einem gewissen $x$- Intervall auf der Symmetrieachse homogen ist, wie es die Theorie vorschreibt.
+        Dabei ist der theoretische Wert des $B$ Feldes im inneren der langen Spule $B=2.313\si{\milli\tesla}$. Dieser Wert weicht nur um $4.32$\%
+        von dem gemessen Wert $B_{\text{max}}=2.213\si{\milli\tesla}$. Die Bedingung der Gleichung \eqref{eqn:bhom} ist im Gegensatz zu der kurzen Spule deutlich 
+        besser erfüllt. Der Theoriewert der dicken Spule ergibt sich zu $B=11.610\si{\milli\tesla}$ und weicht damit um ca. $31$\% von dem gemessenen Wert 
+        $B_{\text{max}}=8.03\si{\milli\tesla}$ ab. Der Grund dafür ist der gleiche wie bei der kurzen Spule, da die Länge der Spule nicht viel größer gegenüber des Radius der Spule ist.
+
         Der Abfall des $B$ Feldes außerhalb der Spule ist bei beiden ähnlich, wie bei der kurzen Spule, und entspricht etwa dem Verlauf
         wie in \eqref{eqn:bvonx}. 
         Im Endeffekt konnte hier nicht gezeigt werden, dass ein Magnetfeld eines Solonoids mit außreichender Länge $l$ auf dessen
         Symmetrieachse auf einem $x$- Intervall homogen ist. 
+
 
     \subsection{Helmholtzspule}
         Das Spulenpaar, dessen Abstand zueienander genau dem Spulenradius $R$= 6,25\si{\centi\meter} entspricht, sollte theoretisch innerhalb
@@ -57,8 +66,15 @@
         im Inneren des Spulenpaares einen parabolischen Verlauf und ist damit inhomogen. 
         Bei den Messungen, bei denen der Spulenabstand $d$=$R$ gewählt wurde, scheint das Magnetfeld zwischen den Spulen homogen zu sein.
         Dies wäre besser zu sehen gewesen, wenn mehrere Messwerte hätten aufgenommen werden können, was durch den Aufbau nicht möglich war, 
-        da die Halterung der Hallsonde sowie die Breite der jeweiligen Spulen den messbaren Bereich einschränkten. Wie in der Grafik \ref{fig:H6_1}
+        da die Halterung der Hallsonde sowie die Breite der jeweiligen Spulen den messbaren Bereich einschränkten.
+        Dies wäre besser zu sehen gewesen, wenn mehrere Messwerte hätten aufgenommen werden können, was durch den Aufbau nicht möglich war, 
+        da die Halterung der Hallsonde sowie die Breite der jeweiligen Spulen den messbaren Bereich einschränkten. Die Abweichung würde bei den anderen Konfigurationen deutlich steigen, da die Gleichung \eqref{eqn:bhelmholtz} an die
+        Bedingungen eines Helmholtzspulenpaares gebunden ist, welche bereits in der Theorie aufgeführt sind. 
+        Wie in der Grafik \ref{fig:H6_1}
         zu sehen ist, weichen jedoch die diesbezüglich gemessenen $B$ Werte nur sehr geringfügig voneinander ab.
         Außerhalb des Helmholtzspulenpaares fällt das Magnetfeld fast unabhängig vom gewählten Spulenabstand mit steigender Entfernung ab, 
         wie es auch z.B. bei den einfachen Spulen der Fall ist.
+        Der theoretische Wert im inneren Helmholtzspule , bei der gilt $d$=$R$, kann mit Gleichung \eqref{eqn:bhelmholtz} errechnet werden, wenn für $x=\frac{R}{2}$
+        eingesetzt wird. Dieser beläuft sich auf einen Wert von $B=7.193\si{\milli\tesla}$ und weicht damit nur $3.88$\% von dem gemessenen Wert
+        $B_{\text{Messung}}=6.924\si{\milli\tesla}$ ab.
 
