@@ -1,20 +1,67 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+Es wurde für die Versuchsreihe die Schaltung 2 verwendet. Deren Komponenten haben folgende Werte:
+
+$L$ = $23,954 \si{\milli\henry}$
+
+$C$ = $0,793 \si{\nano\farad}$
+
+$R$ = $48 \si{\ohm}$
+
+Die Kapazitäten $C_k$ der Koppelkondensatoren sind hierbei $2,19 \si{\nano\farad}$, $2,86 \si{\nano\farad}$,
+$4,74 \si{\nano\farad}$, $6,86 \si{\nano\farad}$, $8,18 \si{\nano\farad}$, $9,99 \si{\nano\farad}$ und
+$12 \si{\nano\farad}$.
+
+\subsection{Frequenzverhältnis zwischen Schwingung und Schwebung}
+
+Das Frequenzverhältnis $n$ lässt sich über die Anzahl der Amplituden der Schwingungen innerhalb einer Schwebung 
+ausdrücken. Im Folgenden werden die experimentell ermittelten Verhältnisse mit den theoretisch errechneten verglichen.
+In der Theorie lässt sich $n_t$ über die Formel \begin{equation}
+    n_t = \frac{\nu_{t}^{+} + \nu_{t}^{-}}{2(\nu_{t}^{+} - \nu_{t}^{-})}
+\end{equation}
+angeben. $\nu_{t}^{+}$ und $\nu_{t}^{-}$ sind dabei mit den Formeln \ref{eqn:frq1} und \ref{eqn:frq2} zu berechnen.
+
+
 \begin{table}
     \centering
     \caption{aufgabe a}
     \label{tab:a}
     \begin{tabular}{c c c}
         \toprule
-        {$\omega / \si{\hertz}$} & {$U / \si{\volt}$} & {$n_\text{amplituden}$} \\
+        {$\omega / \si{\hertz}$} & {$C_k / \si{\nano\farad}$} & {$n_\text{amplituden}$} \\
         \midrule
-        710 &  4.74 & 13 \\
         710 &  2.19 &  7 \\  
         710 &  2.86 & 10 \\
+        710 &  4.74 & 13 \\
         710 &  6.86 & 19 \\
         710 &  8.18 & 24 \\
         710 &  9.99 & 26 \\
         317 & 12.00 & 33 \\
         \bottomrule
+    \end{tabular}
+\end{table}
+
+[plot, der $n_t$ und $n_e$ vergleicht]
+
+
+
+
+\begin{table}
+    \centering
+    \caption{werte b}
+    \label{tab:b}
+    \begin{tabular}{c c c c c}
+    \toprule
+    {$C_k / \si{\nano\farad}$} & {$\omega_{\pi} / \si{\kilo\hertz}$} & {$U_{\pi}$} & {$\omega_0 / \si{\kilo\hertz}$} & {$U_0$} \\
+    \midrule
+    12.00 & 37.9 & 4.3 & 35.6 & 4.7 \\
+     9.99 & 38.4 & 4.4 & 35.6 & 4.7 \\
+     8.18 & 38.9 & 4.4 & 35.6 & 4.7 \\
+     6.86 & 39.5 & 4.4 & 35.6 & 4.7 \\
+     4.74 & 41.1 & 4.3 & 35.6 & 4.7 \\
+     2.86 & 44.2 & 4.1 & 35.6 & 4.7 \\
+     2.19 & 46.5 & 4.0 & 35.6 & 4.7 \\
+     \bottomrule
     \end{tabular}
 \end{table}
