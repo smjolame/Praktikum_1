@@ -7,6 +7,8 @@ $L$ = $23,954 \si{\milli\henry}$
 
 $C$ = $0,793 \si{\nano\farad}$
 
+$C_spule$ = $0,028 \si{\nano\farad}$
+
 $R$ = $48 \si{\ohm}$
 
 Die Kapazitäten $C_k$ der Koppelkondensatoren sind hierbei $2,19 \si{\nano\farad}$, $2,86 \si{\nano\farad}$,
@@ -15,9 +17,10 @@ $12 \si{\nano\farad}$.
 
 \subsection{Frequenzverhältnis zwischen Schwingung und Schwebung}
 
-Das Frequenzverhältnis $n$ lässt sich über die Anzahl der Amplituden der Schwingungen innerhalb einer Schwebung 
+Das Frequenzverhältnis $n$ lässt sich über die Anzahl der Maxima der Schwingungen innerhalb einer Schwebung 
 ausdrücken. Im Folgenden werden die experimentell ermittelten Verhältnisse mit den theoretisch errechneten verglichen.
 In der Theorie lässt sich $n_t$ über die Formel \begin{equation}
+    \label{eqn:n}
     n_t = \frac{\nu_{t}^{+} + \nu_{t}^{-}}{2(\nu_{t}^{+} - \nu_{t}^{-})}
 \end{equation}
 angeben. $\nu_{t}^{+}$ und $\nu_{t}^{-}$ sind dabei mit den Formeln \ref{eqn:frq1} und \ref{eqn:frq2} zu berechnen.
@@ -45,15 +48,17 @@ angeben. $\nu_{t}^{+}$ und $\nu_{t}^{-}$ sind dabei mit den Formeln \ref{eqn:frq
 [plot, der $n_t$ und $n_e$ vergleicht]
 
 
-
+Für die unterschiedlichen Kopplungskapazitäten sind im Folgenden die Frequenzen der jeweiligen
+Fundamentalschwingungen $\nu^+$ und $\nu^-$, wie auch die dabei jeweils auftretenden maximalen
+Spannungsamplituden $U^+$ und $U^-$.
 
 \begin{table}
     \centering
-    \caption{werte b}
+    \caption{Frequenzen der Fundamentalschwingungen}
     \label{tab:b}
     \begin{tabular}{c c c c c}
     \toprule
-    {$C_k / \si{\nano\farad}$} & {$\omega_{\pi} / \si{\kilo\hertz}$} & {$U_{\pi}$} & {$\omega_0 / \si{\kilo\hertz}$} & {$U_0$} \\
+    {$C_k / \si{\nano\farad}$} & {$\nu^- / \si{\kilo\hertz}$} & {$U^-$} & {$\nu^+ / \si{\kilo\hertz}$} & {$U^+$} \\
     \midrule
     12.00 & 37.9 & 4.3 & 35.6 & 4.7 \\
      9.99 & 38.4 & 4.4 & 35.6 & 4.7 \\
@@ -65,3 +70,32 @@ angeben. $\nu_{t}^{+}$ und $\nu_{t}^{-}$ sind dabei mit den Formeln \ref{eqn:frq
      \bottomrule
     \end{tabular}
 \end{table}
+
+Es werden die theoretischen Werte für $\nu^+$ und $\nu^-$, sowie für die Anzahl der Maxima innerhalb einer Schwebung $n_t$
+berechnet und in der folgenden Tabelle mit den experimentell bestimmten Werten verglichen. Dabei geben die Indizes $e$ die jeweiligen
+experimentellen Werte, und $t$ die theoretischen Werte an. 
+Es wurden im Experiment nicht die Maxima, sondern alle Amplituden gezählt, wodurch als Näherung nur ${n_\text{amplituden}}/2$ = $n_e$
+angenommen werden kann.
+Da $\nu^+$ keine $C_k$ Abhängiigkeit hat, und es somit nur jeweils einen theoretischen und experimentellen Wert gibt, wird
+dieser Vergleich unterhalb der Tabelle nur einmal aufgeführt.
+
+\begin{table}
+    \centering
+    \caption{Vergleich mit Theoriewerten}
+    \label{tab:theo}
+    \begin{tabular}{c c c c c}
+        \toprule
+        $C_k$ & $\nu_e^-$ & $\nu_t^-$ & $n_e$ & $n_t$ \\
+        \midrule
+         2.19 & 46.5 & 47.6 &  3.5 &  3.6 \\
+         2.86 & 44.2 & 45.2 &  5.0 &  4.5 \\
+         4.74 & 41.1 & 41.8 &  6.5 &  6.8 \\
+         6.86 & 39.5 & 40.1 &  9.5 &  9.4 \\
+         8.18 & 38.9 & 39.5 & 12.0 & 11.1 \\
+         9.99 & 38.4 & 38.9 & 13.0 & 13.3 \\
+        12.00 & 37.9 & 38.5 & 16.5 & 15.8 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
