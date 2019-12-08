@@ -16,29 +16,25 @@ $4,74 \si{\nano\farad}$, $6,86 \si{\nano\farad}$, $8,18 \si{\nano\farad}$, $9,99
 $12 \si{\nano\farad}$.
 
 
-Das Frequenzverhältnis $n$ lässt sich über die Anzahl der Maxima der Schwingungen innerhalb einer Schwebung 
-ausdrücken. Im Folgenden werden die experimentell ermittelten Verhältnisse mit den theoretisch errechneten verglichen.
-In der Theorie lässt sich $n_t$ über die Formel \begin{equation}
-    n_t = \frac{\nu_{t}^{+} + \nu_{t}^{-}}{2(\nu_{t}^{+} - \nu_{t}^{-})}
-\end{equation}
-angeben. $\nu_{t}^{+}$ und $\nu_{t}^{-}$ sind dabei mit den Formeln \ref{eqn:frq1} und \ref{eqn:frq2} zu berechnen.
-
+Das Frequenzverhältnis zwischen Schwingung und Schwebung lässt sich durch die Anzahl der Maxima der Schwingung innerhalb
+einer Schwebung ausdrücken. Es wurde im Experiment jedoch die Anzahl der Amplituden gemessen, wodurch die Anzahl der 
+Maxima nur näherungsweise als $N/2$ bestimmt werden kann.  
 
 \begin{table}
     \centering
     \caption{aufgabe a}
     \label{tab:a}
-    \begin{tabular}{c c c}
+    \begin{tabular}{c c c c}
         \toprule
-        {$\omega / \si{\hertz}$} & {$C_k / \si{\nano\farad}$} & {$n_\text{amplituden}$} \\
+        {$\omega / \si{\hertz}$} & {$C_k / \si{\nano\farad}$} & {$N_\text{amplituden}$} & $n_\text{max}$ \\
         \midrule
-        710 &  2.19 &  7 \\  
-        710 &  2.86 & 10 \\
-        710 &  4.74 & 13 \\
-        710 &  6.86 & 19 \\
-        710 &  8.18 & 24 \\
-        710 &  9.99 & 26 \\
-        317 & 12.00 & 33 \\
+        710 &  2.19 &  7 &  3.5 \\  
+        710 &  2.86 & 10 &  5   \\
+        710 &  4.74 & 13 &  6.5 \\
+        710 &  6.86 & 19 &  9.5 \\
+        710 &  8.18 & 24 & 12   \\
+        710 &  9.99 & 26 & 13   \\
+        317 & 12.00 & 33 & 16.5 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -47,7 +43,6 @@ angeben. $\nu_{t}^{+}$ und $\nu_{t}^{-}$ sind dabei mit den Formeln \ref{eqn:frq
 Für die unterschiedlichen Kopplungskapazitäten sind im Folgenden die Frequenzen der jeweiligen
 Fundamentalschwingungen $\nu^+$ und $\nu^-$, wie auch die dabei jeweils auftretenden maximalen
 Spannungsamplituden $U^+$ und $U^-$.
-
 \begin{table}
     \centering
     \caption{Frequenzen der Fundamentalschwingungen}
@@ -70,18 +65,19 @@ Spannungsamplituden $U^+$ und $U^-$.
 Es werden die theoretischen Werte für $\nu^+$ und $\nu^-$, sowie für die Anzahl der Maxima innerhalb einer Schwebung $n_t$
 berechnet und in der folgenden Tabelle mit den experimentell bestimmten Werten verglichen. Dabei geben die Indizes $e$ die jeweiligen
 experimentellen Werte, und $t$ die theoretischen Werte an. 
-Es wurden im Experiment nicht die Maxima, sondern alle Amplituden gezählt, wodurch als Näherung nur ${n_\text{amplituden}}/2$ = $n_e$
-angenommen werden kann.
+In der Theorie lässt sich $n_t$ über die Formel \begin{equation}
+    n_t = \frac{\nu_{t}^{+} + \nu_{t}^{-}}{2(\nu_{t}^{+} - \nu_{t}^{-})}
+\end{equation}
+angeben. $\nu_{t}^{+}$ und $\nu_{t}^{-}$ sind dabei mit den Formeln \ref{eqn:frq1} und \ref{eqn:frq2} zu berechnen.
 Da $\nu^+$ keine $C_k$ Abhängiigkeit hat, und es somit nur jeweils einen theoretischen und experimentellen Wert gibt, wird
 dieser Vergleich unterhalb der Tabelle nur einmal aufgeführt.
-
 \begin{table}
     \centering
     \caption{Vergleich mit Theoriewerten}
     \label{tab:theo}
     \begin{tabular}{c c c c c}
     \toprule
-    $C_k$ & $\nu_{e}^-$ & $\nu_{t}^-$ & $n_e$ & $n_t$ \\
+    $C_k / \si{\ohm}$ & $\nu_{e}^- / \si{\kilo\hertz}$ & $\nu_{t}^- / \si{\kilo\hertz}$ & $n_e$ & $n_t$ \\
     \midrule
      2.19 & 46.5 & 47.6 &  3.5 &  3.6 \\
      2.86 & 44.2 & 45.2 &  5.0 &  4.5 \\
@@ -93,6 +89,33 @@ dieser Vergleich unterhalb der Tabelle nur einmal aufgeführt.
     \bottomrule
     \end{tabular}
 \end{table}
+
+$\nu_e^+$ = $35.6 \si{\kilo\hertz}$
+
+$\nu_t^+$ = $36.1 \si{\kilo\hertz}$
+
+Die Theoriewerte die Stromstärkeamplituden $I_t^+$ und $I_t^-$ sind in der folgenden Tabelle als Vergleichswerte
+neben den experimentell bestimmten Werten $I_e^+$ und $I_e^-$ eingetragen: 
+
+\begin{table}
+    \centering
+    \caption{Stromstärkeamplituden}
+    \label{tab:I}
+    \begin{tabular}{c c c c c}
+    \toprule
+    $C_k / \si{\ohm}$ & $I_e^+ / \si{\ampere}$ & $I_t^+ / \si{\ampere}$ & $I_e^- / \si{\ampere}$ & $I_t^- / \si{\ampere}$ \\
+    \midrule
+     2.19 & 0.098 & 0.104 & 0.083 & 0.076 \\
+     2.86 & 0.098 & 0.104 & 0.085 & 0.081 \\
+     4.74 & 0.098 & 0.104 & 0.089 & 0.089 \\
+     6.86 & 0.098 & 0.104 & 0.092 & 0.093 \\
+     8.18 & 0.098 & 0.104 & 0.092 & 0.095 \\
+     9.99 & 0.098 & 0.104 & 0.092 & 0.096 \\
+    12.00 & 0.098 & 0.104 & 0.089 & 0.097 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
 
 
 
