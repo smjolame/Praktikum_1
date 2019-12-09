@@ -1,21 +1,29 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
+L=23.954*10**(-3)
+C=0.7932*10**(-9)
+C_sp=0.028*10**(-9)
 
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
+C_ges=C+C_sp
+vp=1/(2*np.pi*np.sqrt(L*C_ges))
 
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
+def n(C_k):
 
-# in matplotlibrc leider (noch) nicht möglich
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/plot.pdf')
+    vm=1/(2*np.pi*np.sqrt(L*((1/C+2/C_k)**(-1)+C_sp)))
+    n=(vp+vm)/(2*(vm-vp))
+    return n
+
+
+
+
+
+C_k = np.linspace(2*10**(-9), 12*10**(-9), 1000)
+
+plt.plot(C_k,n(C_k))
+
+f,Ck,ne=np.genfromtxt('data/messwerte_a.txt',delimiter=',',unpack=True)
+plt.plot(Ck*10**(-9),ne/2,'rx')
+plt.xlabel(r'$C_k \:/\:\si{\farad}$')
+plt.ylabel(r'$n_t$')
+plt.savefig('build/amplituden.pdf')
