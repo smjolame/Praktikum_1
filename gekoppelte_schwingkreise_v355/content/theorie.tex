@@ -26,13 +26,7 @@ aufgebaut sind. Dabei sind die Kirchhoffschen Regeln wichtige Eigenschaften von 
 2.  Die Summe aller Spannungen innerhalb einer Masche eines geschlossenen Stromkreises
     ist null.
 
-\begin{figure}
 
-    \centering
-    \includegraphics[height=6.0cm]{data/spulenkapazitaet.png}
-    \caption{Erstazschaltbild für reelle Spule}
-    \label{fig:spulenkapazitaet}
-\end{figure}
 Im Folgenden ist zu beachten, dass die Spule $L$ in der Realität, wie im Erstazschaltbild dargestellt, zusätzlich zu ihrer Induktivität noch eine Kapazität
 $C_\text{sp}$ hat. Die in den folgenden Formeln angegebene Kapazität $C$ setzt sich also aus $C_\text{kon} + C_\text{sp}$ = $C$ 
 zusammen. 
@@ -116,13 +110,36 @@ Die Frequenz der Schwebung ergibt sich zu $\nu_s=\nu^--\nu^+$, wobei das System 
 \end{equation}
 schwingt.
 
-Ein Besipiel einer Schwebung ist schematisch in Bild \ref{fig:bild3} dargestellt.
+Ein Beispiel einer Schwebung ist schematisch in Bild \ref{fig:bild3} dargestellt.
 \begin{figure}
 
     \centering
     \includegraphics[height=6.0cm]{data/Bild3.png}
     \caption{Schematische Darstellung einer Schwebung.}
     \label{fig:bild3}
+\end{figure}
+
+Da in der Realität jede Spule auch eine gewisse Kapazität besitz, wird stellvertretend für diese Kapazität ein
+virtueller Kondensator parallel zu der jeweilgen Spule geschaltet. Dies ist in Abbildung \ref{fig:bild7} dargestellt. 
+Die Frequenzen $\nu^+$ und $\nu^-$ lassen sich dann über
+\begin{equation}
+    \nu^+=\frac{1}{2\pi\sqrt{L(C+C_{\text {sp}})}}
+\end{equation}
+\begin{equation}
+    \nu^-=\frac{1}{2\pi\sqrt{L\left(\left(\frac{1}{C}+\frac{2}{C_k}\right)^{-1}+C_{\text {sp}}\right)}}
+\end{equation}
+bestimmen.
+Die theoretische Anzahl der Maxima innerhalb einer Schwebungsperiode kann mit Hilfe der Gleichung
+\begin{equation}
+    n_t=\frac{\nu^++\nu^-}{2(\nu^--\nu^+)}
+\end{equation}
+berechnet werden.
+\begin{figure}
+
+    \centering
+    \includegraphics[height=6.0cm]{data/Bild7.png}
+    \caption{Schaltbild eines Schwingkreises mit realen Spulen.}
+    \label{fig:bild7}
 \end{figure}
 
 \subsection{angeregter Schwingkreis}
