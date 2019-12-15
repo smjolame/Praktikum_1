@@ -107,7 +107,7 @@ plt.clf()
 
 #d)
 
-phi_linspace = np.linspace(np.min(p),np.max(p),100)
+phi_linspace = np.linspace(0,np.max(p),100)
 def Ap(f):
     return -np.sin(phi1(f))*9.2/(2*np.pi*f*RC)
 plt.polar(phi1(fc),Ap(fc)/9.2,'rx',label='Messwerte')
@@ -131,3 +131,5 @@ RC_theorie=15058*93.2*10**(-9)
 RC_t_err=600*93.2*10**(-9)
 print(RC_theorie)
 print(RC_t_err)
+
+print(p)
