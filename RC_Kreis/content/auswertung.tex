@@ -1,6 +1,126 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+
+\subsection{Bestimmung der Zeitkonstante RC 1} % (fold)
+\label{sub:Bestimmung der Zeitkonstante RC 1}
+
+\begin{table}
+    \centering
+    \caption{Messdaten der Spannung in Abhängigkeit der Zeit.}
+    \begin{tabular}{S S}
+    \toprule
+    {$t \:/\: \si{\milli\s}$} & {$U_c \:/\: \si{\volt}$} \\
+    \midrule
+        0.0 & 9.2 \\
+        0.2 & 7.0 \\
+        0.4 & 5.4 \\
+        0.6 & 4.2 \\
+        0.8 & 3.4 \\
+        1.0 & 2.6 \\
+        1.2 & 2.2 \\
+        1.4 & 1.8 \\
+        1.6 & 1.5 \\
+        1.8 & 1.3 \\
+        2.0 & 1.1 \\
+        2.2 & 1.0 \\
+        2.4 & 0.8 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+    \centering
+    \caption{Spannung in Abhängigkeit der Zeit als Messwerte und Ausgleichsgerade.}
+    \includegraphics[width=\textwidth]{build/a.pdf}
+\end{figure}
+
+
+Die Zeitkonstante ergibt sich zu $RC= \SI{0.9964(0339)}{\milli\s}$.
+
+
+
+
+% subsection Bestimmung der Zeitkonstante RC 1 (end)
+
+\subsection{Bestimmung der Zeitkonstante RC 2} % (fold)
+\label{sub:Bestimmung der Zeitkonstante RC 2}
+
+\begin{table}
+    \centering
+    \caption{Messdaten der Spannung in Abhängigkeit der Frequenz.}
+    \begin{tabular}{S S}
+    \toprule
+    {$f \:/\: \si{\hertz}$} & {$U_c \:/\: \si{\volt}$} \\
+    \midrule
+
+        100 & 10.00 \\
+        200 & 6.10 \\
+        300 & 5.40 \\
+        400 & 4.00 \\
+        500 & 3.15 \\
+        600 & 2.90 \\
+        700 & 2.70 \\
+        800 & 2.60 \\
+        900 & 2.55 \\
+        1000 & 2.45 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+    \centering
+    \caption{Auf $U_0$ genormte Amplitude der Spannung in Abhängigkeit der Frequenz.}
+    \includegraphics[width=\textwidth]{build/b.pdf}
+\end{figure}
+
+Die Zeitkonstante ergibt sich zu $RC=\SI{0.7440(0590)}{\milli\s}$.
+
+% subsection Bestimmung der Zeitkonstante RC 2 (end)
+
+\subsection{Phasenverschiebung zwischen Generator- und Kondensatorspannung} % (fold)
+\label{sub:Phasenverschiebung zwischen Generator- und Kondensatorspannung}
+
+\begin{table}
+    \centering
+    \caption{Messdaten des Phasenunterschiedes zwischen Generator- und Kondensatorspannung.}
+    \begin{tabular}{S S S S}
+    \toprule
+    {$f \:/\: \si{\hertz}$} & {$a \:/\: \si{\milli\s}$} & {$b \:/\: \si{\milli\s}$} & {$\phi \:/\: \si{\radian}$} \\
+    \midrule
+        100 & 0.70 & 8.80 & 0.50\\
+        200 & 0.55 & 4.40 & 0.79\\
+        300 & 0.48 & 2.90 & 1.04\\
+        400 & 0.42 & 2.20 & 1.20\\
+        500 & 0.36 & 1.84 & 1.23\\
+        600 & 0.32 & 1.52 & 1.32\\
+        700 & 0.28 & 1.32 & 1.33\\
+        800 & 0.26 & 1.16 & 1.41\\
+        900 & 0.24 & 1.00 & 1.51\\
+        1000 & 0.22 & 0.92 & 1.50\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+    \centering
+    \caption{Messdaten zum Phasenunterschied in Abhängigkeit der Frequenz und zugehörige Ausgleichskurve.}
+    \includegraphics[width=\textwidth]{build/c.pdf}
+\end{figure}
+
+% subsection Phasenverschiebung zwischen Generator- und Kondensatorspannung (end)
+
+\subsection{RC-Kreis als Integrator} % (fold)
+\label{sub:RC-Kreis als Integrator}
+
+
+\begin{figure}
+    \centering
+    \caption{Polarplot zum zeigen des Phasenunterschiedes zwischen Generator- und Kondensatorspannung.}
+    \includegraphics[width=\textwidth]{build/d.pdf}
+\end{figure}
+
+% subsection RC-Kreis als Integrator (end)
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:
