@@ -107,14 +107,21 @@ plt.clf()
 
 #d)
 
-phi_linspace = np.linspace(0,np.max(p),100)
+
+def phi1(f):
+    return np.arctan(-(2*np.pi*f)*RC)
+
+phi=(a/b)*2*np.pi
+
+phi_linspace = np.linspace(0,np.max(phi),100)
+
 def Ap(f):
     return -np.sin(phi1(f))*9.2/(2*np.pi*f*RC)
-plt.polar(phi1(fc),Ap(fc)/9.2,'rx',label='Messwerte')
+plt.polar(phi1(fc),A/9.2,'rx',label='Messwerte')
 
 
-def Ap_t(f):
-    return -np.sin(phi_t(f))*9.2/(2*np.pi*f*15058*93.2*10**(-9))
+#def Ap_t(f):
+#    return -np.sin(phi_t(f))*9.2/(2*np.pi*f*15058*93.2*10**(-9))
 
 plt.polar(phi_linspace,np.cos(phi_linspace),label='Theorie')
 plt.legend()
