@@ -24,7 +24,7 @@ zu beschreiben, woraus folgt:
     \caption{RC-Kreis}
     \label{fig:bild_1}
 \end{figure}
-Anhand eines RC-Kreises wie in Abb \ref{fig:bild_1}, lassen sich Relaxionsvorgänge durch das Auf- und Entladen des Kondensators
+Anhand eines RC-Kreises wie in Abb \ref{fig:bild_1}, lassen sich Relaxatationsvorgänge durch das Auf- und Entladen des Kondensators
 darstellen. Dabei gilt 
 \begin{equation}
     U_C = \frac{Q}C   
@@ -46,14 +46,14 @@ Mit der Anfangsbedingung für den Entladevorgang
 
 gilt dann nach Gleichung \ref{eqn:avont} für den zeitlichen Verlauf der Ladung
 \begin{equation}
-    Q(t) = Q(0) e^{-t/{RC}}
+    Q(t) = Q(0) e^{-t/{RC}}.
 \end{equation}
 
-.Beim Aufladevorgang sind die Randbedingungen abweichend
+Beim Aufladevorgang sind die Randbedingungen abweichend
 \begin{align*}
     Q(0)        &= 0 \\
-    Q(\infty)   &= CU_0 
-\end{align*}, wodurch $Q(t)$ in dem Fall durch
+    Q(\infty)   &= CU_0 ,
+\end{align*} wodurch $Q(t)$ in dem Fall durch
 \begin{equation}
     Q(t) = CU_0 (1 - e^{-t/{RC}})
     \label{eqn:RC}
@@ -61,7 +61,7 @@ gilt dann nach Gleichung \ref{eqn:avont} für den zeitlichen Verlauf der Ladung
 
 beschrieben werden kann.
 
-Die Zeitkonstante $RC$ gibt dabei die Geschwindigkeit and, mit der sich das System 
+Die Zeitkonstante $RC$ gibt dabei die Geschwindigkeit an, mit der sich das System 
 an den Endzustand $Q(\infty)$ annähert. Die Ladung $Q$ des Kondensators ändert sich während $\delta t=RC$ um
 den Faktor
 \begin{equation*}
@@ -76,7 +76,7 @@ den Faktor
     \label{fig:bild_2}
 \end{figure}
 \FloatBarrier
-Relaxionserscheinungen können auch in einem RC-Kreis, an dem eine Wechselspannung angeschlossen ist, betrachtet werden. 
+Relaxatationserscheinungen können auch in einem RC-Kreis, an dem eine Wechselspannung angeschlossen ist, betrachtet werden. 
 Allgemein ist dabei \begin{equation}
     U(t) = U_0 \cos(\omega t)
 \end{equation}, wobei $\omega$ die Kreisfrequenz ist. Wenn diese klein genug ist, bzw. wenn $\omega \ll 1/RC$, so ist $U_C (t)$
