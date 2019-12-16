@@ -17,7 +17,7 @@ plt.plot(t,func(t,*popt),label='Theorie')
 plt.grid()
 plt.ylabel(r'$\log(U_c)$')
 plt.xlabel(r'$t \:/\: \si{\milli\s}$')
-
+plt.legend()
 plt.savefig('build/a.pdf')
 plt.clf()
 
@@ -98,7 +98,7 @@ plt.plot(f_t,phi(f_t,*params1),label='Ausgleichskurve')
 #plt.plot(f_t,phi_t(f_t),label='Theorie')
 plt.ylabel(r'$\phi \:/\: \si{\radian}$')
 plt.xlabel(r'$f \:/\: \si{\hertz}$')
-
+plt.legend()
 plt.grid()
 plt.xscale(r'log')
 plt.savefig('build/c.pdf')
