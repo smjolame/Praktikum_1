@@ -15,7 +15,7 @@ popt,pcov=curve_fit(func,t,np.log(U))
 plt.plot(t,np.log(U),'rx',label='gemessene Werte')
 plt.plot(t,func(t,*popt),label='Theorie')
 plt.grid()
-plt.ylabel(r'$\log(U_c) \:/\: \si{\volt}$')
+plt.ylabel(r'$\log(U_c)$')
 plt.xlabel(r'$t \:/\: \si{\milli\s}$')
 
 plt.savefig('build/a.pdf')
@@ -56,9 +56,9 @@ def A_t(f):
 plt.plot(fb,A/9.2,'rx',label='gemessene Werte')
 #plt.plot(fb,Amp(fb,*params))
 plt.plot(f_t,Amp2(f_t,*RC)/9.2,label='Ausgleichskurve')
-plt.plot(f_t,A_t(f_t)/9.2,label='Theorie')
+#plt.plot(f_t,A_t(f_t)/9.2,label='Theorie')
 plt.xscale(r'log')
-plt.ylabel(r'$\frac{A}{U_0}$')
+plt.ylabel(r'$\frac{U_c}{U_0}$')
 plt.xlabel(r'$f \:/\: \si{\hertz}$')
 plt.tight_layout()
 plt.legend()
@@ -105,6 +105,12 @@ plt.savefig('build/c.pdf')
 plt.clf()
 
 
+param_c = params1[0]
+param_c_err = np.absolute(cov3[0][0])**0.5
+
+print(param_c)
+print(param_c_err)
+
 #d)
 
 
@@ -128,6 +134,7 @@ plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 #plt.polar(phi_t(f_t),Ap_t(f_t)/9.2)
 
+
 plt.savefig('build/d.pdf')
 
 
@@ -139,4 +146,3 @@ RC_t_err=600*93.2*10**(-9)
 print(RC_theorie)
 print(RC_t_err)
 
-print(p)

@@ -27,16 +27,19 @@
         2.4 & 0.8 \\
         \bottomrule
     \end{tabular}
+    \label{tab:a}
 \end{table}
 
 \begin{figure}
     \centering
     \caption{Spannung in Abhängigkeit der Zeit als Messwerte und Ausgleichsgerade.}
     \includegraphics[width=\textwidth]{build/a.pdf}
+    \label{fig:a}
 \end{figure}
 
-
-Die Zeitkonstante ergibt sich zu $RC= \SI{0.9964(0339)}{\milli\s}$.
+In Abbildung \ref{fig:a} sind die Messwerte aus Tabelle \ref{tab:a} aufgetragen. 
+Aus dem Anstieg der Ausgleichsgerade lässt sich die Zeitkonstante aus Gleichung \eqref{eqn:RC} zu $RC= \SI{0.9964(0339)}{\milli\s}$ bestimmen.
+Die Ausgleichsgerade wurde dabei mit scipy erstellt.\cite{scipy} 
 
 
 
@@ -66,14 +69,19 @@ Die Zeitkonstante ergibt sich zu $RC= \SI{0.9964(0339)}{\milli\s}$.
         1000 & 2.45 \\
         \bottomrule
     \end{tabular}
+    \label{tab:b}
 \end{table}
 
 \begin{figure}
     \centering
     \caption{Auf $U_0$ genormte Amplitude der Spannung in Abhängigkeit der Frequenz.}
     \includegraphics[width=\textwidth]{build/b.pdf}
+    \label{fig:b}
 \end{figure}
 
+Es wird mit einer anderen Herangehensweise die Zeitkonstante bestimmt. Die Ergebnisse können der Tabelle \ref{tab:b} und der
+Abbildung \ref{fig:b} entnommen werden. Über eine Ausgleichskurve, welche als Vorlage die Gleichung \eqref{eqn:A} verwendet, lässt
+sich die Zeitkonstante bestimmen.
 Die Zeitkonstante ergibt sich zu $RC=\SI{0.7440(0590)}{\milli\s}$.
 
 % subsection Bestimmung der Zeitkonstante RC 2 (end)
@@ -100,13 +108,21 @@ Die Zeitkonstante ergibt sich zu $RC=\SI{0.7440(0590)}{\milli\s}$.
         1000 & 0.22 & 0.92 & 1.50\\
         \bottomrule
     \end{tabular}
+    \label{tab:c}
 \end{table}
 
 \begin{figure}
     \centering
     \caption{Messdaten zum Phasenunterschied in Abhängigkeit der Frequenz und zugehörige Ausgleichskurve.}
     \includegraphics[width=\textwidth]{build/c.pdf}
+    \label{fig:c}
 \end{figure}
+
+Es wird mit einer dritten Methode die Zeitkonstante bestimmt. Es wird dabei wieder mit einer Ausgleichskurve, welche diesmal an die 
+Gleichung \eqref{eqn:phi} angelehnt ist. Die Abbildung \ref{fig:c} stellt die so bestimmte Ausgleichskurve da. Mit den Werte der Tabelle \ref{tab:c} ergibt sich die auf diese Weise berechnete Zeitkonstante 
+zu $RC=\SI{0.9383(0586)}{\milli\s}$. 
+
+
 
 % subsection Phasenverschiebung zwischen Generator- und Kondensatorspannung (end)
 
@@ -118,7 +134,12 @@ Die Zeitkonstante ergibt sich zu $RC=\SI{0.7440(0590)}{\milli\s}$.
     \centering
     \caption{Polarplot zum zeigen des Phasenunterschiedes zwischen Generator- und Kondensatorspannung.}
     \includegraphics[width=\textwidth]{build/d.pdf}
+    \label{fig:d}
 \end{figure}
+
+Im polarplot ist dabei die Spannung radial und die Phase lateral aufgetragen.
+
+
 
 % subsection RC-Kreis als Integrator (end)
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
