@@ -6,7 +6,8 @@ I_q=(0.01**4)/12    #Flaechentraegheit Quadtrat in Meter
 I_r=(np.pi*0.01**4)/64  #Flaechentraegheit Kreis in Meter
 m_ein=1.169+0.0406 #Masse bei einseitiger Einspannung in Kg
 m_bei=0.0406+1.169+1.169+1.168+1.170 #Masse bei beidseitiger Einspannung in Kg
-L=0.55 #Laenge des Stabes bei beidseitiger Einpannung in Meter
+L_bei=0.55 #Laenge des Stabes bei beidseitiger Einpannung in Meter
+L_ein=0.482 #Laenge des Stabes einseitige Einspannung in Meter
 
 #ab hier alle x in cm und alle D in mm
 
@@ -57,7 +58,7 @@ D3_l_flip=np.flip(D3_l)
 D_03_lr=np.append(np.flip(D_03_l),D_03_r)
 D_m3_lr=np.append(np.flip(D_m3_l),D_m3_r)
 D3_xlr=np.append(x3_l_flip,x3_r)
-D3_lr=np.append(D3_l,D3_r)
+D3_lr=np.append(D3_l_flip,D3_r)
 D3_alles=np.append([D3_xlr],[D_03_lr,D_m3_lr,D3_lr],axis=0)
 D3_alles=D3_alles.T
 
@@ -83,7 +84,7 @@ D4_l_flip=np.flip(D4_l)
 D_04_lr=np.append(np.flip(D_04_l),D_04_r)
 D_m4_lr=np.append(np.flip(D_m4_l),D_m4_r)
 D4_xlr=np.append(x4_l_flip,x4_r)
-D4_lr=np.append(D4_l,D4_r)
+D4_lr=np.append(D4_l_flip,D4_r)
 D4_alles=np.append([D4_xlr],[D_04_lr,D_m4_lr,D4_lr],axis=0)
 D4_alles=D4_alles.T
 
@@ -92,3 +93,10 @@ D4_alles=D4_alles.T
 np.savetxt('D_bei_a_l.txt',D4_l_flip,fmt="%1.2f")
 np.savetxt('D_bei_a_r.txt',D4_r,fmt="%1.2f")
 np.savetxt('D_bei_a_alles',D4_alles,fmt="%1.2f",delimiter=',')
+
+
+def E_ein(x,D,I):
+    return m_ein*9.81*(L_ein*(x*10**(-2))**2-((x*10**(-2))**3/3))/(2*D*10**(-3)*I)
+
+E_ein_k=E_ein(x1,D1,I_r)
+print(E_ein_k)
