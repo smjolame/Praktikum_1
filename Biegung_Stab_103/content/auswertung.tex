@@ -1,13 +1,30 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Bei dem Versuch wurden zwei verschiedene Stäbe auf ihr jeweiliges Elastizitätsmodul untersucht.
+Beim vermessen und wiegen der beiden Stäbe konnten folgende Dichten ermittelt werden.
+Der quaderförmige Stab hat eine Dichte von ca. $\rho_Q = 2.9350 \si{\gram\per\cubic\centi\meter}$
+und der zylindrische Stab eine Dichte von $\rho_Z = 8.8554 \si{\gram\per\cubic\centi\meter}$.
+Beim Vergleich mit Dichten von verschiedenen Metallen kann man mit relativer Exaktheit auf das Material
+der Stäbe schließen. Dabei ist es nie sicher,ob es sich wirklich um das Vermutete Material handelt, 
+da die Probestäbe Legierungen und inhomogone Massenverteilung aufweisen könnten,
+welche in diesem Versuch nicht untersucht werden konnten. So wird unter diesen Annahmen und Annäherungen der 
+quaderförmige Stab als aus Aluminium (Dichte Aluminium: 2.70 \si{\gram\per\cubic\centi\meter}\cite{taschenbuch_physik}) bestehend
+ und der zylindrische Stab als aus Kupfer (Dichte Kupfer: 8.93 \si{\gram\per\cubic\centi\meter}\cite{taschenbuch_physik}) bestehend angenommen und im weiteren Verlauf des Protokolls auch so identifiziert und unterschieden.
 
 
 
+Die Durchbiegung $D$ ist die Differenz zwischen der Durchbiegung $D_0$ im unbelasteten Zustand und der
+Durchbiegung $D_M$ im belasteten Zustand.
+
+
+
+\subsection{Biegung bei einseitiger Einspannung}
 \begin{table}
     \centering 
     \caption{Durchbiegung des runden Kupferstabes bei einseitiger Einspannung}
     \sisetup{table-format=2.2}
+    \label{tab:1}
     \begin{tabular}{S[table-format=2] S S S}
         \toprule
         {$x\:/\: \si{\centi\m}$} & {$D_0\:/\: \si{\milli\m}$} & {$D_M\:/\: \si{\milli\m}$} & {$D\:/\: \si{\milli\m}$ }\\
@@ -32,11 +49,21 @@
     \end{tabular}
 \end{table}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/ein_k.pdf}
+    \caption{Ausgleichskurve und Messdaten des einseitig eingespannten Kupferstabes}
+\end{figure}
+
+Bei einseitiger Einspannung lässt sich über eine Ausgleichsrechnung auf Basis der Gleichung [GLEICHUNG] und den Daten der Tabelle \ref{tab:1}
+das Elastizitätsmodul bestimmen.
+Dabei ergibt sich für den Kupferstab ein Elastizitätsmodul von \SI{125.4255(3936)}{\giga\pascal}.
 
 \begin{table}
     \centering 
     \caption{Durchbiegung des eckigen Aluminiumstabes bei einseitiger Einspannung}
     \sisetup{table-format=2.2}
+    \label{tab:2}
     \begin{tabular}{S[table-format=2] S S S}
         \toprule
         {$x\:/\: \si{\centi\m}$} & {$D_0\:/\: \si{\milli\m}$} & {$D_M\:/\: \si{\milli\m}$} & {$D\:/\: \si{\milli\m}$ }\\
@@ -61,11 +88,22 @@
     \end{tabular}
 \end{table}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/ein_a.pdf}
+    \caption{Ausgleichskurve und Messdaten des einseitig eingespannten Aluminiumstabes}
+\end{figure}
+
+Mit Hilfe des gleichen Verfahrens wie beim Kupferstab und der Tabelle \ref{tab:2} ergibt sich das Elastizitätsmodul des Aluminiumstabes zu \SI{70.1001(2918)}{\giga\pascal}.
+
+
+\subsection{Biegung bei beidseitiger Auflage}
 
 \begin{table}
     \centering 
-    \caption{Durchbiegung des runden Kupferstabes bei beidseitiger Einspannung}
+    \caption{Durchbiegung des runden Kupferstabes bei beidseitiger Auflage}
     \sisetup{table-format=2.2}
+    \label{tab:3}
     \begin{tabular}{S[table-format=2.2] S S S}
         \toprule
         {$x\:/\: \si{\centi\m}$} & {$D_0\:/\: \si{\milli\m}$} & {$D_M\:/\: \si{\milli\m}$} & {$D\:/\: \si{\milli\m}$ }\\
@@ -96,11 +134,26 @@
     \end{tabular}
 \end{table}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/bei_k.pdf}
+    \caption{Ausgleichskurve und Messdaten des beidseitig aufliegenden Kupferstabes}
+\end{figure}
+
+Mit Hilfe der Gleichung [GLEICHUNG] für die linke Hälfte des Stabes und der Gleichung [GLEICHUNG] für die rechte Hälfte des Stabes
+kann man mit den Werten der Tabelle \ref{tab:3} das Elastizitätsmodul des Kupferstabes bestimmen. Dieser ergibt sich 
+auf der linken Hälfte zu \SI{121.3312(2693)}{\giga\pascal} und auf der rechten Hälfte zu \SI{126.2855(4137)}{\giga\pascal}.
+Im Mittel ergibt sich also ein Wert von \SI{123.8083(3415)}{\giga\pascal}.
+
+
+
+
 
 \begin{table}
     \centering 
-    \caption{Durchbiegung des eckigen Aluminiumstabes bei beidseitiger Einspannung}
+    \caption{Durchbiegung des eckigen Aluminiumstabes bei beidseitiger Auflage}
     \sisetup{table-format=2.2}
+    \label{tab:4}
     \begin{tabular}{S[table-format=2.2] S S S}
         \toprule
         {$x\:/\: \si{\centi\m}$} & {$D_0\:/\: \si{\milli\m}$} & {$D_M\:/\: \si{\milli\m}$} & {$D\:/\: \si{\milli\m}$ }\\
@@ -129,6 +182,22 @@
         \bottomrule
     \end{tabular}
 \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/bei_a.pdf}
+    \caption{Ausgleichskurve und Messdaten des beidseitig aufliegenden Aluminiumstabes}
+\end{figure}
+
+
+Das Verfahren ist das Gleiche wie bei dem Kupferstab. Mit den Daten der Tabelle \ref{tab:4} ergibt sich aus der linken Hälfte ein Elastizitätsmodul von
+\SI{69.9711(3238)}{\giga\pascal} und aus der rechten Hälfte ein Elastizitätsmodul von \SI{70.1704(1507)}{\giga\pascal}. Im Mittel lässt sich das 
+Elastizitätsmodul des Aluminiumstabes zu \SI{70.0708(2373)}{\giga\pascal} bestimmen.
+
+
+
+
+
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:

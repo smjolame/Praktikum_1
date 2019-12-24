@@ -107,29 +107,39 @@ def D_bei_a_r(x,E):
 #fit einseitig kupfer
 params_ein_k, cov_ein_k=curve_fit(D_ein_k,x1,D1)
 err_ein_k = np.sqrt(np.diag(cov_ein_k))
-
+print(params_ein_k)
+print(err_ein_k)
 #fit einseitig alu
 params_ein_a, cov_ein_a=curve_fit(D_ein_a,x2,D2)
 err_ein_a = np.sqrt(np.diag(cov_ein_a))
-
+print(params_ein_a)
+print(err_ein_a)
 #fit beidseitig links kupfer
 params_bei_k_l, cov_bei_k_l=curve_fit(D_bei_k_l,x3_l_flip,D3_l_flip)
 err_bei_k_l = np.sqrt(np.diag(cov_bei_k_l))
-
-
+print(params_bei_k_l)
+print(err_bei_k_l)
 #fit beidseitig rechts kupfer
 params_bei_k_r, cov_bei_k_r=curve_fit(D_bei_k_r,x3_r,D3_r)
 err_bei_k_r = np.sqrt(np.diag(cov_bei_k_r))
-
+print(params_bei_k_r)
+print(err_bei_k_r)
 #fit beidseitig links alu
 params_bei_a_l, cov_bei_a_l=curve_fit(D_bei_a_l,x4_l_flip,D4_l_flip)
 err_bei_a_l = np.sqrt(np.diag(cov_bei_a_l))
-
+print(params_bei_a_l)
+print(err_bei_a_l)
 #fit beidseitig rechts alu
 params_bei_a_r, cov_bei_a_r=curve_fit(D_bei_a_r,x4_r,D4_r)
 err_bei_a_r = np.sqrt(np.diag(cov_bei_a_r))
+print(params_bei_a_r)
+print(err_bei_a_r)
 
+print((params_bei_k_r+params_bei_k_l)/2)
+print((err_bei_k_l+err_bei_k_r)/2)
 
+print((params_bei_a_l+params_bei_a_r)/2)
+print((err_bei_a_l+err_bei_a_r)/2)
 
 ###################################################################################################
 #ab hier wieder in D mm und x meter
@@ -186,44 +196,52 @@ D4_xlr=np.append(x4_l_flip,x4_r)
 D4_lr=np.append(D4_l_flip,D4_r)
 #plots
 
-plt.plot(x1,D1,'rx',label='Messwerte1')
+plt.plot(x1,D1,'rx',label='Messwerte')
 plt.grid()
+
+plt.plot(x_t*10**2,D_ein_k(x_t,params_ein_k)*10**3,label='Ausgleichskurve')
+plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
+plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
 plt.legend()
-plt.plot(x_t*10**2,D_ein_k(x_t,params_ein_k)*10**3)
+plt.savefig('build/ein_k.pdf')
 
-
-plt.show()
 plt.clf()
 
 
 
-plt.plot(x2,D2,'rx',label='Messwerte2')
+plt.plot(x2,D2,'rx',label='Messwerte')
 plt.grid()
-plt.legend()
-plt.plot(x_t*10**2,D_ein_a(x_t,params_ein_a)*10**3)
 
-plt.show()
+plt.plot(x_t*10**2,D_ein_a(x_t,params_ein_a)*10**3,label='Ausgleichskurve')
+plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
+plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
+plt.legend()
+plt.savefig('build/ein_a.pdf')
 plt.clf()
 
 
-plt.plot(D3_xlr,D3_lr,'rx',label='Messwerte3')
+plt.plot(D3_xlr,D3_lr,'rx',label='Messwerte')
 plt.grid()
+
+plt.plot(x_t_l*10**2,D_bei_k_l(x_t_l,params_bei_k_l)*10**3,label='Ausgleichskurve links')
+plt.plot(x_t_r*10**2,D_bei_k_r(x_t_r,params_bei_k_r)*10**3,label='Ausgleichskurve rechts')
+plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
+plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
 plt.legend()
-plt.plot(x_t_l*10**2,D_bei_k_l(x_t_l,params_bei_k_l)*10**3)
-plt.plot(x_t_r*10**2,D_bei_k_r(x_t_r,params_bei_k_r)*10**3)
+plt.savefig('build/bei_k.pdf')
 
-
-plt.show()
 plt.clf()
 
 
-plt.plot(D4_xlr,D4_lr,'rx',label='Messwerte4')
+plt.plot(D4_xlr,D4_lr,'rx',label='Messwerte')
 plt.grid()
+
+plt.plot(x_t_l*10**2,D_bei_a_l(x_t_l,params_bei_a_l)*10**3,label='Ausgleichskurve links')
+plt.plot(x_t_r*10**2,D_bei_a_r(x_t_r,params_bei_a_r)*10**3,label='Ausgleichskurve rechts')
+plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
+plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
 plt.legend()
-plt.plot(x_t_l*10**2,D_bei_a_l(x_t_l,params_bei_a_l)*10**3)
-plt.plot(x_t_r*10**2,D_bei_a_r(x_t_r,params_bei_a_r)*10**3)
+plt.savefig('build/bei_a.pdf')
 
-
-plt.show()
 plt.clf()
 
