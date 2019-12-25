@@ -5,15 +5,21 @@ from scipy.optimize import curve_fit
 #a)
 def func(T,a,b):
     return a * T + b
+def func1(t,R):
+    return np.log(9.2*np.exp(-t/(R*93.2*10**(-6))))
 
 t,U=np.genfromtxt('data/a.txt',delimiter=',', unpack=True)
 
-
+t_t=np.linspace(0,2.5)
 
 popt,pcov=curve_fit(func,t,np.log(U))
 
 plt.plot(t,np.log(U),'rx',label='gemessene Werte')
-plt.plot(t,func(t,*popt),label='Theorie')
+plt.plot(t,func(t,*popt),label='Ausgleichsgerade')
+plt.plot(t_t,func1(t_t,15058),label='Theorie',color='g')
+plt.plot(t_t,func1(t_t,15658),alpha=0.5,color='g')
+plt.plot(t_t,func1(t_t,14458),alpha=0.5,color='g')
+
 plt.grid()
 plt.ylabel(r'$\log(U_c)$')
 plt.xlabel(r'$t \:/\: \si{\milli\s}$')
@@ -40,23 +46,24 @@ fb,A=np.genfromtxt('data/b.txt',delimiter=',', unpack=True)
 
 f_t=np.linspace(100,1200,10000)
 
-#def Amp(f,U_0,R,C):
-#    return U_0/(np.sqrt(1+(2*np.pi*f)**2*R**2*C**2))
+def Amp(f,U_0,R,C):
+    return U_0/(np.sqrt(1+(2*np.pi*f)**2*R**2*C**2))
 
 def Amp2(f,a):
     return 9.2/(np.sqrt(1+(2*np.pi*f)**2*a**2))
 
-#params, cov_matrix=curve_fit(Amp,f1,A)
+params, cov_matrix=curve_fit(Amp,fb,A)
 RC, cov1=curve_fit(Amp2,fb,A)
 
 
-def A_t(f):
-    return 9.2/(np.sqrt(1+(2*np.pi*f)**2*15058**2*(93.2*10**(-9))**2))
+def A_t(f,R):
+    return 1/(np.sqrt(1+(2*np.pi*f)**2*R**2*(93.2*10**(-9))**2))
 
 plt.plot(fb,A/9.2,'rx',label='gemessene Werte')
-#plt.plot(fb,Amp(fb,*params))
 plt.plot(f_t,Amp2(f_t,*RC)/9.2,label='Ausgleichskurve')
-#plt.plot(f_t,A_t(f_t)/9.2,label='Theorie')
+plt.plot(f_t,A_t(f_t,15058),label='Theorie',color='g')
+plt.plot(f_t,A_t(f_t,15658),alpha=0.5,color='g')
+plt.plot(f_t,A_t(f_t,14458),alpha=0.5,color='g')
 plt.xscale(r'log')
 plt.ylabel(r'$\frac{A}{U_0}$')
 plt.xlabel(r'$f \:/\: \si{\hertz}$')
@@ -83,8 +90,8 @@ fc,a,b=np.genfromtxt('data/c.txt',delimiter=',', unpack=True)
 
 def phi(f,a):
     return np.arctan(-(2*np.pi*f)*a)
-def phi_t(f):
-    return np.arctan(-(2*np.pi*f)*15058*93.2*10**(-9))
+def phi_t(f,R):
+    return np.arctan(-(2*np.pi*f)*R*93.2*10**(-9))
 
 def phi1(f):
     return np.arctan(-(2*np.pi*f)*RC)
@@ -95,7 +102,9 @@ plt.plot(fc,p,'rx',label='gemessene Werte')
 params1, cov3=curve_fit(phi, fc, p)
 
 plt.plot(f_t,phi(f_t,*params1),label='Ausgleichskurve')
-#plt.plot(f_t,phi_t(f_t),label='Theorie')
+plt.plot(f_t,-phi_t(f_t,15058),label='Theorie',color='g')
+plt.plot(f_t,-phi_t(f_t,15658),alpha=0.5,color='g')
+plt.plot(f_t,-phi_t(f_t,14458),alpha=0.5,color='g')
 plt.ylabel(r'$\phi \:/\: \si{\radian}$')
 plt.xlabel(r'$f \:/\: \si{\hertz}$')
 plt.legend()
