@@ -2,6 +2,9 @@
 \label{sec:Auswertung}
 
 
+Die angegebenen Werte für Kapazität und Widerstand des Kondensator $R=\SI{15,058(6)}{\kilo\ohm}$ und $C=\SI{93.2}{\nano\farad}$ werden zum bestimmen
+der Theoriewerte und -kurven verwendet. Da der Widerstand eine fehlerbehaftete Größe ist, sind die Theoriekurven im folgenden in einem Bereich zu verstehen.
+
 \subsection{Bestimmung der Zeitkonstante RC 1} % (fold)
 \label{sub:Bestimmung der Zeitkonstante RC 1}
 
@@ -31,7 +34,8 @@
 \end{table}
 
 \begin{figure}
-    \centering
+    \centering 
+
     \caption{Spannung in Abhängigkeit der Zeit als Messwerte und Ausgleichsgerade.}
     \includegraphics[width=\textwidth]{build/a.pdf}
     \label{fig:a}
@@ -128,6 +132,10 @@ zu $RC=\SI{0.9383(0586)}{\milli\s}$.
 
 \subsection{RC-Kreis als Integrator} % (fold)
 \label{sub:RC-Kreis als Integrator}
+
+An den Abbildungen \ref{fig:sinus}, \ref{fig:rechteck} und \ref{fig:dreieck} kann man erkennen, dass der RC-Kreis
+als Integrator verwendet werden kann. Die Sinusspannung nimmt den Verlauf einer Cosinusspannung an. Die Rechteckspannung wird zu einer Dreiecksspannung und die Dreiecksspannung nimmt die Form einer
+parabolischen Spannung an. Diese sich ergebenen Spannungen sind alles jeweils die Integrale der ursprünglichen Spannungsart.
 
 
 \begin{figure}
