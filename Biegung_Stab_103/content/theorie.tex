@@ -1,8 +1,62 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-%In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
+Im Allgemeinen können Kräfte, die auf einen Körper einwirken, dessen Form und Volumen beeinflussen. 
+Eine pro Fläche wirkende Kraft wird dabei als Spannung bezeichnet, wobei die Normalspannung $\sigma$, die auch als Druck bezeichnet wird,
+diejenige Kraft pro Fläche ist, die senkrecht zur Oberfläche des Körpers auf diesen einwirkt. Für eine eindimensionale Änderung der
+Körperform gilt dabei der Zusammenhang \begin{equation}
+    \sigma = E \frac{\Delta L}L
+\end{equation}
 
-%(eventuell die Aufgaben)
+, der das Hookesche Gesetz beschreibt. Dabei ist $L$ die Dimension des Körpers ohne Krafteinwirkung und $\Delta L$ die eindimensionale
+Verformung, die durch die wirkende Kraft zustande kommt. Der Faktor $E$ gibt den Elastizitätsmodul an. Ist diese bekannt, kann das zu 
+untersuchende Material bestimmt werden. 
 
-%Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
+Die Bestimmung eines Elastizitätsmoduls erfolgt in dieser Versuchsreihe über eine Biegung, also eine spezifische Verformung des zu 
+untersuchenden Materials. 
+
+\subsection{Einseitige Einspannung}
+
+abb[]
+
+Die gestrichelte Linie zeigt die sogenannte neutrale Faser, die sich bei der Biegung nicht in der Länge verändert. 
+Über dieser kommt es zur Streckung, und darunter zur Stauchung des Materials. Am Querschnitt $Q$ greifen damit Zug- und Druckspannungen
+an, die bei gleichem Betrag entgegengesetzt wirken, wodurch ein Drehmoment $M_{\sigma}$ entsteht. Dieses lässt sich durch \begin{equation}
+    M_{\sigma} = \int_Q y\sigma(y)\text{d}q
+\end{equation}
+
+darstellen, wobei $y$ der Abstand von $\text{d}q$ zur neutralen Faser ist.
+
+Bei konstanter Kraft gleicht sich das durch sie wirkende Drehmoment $M_F$ mit dem eben beschrieben Drehmoment aus. Daraus folgt \begin{equation}
+    \int_Q y\sigma(y)\text{d}q = F (L - x) 
+\end{equation}
+
+Mit \begin{equation}
+    \sigma (y) = E y \frac{\text{d}^2 D}{\text{d} x^2}
+\end{equation}
+
+lässt sich dann durch Integration über $Q$ von gl[] \begin{equation}
+    D(x) = \frac{F}{2EI} \Bigl( L x^2 - \frac{x^3}3 \Bigr)
+\end{equation}
+
+Dabei ist $I$ das Flächenträgheitsmoment \begin{equation}
+    I := \int_Q y^2 \text{d}q
+\end{equation}
+
+Damit ist der Elastizitätsmodul nur durch $x$ und die davon abhängige Durchbiegung $D$ zu bestimmen.
+
+\subsection{Beidseitige Auflage}
+abb[]
+Da hier der Stab beidseitig aufliegt und eine Auslenkung in der Mitte der der beiden Auflagepunkte gemessen wird, ist hierbei
+vom voherigen Aufbau abweichend das Drehmoment \begin{align}
+M_F &= - \frac{F}2 x       &   0 \leq x \leq L/2 \\
+M_F &= - \frac{F}2 (L - x) & L/2 \leq x \leq L
+\end{align}
+
+Dadurch kommt die Funktion für die $x$- abhängige Auslenkung folgendermaßen zustande: \begin{equation}
+   D(x) = \frac{F}{48EI} \bigl( 3L^2 x -4x^3 \bigr)
+\end{equation} für $0 \leq x \leq L/2$
+und für $L/2 \leq x \leq L$ gilt entsprechend \begin{equation}
+    D(x) = \frac{F}{48EI} \bigl( 4x^3 - 12Lx^2 + 9L^2 x - L^3 \bigr)
+\end{equation}
+
