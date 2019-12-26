@@ -7,7 +7,8 @@ I_r=(np.pi*0.01**4)/64  #Flaechentraegheit Kreis in Meter
 m_ein=1.169+0.0406 #Masse bei einseitiger Einspannung in Kg
 m_bei=0.0406+1.169+1.169+1.168+1.170 #Masse bei beidseitiger Einspannung in Kg
 L_bei=0.55 #Laenge des Stabes bei beidseitiger Einpannung in Meter
-L_ein=0.482 #Laenge des Stabes einseitige Einspannung in Meter
+L_ein=0.482 #Laenge des Stabes einseitige Einspannung in Meter#
+print(I_q,I_r,m_ein,m_bei)
 
 #ab hier alle x in cm und alle D in mm
 

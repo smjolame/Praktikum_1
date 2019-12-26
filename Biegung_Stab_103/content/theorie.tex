@@ -5,10 +5,10 @@ Im Allgemeinen können Kräfte, die auf einen Körper einwirken, dessen Form und
 Eine pro Fläche wirkende Kraft wird dabei als Spannung bezeichnet, wobei die Normalspannung $\sigma$, die auch als Druck bezeichnet wird,
 diejenige Kraft pro Fläche ist, die senkrecht zur Oberfläche des Körpers auf diesen einwirkt. Für eine eindimensionale Änderung der
 Körperform gilt dabei der Zusammenhang \begin{equation}
-    \sigma = E \frac{\Delta L}L
+    \sigma = E \frac{\Delta L}L \text{,}
 \end{equation}
 
-, der das Hookesche Gesetz beschreibt. Dabei ist $L$ die Dimension des Körpers ohne Krafteinwirkung und $\Delta L$ die eindimensionale
+ der das Hookesche Gesetz beschreibt. Dabei ist $L$ die Dimension des Körpers ohne Krafteinwirkung und $\Delta L$ die eindimensionale
 Verformung, die durch die wirkende Kraft zustande kommt. Der Faktor $E$ gibt den Elastizitätsmodul an. Ist diese bekannt, kann das zu 
 untersuchende Material bestimmt werden. 
 
@@ -40,13 +40,15 @@ Mit \begin{equation}
     \sigma (y) = E y \frac{\text{d}^2 D}{\text{d} x^2}
 \end{equation}
 
-lässt sich dann durch Integration über $Q$ von Gleichung \ref{eqn:m_gleich} die $x$- abhängige Auslenkung bestimmen:
+lässt sich dann durch Integration über $Q$ von Gleichung \eqref{eqn:m_gleich} die $x$- abhängige Auslenkung bestimmen:
 \begin{equation}
     D(x) = \frac{F}{2EI} \Bigl( L x^2 - \frac{x^3}3 \Bigr)
+    \label{eqn:D1_gleich}
 \end{equation}
 
 Dabei ist $I$ das Flächenträgheitsmoment \begin{equation}
     I := \int_Q y^2 \text{d}q
+    \label{eqn:I}
 \end{equation}
 
 Damit ist der Elastizitätsmodul nur durch $x$ und die davon abhängige Durchbiegung $D$ zu bestimmen.
@@ -68,9 +70,11 @@ M_F &= - \frac{F}2 (L - x) & L/2 \leq x \leq L
 
 Dadurch kommt die Funktion für die $x$- abhängige Auslenkung folgendermaßen zustande: \begin{equation}
    D(x) = \frac{F}{48EI} \bigl( 3L^2 x -4x^3 \bigr)
+   \label{eqn:D2_gleich}
 \end{equation} für $0 \leq x \leq L/2$
 
 und für $L/2 \leq x \leq L$ gilt entsprechend \begin{equation}
     D(x) = \frac{F}{48EI} \bigl( 4x^3 - 12Lx^2 + 9L^2 x - L^3 \bigr)
+    \label{eqn:D3_gleich}
 \end{equation}
 

@@ -194,12 +194,18 @@ D4_l_flip=np.flip(D4_l)
 
 D4_xlr=np.append(x4_l_flip,x4_r)
 D4_lr=np.append(D4_l_flip,D4_r)
+
+
+
+
+
 #plots
 
 plt.plot(x1,D1,'rx',label='Messwerte')
 plt.grid()
 
 plt.plot(x_t*10**2,D_ein_k(x_t,params_ein_k)*10**3,label='Ausgleichskurve')
+plt.plot()
 plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
 plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
 plt.legend()

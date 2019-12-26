@@ -8,18 +8,27 @@ und der zylindrische Stab eine Dichte von $\rho_Z = 8.8554 \si{\gram\per\cubic\c
 Beim Vergleich mit Dichten von verschiedenen Metallen kann man mit relativer Exaktheit auf das Material
 der Stäbe schließen. Dabei ist es nie sicher,ob es sich wirklich um das Vermutete Material handelt, 
 da die Probestäbe Legierungen und inhomogone Massenverteilung aufweisen könnten,
-welche in diesem Versuch nicht untersucht werden konnten. So wird unter diesen Annahmen und Annäherungen der 
-quaderförmige Stab als aus Aluminium (Dichte Aluminium: 2.70 \si{\gram\per\cubic\centi\meter}\cite{taschenbuch_physik}) bestehend
- und der zylindrische Stab als aus Kupfer (Dichte Kupfer: 8.93 \si{\gram\per\cubic\centi\meter}\cite{taschenbuch_physik}) bestehend angenommen und im weiteren Verlauf des Protokolls auch so identifiziert und unterschieden.
+welche in diesem Versuch nicht untersucht werden konnten. So wird unter diesen Annahmen und Annäherungen der quaderförmige Stab als aus Aluminium (Dichte Aluminium: 2.70 \si{\gram\per\cubic\centi\meter}\cite{taschenbuch_physik}) bestehend und der zylindrische Stab als aus Kupfer (Dichte Kupfer: 8.93 \si{\gram\per\cubic\centi\meter}\cite{taschenbuch_physik}) bestehend angenommen und im weiteren Verlauf des Protokolls auch so identifiziert und unterschieden.
 
 
 
 Die Durchbiegung $D$ ist die Differenz zwischen der Durchbiegung $D_0$ im unbelasteten Zustand und der
 Durchbiegung $D_M$ im belasteten Zustand.
 
+Die Flächenträgheitsmomente der beiden verwendeten Stäbe lassen sich durch Gleichung \eqref{eqn:I} bestimmen. 
+
+
+Flächenträgheitsmoment des eckigen Aluminiumstabes: $I_A = \SI{8.33e-10}{\meter\tothe{4}}$
+
+
+Flächenträgheitsmoment des runden Kupferstabes: $I_K = \SI{4.91e-10}{\meter\tothe{4}} $
+
 
 
 \subsection{Biegung bei einseitiger Einspannung}
+
+
+
 \begin{table}
     \centering 
     \caption{Durchbiegung des runden Kupferstabes bei einseitiger Einspannung}
@@ -55,7 +64,7 @@ Durchbiegung $D_M$ im belasteten Zustand.
     \caption{Ausgleichskurve und Messdaten des einseitig eingespannten Kupferstabes}
 \end{figure}
 
-Bei einseitiger Einspannung lässt sich über eine Ausgleichsrechnung auf Basis der Gleichung [GLEICHUNG] und den Daten der Tabelle \ref{tab:1}
+Bei einseitiger Einspannung lässt sich über eine Ausgleichsrechnung auf Basis der Gleichung \eqref{eqn:D1_gleich} und den Daten der Tabelle \ref{tab:1}
 das Elastizitätsmodul bestimmen.
 Dabei ergibt sich für den Kupferstab ein Elastizitätsmodul von \SI{125.4255(3936)}{\giga\pascal}.
 
@@ -140,9 +149,7 @@ Mit Hilfe des gleichen Verfahrens wie beim Kupferstab und der Tabelle \ref{tab:2
     \caption{Ausgleichskurve und Messdaten des beidseitig aufliegenden Kupferstabes}
 \end{figure}
 
-Mit Hilfe der Gleichung [GLEICHUNG] für die linke Hälfte des Stabes und der Gleichung [GLEICHUNG] für die rechte Hälfte des Stabes
-kann man mit den Werten der Tabelle \ref{tab:3} das Elastizitätsmodul des Kupferstabes bestimmen. Dieser ergibt sich 
-auf der linken Hälfte zu \SI{121.3312(2693)}{\giga\pascal} und auf der rechten Hälfte zu \SI{126.2855(4137)}{\giga\pascal}.
+Mit Hilfe der Gleichung \eqref{eqn:D2_gleich} für die linke Hälfte des Stabes und der Gleichung \eqref{eqn:D3_gleich} für die rechte Hälfte des Stabes kann man mit den Werten der Tabelle \ref{tab:3} das Elastizitätsmodul des Kupferstabes bestimmen. Dieser ergibt sich auf der linken Hälfte zu \SI{121.3312(2693)}{\giga\pascal} und auf der rechten Hälfte zu \SI{126.2855(4137)}{\giga\pascal}.
 Im Mittel ergibt sich also ein Wert von \SI{123.8083(3415)}{\giga\pascal}.
 
 
@@ -193,6 +200,16 @@ Im Mittel ergibt sich also ein Wert von \SI{123.8083(3415)}{\giga\pascal}.
 Das Verfahren ist das Gleiche wie bei dem Kupferstab. Mit den Daten der Tabelle \ref{tab:4} ergibt sich aus der linken Hälfte ein Elastizitätsmodul von
 \SI{69.9711(3238)}{\giga\pascal} und aus der rechten Hälfte ein Elastizitätsmodul von \SI{70.1704(1507)}{\giga\pascal}. Im Mittel lässt sich das 
 Elastizitätsmodul des Aluminiumstabes zu \SI{70.0708(2373)}{\giga\pascal} bestimmen.
+
+
+
+Laut Literatur \cite{taschenbuch_physik} hat Kupfer ein Elastizitätsmodul von $E_K = \SI{123}{\giga\pascal}$ und Aluminium ein Elastizitätsmodul von $E_A = \SI{71}{\giga\pascal}$ 
+
+\begin{table}
+    \centering
+    \caption{Zusammenfassung der Ergebnisse}
+    \begin{tabular}
+
 
 
 
