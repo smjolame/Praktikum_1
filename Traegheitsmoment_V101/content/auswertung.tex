@@ -1,6 +1,82 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Als erstes wird die Winkelrichtgröße der Torsionsfeder berechnet.
+Durch passendes Umstellen und Einsetzten der Gleichungen \eqref{eqn:T} und \eqref{eqn:M} ergibt sich die Gleichung
+\begin{equation*}
+    D=\frac{Fr}{\phi}.
+    \end{equation*}
+Mit Hilfe der Daten der Tabelle \ref{tab:1} errechnet sich die Winkelrichtgröße zu $D=\SI{0.022435(001026)}{\newton\m}$.
+\begin{table}
+    \centering 
+    \caption{Daten zur Bestimmung der Winkelrichtgröße.}
+    \label{tab:1}
+    \begin{tabular}{S S}
+        \toprule
+        {$\phi$ in Grad} & {$F \:/\: \si{\newton}$} \\
+        \midrule
+        20 & 0.060 \\
+        30 & 0.100 \\
+        40 & 0.155 \\
+        50 & 0.195 \\
+        60 & 0.260 \\
+        70 & 0.300 \\
+        80 & 0.350 \\
+        90 & 0.380 \\
+        
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{table}
+    \centering 
+    \caption{Daten zur Bestimmung des Eigenträgheitsmomentes.}
+    \label{tab:2}
+    \begin{tabular}{S S}
+        \toprule
+        $r \:/\: \si{\centi\meter}$ & $T \:/\: \si{\s}$ \\
+        \midrule
+        2.5 & 2.34  \\
+        4.0 & 2.52    \\
+        6.0 & 2.83    \\
+        8.0 & 3.20    \\
+        10.0 & 3.50   \\
+        12.0 & 4.00   \\
+        14.0 & 4.50   \\
+        16.0 & 5.05   \\
+        18.0 & 5.55   \\
+        20.0 & 6.10   \\
+        22.0 & 6.60   \\
+        
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Das Eigenträgheitsmoment $I_D$ des Aufbaus lässt sich aus dem Gesamtträgheitsmoment 
+
+    \begin{equation}
+    I_{\text{ges}}=2\cdot m r^2 +I_D
+    \label{eqn:Iges}
+    \end{equation}
+
+bestimmen. Dazu wird eine lineare Regression auf $T^2$ und $r^2$ aus der Tabelle \ref{tab:2} verwendet:
+
+    \begin{equation*}
+        T^2=a\cdot r^2+b
+    \end{equation*}
+Durch Einsetzten der Gleichung \eqref{eqn:Iges} in die quadrierte Form der Gleichung \eqref{eqn:T} folgt die Gleichung
+    \begin{equation*}
+        T^2=4\pi^2\frac{I}{D}=\frac{(2mr^2+I_D)4\pi^2}{D}=\frac{8m\pi^2}{D}r^2+\underbrace{4\pi^2I_D}_{= b}.
+    \end{equation*}
+Der Teil $b$ enthält das zu Bestimmende Eigenträgheitsmoment. Die Ausgleichsgerade aus der Abbildung [BILD]
+liefert den Parameter $b$, womit sich schließlich über
+    \begin{equation*}
+        I_D=\frac{b}{4\pi^2}
+    \end{equation*}
+das Eigenträgheitsmoment des Aufbaus bestimmen lässt.
+
+
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:
