@@ -25,10 +25,11 @@ r , T = np.genfromtxt('data/eigentr.txt',delimiter=',',unpack=True)
 r=r*10**(-2)
 
 params, cov = curve_fit(reg,r**2,T**2)
-I_D=params[1]/(4*np.pi**2)
 I_D_err=np.sqrt(cov[1,1])
+I_D=ufloat(params[1],I_D_err)/(4*np.pi**2)
+
 print(I_D)
-print(I_D_err)
+
 
 
 
