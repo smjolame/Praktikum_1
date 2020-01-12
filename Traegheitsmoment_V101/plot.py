@@ -44,7 +44,8 @@ b_err=np.sqrt(cov[1,1])
 b=params[1]
 b=ufloat(b,b_err)
 I_D=b*D_u/(4*np.pi**2)
-print(f"Eigenträgheitsmoment = {I_D}")    
+print(f"Eigenträgheitsmoment = {I_D}")  
+print(f"b={b}")  
 
 ##
 
@@ -115,9 +116,10 @@ x=np.linspace(r[0],r[np.size(r)-1])
 plt.plot(r**2,T**2,'rx',label='Quadtrat der Messwerte')
 plt.plot(x**2,reg(x**2,params[0],params[1]),'b-',label='Ausgleichsgerade')
 plt.grid()
-plt.xlabel(r'r')  #!!!!
-plt.ylabel(r'T')  #!!!!
+plt.xlabel(r'$r^2\:/\: \si{\m^2}$')  
+plt.ylabel(r'$T^2\:/\: \si{\s^2}$')  
 plt.legend()
+plt.savefig('data/Ausgleichsgerade.pdf')
 
 
 
