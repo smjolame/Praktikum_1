@@ -87,7 +87,7 @@ das Eigenträgheitsmoment des Aufbaus bestimmen lässt.
         \toprule
         \multicolumn{2}{c}{T \:/\: \si{\s}}\\
         \cmidrule(lr){1-2}
-        Pos 1 & Pos 2 \\
+        {Pos. 1} & {Pos. 2} \\
         \midrule
         0.61 & 0.95 \\
         0.63 & 0.96 \\
@@ -126,7 +126,7 @@ Diese ergeben sich damit zu $I_{\text{exp,Pos1}}=\SI{-0.00252(00014)}{\kilo\gram
 \begin{table}
     \centering 
     \caption{Maße der Zylinder zur Näherung des Puppenvolumens.}
-    \label{tab:4}
+    \label{tab:5}
     \begin{tabular}{S S}
         \toprule
         & {Voulmen $V\:/\: \si{\cubic\centi\m}$} \\
@@ -147,8 +147,33 @@ Da das Verhältis zwischen Gesamtmasse, Gesamtvolumen und Teilvolumen der einzel
     m_{\text{körperteil}}=\frac{V_{\text{körperteil}}}{V_{\text{ges}}}m_{\text{ges}}
 \end{equation}
 das Gewicht jedes einzelnen Körperteiles bestimmen. 
-Die theoretischen Trägheitsmomente der beiden Puppenpositionen können nun, mit der Kenntnis über die einzelnen Massen der Körperteile, über die Formeln aus Abbildung \ref{fig:probe} bestimmt werden. 
 
+
+\begin{table}
+    \centering 
+    \caption{Theoretische Trägheitsmomente der Puppe in beiden Positionen.}
+    \label{tab:6}
+    \begin{tabular}{S S S}
+        \toprule
+        & \multicolumn{2}{c}{Trägheitsmoment $I_{\text{th}}\:/\: \si{\kilo\gram\square\m}$} \\
+        \cmidrule(lr){1-3}
+        & {Pos. 1} & {Pos. 2} \\
+        \midrule
+        \text{Kopf} & {0.07497615e-5} & {0.07497615e-5}\\
+        \text{Rumpf} &{1.52733379e-5} & {1.52733379e-5}\\
+        \text{Beine} &{0.67738471e-5} & {31.8362402e-5}\\
+        \text{Arme} & {25.3639287e-5} & {25.3639287e-5}\\
+        \text{Insgesamt} & {27.6339714e-5} &  {58.8024788e-5}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+Die theoretischen Trägheitsmomente der beiden Puppenpositionen können nun, mit der Kenntnis über die einzelnen Massen der Körperteile, über die Formeln aus Abbildung \ref{fig:probe} bestimmt werden. 
+Da sowohl die Rotationsache der Arme als auch Beine der Puppe nicht durch den jeweiligen Schwerpunkt führt, wird der Satz von Steiner
+\eqref{eqn:stein} zum berechnen der Trägheitsmomente berechnet. Das Gesamtträgheitsmoment der Puppe ergibt sich dann über die Summe aller Einzelträgheitsmomente, welche in Tabelle \ref{tab:6} auf sind.
+So ergibt sich ein Trägheitsmoment $I_{\text{th,Pos.1}}=\SI{27.6339714e-5}{\kilo\gram\square\m}$ für Position 1 und ein Trägheitsmoment
+$I_{\text{th,Pos.2}}=\SI{58.8024788e-5}{\kilo\gram\square\m}$ für Position 2.
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:
