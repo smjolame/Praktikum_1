@@ -1,6 +1,15 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Im Folgenden wir der Mittelwert allgmein über die Formel \begin{equation}
+    \mu = \frac{1}N \sum_{n=1}^N x_n
+    \label{eqn:mw}   
+\end{equation} berechnet. Für die Standardabweichung gilt \begin{equation}
+    \sigma = \sqrt{\frac{1}{N-1} \sum_{n=1}^N (x_n -\mu)^2}
+    \label{eqn:std}
+\end{equation}
+
+\subsection{Winkelrichtgröße}
 Als erstes wird die Winkelrichtgröße der Torsionsfeder berechnet.
 Durch passendes Umstellen und Einsetzten der Gleichungen \eqref{eqn:T} und \eqref{eqn:M} ergibt sich die Gleichung
 \begin{equation*}
@@ -53,6 +62,7 @@ Mit Hilfe der Daten der Tabelle \ref{tab:1} errechnet sich die Winkelrichtgröß
     \end{tabular}
 \end{table}
 
+\subsection{Eigenträgheitsmoment}
 Das Eigenträgheitsmoment $I_D$ des Aufbaus lässt sich aus dem Gesamtträgheitsmoment 
 
     \begin{equation}
@@ -76,11 +86,31 @@ liefert den Parameter $b$, womit sich schließlich über
     \end{equation*}
 das Eigenträgheitsmoment des Aufbaus bestimmen lässt.
 
+\subsection{Trägheitsmomente verschiedener Körper}
 
-%Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
-%
-%Auswertung:
-%Berechnung der geforderten Endergebnisse
-%mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
-%Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
-%Graphische Darstellung der Ergebnisse
+Die Perdiodendauer der Schwingung der beiden Zylinder werden in der Tabelle[] gezeigt. $T_\text{sym}$ gilt für die Drehung um die 
+Symmetrieachse und $T_\text{asym}$ gilt für die andere Achse, wie sie auch in Bild\ref{fig:Probekoerper} zu sehen ist.
+
+\begin{table}
+    \centering
+    \caption{Perdiodendauer der Zylinder}
+    \label{tab:t_zyl}
+    \begin{tabular}{S S}
+        \toprule
+        $T_\text{sym}\:/\:\si{\s}$ & $T_\text{asym}\:/\:\si{\s}$ \\
+        \midrule
+        1.22 & 0.91 \\
+        1.26 & 0.89 \\
+        1.30 & 0.89 \\
+        1.21 & 0.92 \\
+        1.24 & 0.93 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Über die Gleichung\ref{eqn:mw} kann der Mittelwert für die jeweiligen $T$ bestimmt werden:
+\begin{align}
+    T_\text{sym}& = 1.246\pm 0.016 \si{\s} \\
+    T_\text{asym}&= 0.908\pm 0.008 \si{\s}
+\end{align}
+
