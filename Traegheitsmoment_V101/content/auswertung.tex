@@ -1,6 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+<<<<<<< HEAD
 Im Folgenden wir der Mittelwert allgmein über die Formel \begin{equation}
     \mu = \frac{1}N \sum_{n=1}^N x_n
     \label{eqn:mw}   
@@ -10,6 +11,10 @@ Im Folgenden wir der Mittelwert allgmein über die Formel \begin{equation}
 \end{equation}
 
 \subsection{Winkelrichtgröße}
+||||||| merged common ancestors
+=======
+\subsection{Winkelrichtgröße}
+>>>>>>> 3069aade0fbfa42d88d186b13e9445dcbf1297af
 Als erstes wird die Winkelrichtgröße der Torsionsfeder berechnet.
 Durch passendes Umstellen und Einsetzten der Gleichungen \eqref{eqn:T} und \eqref{eqn:M} ergibt sich die Gleichung
 \begin{equation*}
@@ -37,6 +42,7 @@ Mit Hilfe der Daten der Tabelle \ref{tab:1} errechnet sich die Winkelrichtgröß
     \end{tabular}
 \end{table}
 
+\subsection{Eigenträgheitsmoment}
 
 \begin{table}
     \centering 
@@ -77,15 +83,16 @@ bestimmen. Dazu wird eine lineare Regression auf $T^2$ und $r^2$ aus der Tabelle
     \end{equation*}
 Durch Einsetzten der Gleichung \eqref{eqn:Iges} in die quadrierte Form der Gleichung \eqref{eqn:T} folgt die Gleichung
     \begin{equation*}
-        T^2=4\pi^2\frac{I}{D}=\frac{(2mr^2+I_D)4\pi^2}{D}=\frac{8m\pi^2}{D}r^2+\underbrace{4\pi^2I_D}_{= b}.
+        T^2=4\pi^2\frac{I}{D}=\frac{(2mr^2+I_D)4\pi^2}{D}=\frac{8m\pi^2}{D}r^2+\underbrace{\frac{4\pi^2I_D}{D}}_{= b}.
     \end{equation*}
 Der Teil $b$ enthält das zu Bestimmende Eigenträgheitsmoment. Die Ausgleichsgerade aus der Abbildung [BILD]
 liefert den Parameter $b$, womit sich schließlich über
     \begin{equation*}
-        I_D=\frac{b}{4\pi^2}
+        I_D=\frac{bD}{4\pi^2}
     \end{equation*}
 das Eigenträgheitsmoment des Aufbaus bestimmen lässt.
 
+<<<<<<< HEAD
 \subsection{Trägheitsmomente verschiedener Körper}
 
 Die Perdiodendauer der Schwingung der beiden Zylinder werden in der Tabelle[] gezeigt. $T_\text{sym}$ gilt für die Drehung um die 
@@ -113,4 +120,77 @@ Symmetrieachse und $T_\text{asym}$ gilt für die andere Achse, wie sie auch in B
     T_\text{sym}& = 1.246\pm 0.016 \si{\s} \\
     T_\text{asym}&= 0.908\pm 0.008 \si{\s}
 \end{align}
+||||||| merged common ancestors
+=======
+\subsection{Trägheitsmomente der Puppe}
+\begin{table}
+    \centering 
+    \caption{Periodendauer bei beiden Puppenpositionen.}
+    \label{tab:3}
+    \begin{tabular}{S S}
+        \toprule
+        \multicolumn{2}{c}{T \:/\: \si{\s}}\\
+        \cmidrule(lr){1-2}
+        Pos 1 & Pos 2 \\
+        \midrule
+        0.61 & 0.95 \\
+        0.63 & 0.96 \\
+        0.66 & 0.96 \\
+        0.65 & 0.93 \\
+        0.66 & 0.97 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Aus den Werten der Tabelle \ref{tab:3} lassen sich die gemittelten Periodendauern der einzelnen Puppenpositionen bestimmen. Diese ergeben sich bei Position 1 zu $T_{\text{p1}}=\SI{0.642(010)}{\s}$ und bei Position 2 zu $T_{\text{p2}}=\SI{0.954(007)}{\s}$. Durch Umstellen der Gleichung \eqref{eqn:T} und unter Beachtung des Eigenträgheitsmomentes des Aufbaus kommt es zu der Gleichung
+\begin{equation}
+    I=\frac{DT^2}{4\pi^2}-I_D,
+\end{equation}
+mit welcher die Trägheitsmomente der verschiedenen Positionen in Abhängigkeit der jeweiligen Periodendauer errechnet werden können.
+Diese ergeben sich damit zu $I_{\text{exp,Pos1}}=\SI{-0.00252(00014)}{\kilo\gram\square\m}$ und $I_{\text{exp,Pos2}}=\SI{-0.00224(00013)}{\kilo\gram\square\m}$.
+
+
+\begin{table}
+    \centering 
+    \caption{Maße der Zylinder zur Näherung des Puppenvolumens.}
+    \label{tab:4}
+    \begin{tabular}{S S S}
+        \toprule
+        & {Durchmesser $d\:/\: \si{\centi\m}$} & {Höhe $h\:/\: \si{\centi\m}$} \\
+        \midrule
+        \text{Kopf} & 2.1 & 5.0 \\
+        \text{Rumpf} & 3.8 & 9.5 \\
+        \text{Bein} & 1.5 & 15.0 \\
+        \text{Arm }& 1.3 & 13.5 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{table}
+    \centering 
+    \caption{Maße der Zylinder zur Näherung des Puppenvolumens.}
+    \label{tab:4}
+    \begin{tabular}{S S}
+        \toprule
+        & {Voulmen $V\:/\: \si{\cubic\centi\m}$} \\
+        \midrule
+        \text{Kopf} & 17.318 \\
+        \text{Rumpf} & 107.741 \\
+        \text{Bein} & 26.507 \\
+        \text{Arm} & 17.919 \\
+        \text{Insgesamt} & 213.911 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Da die Puppe näherungsweise aus einer Zusammenstellung verschiedener Zylinder besteht wird das Volumen der Puppe ebenfalls durch die Summe einzelner Zylindervolumina zusammengesetz. Die jeweiligen Maße können der Tabelle \ref{tab:4} entnommen werden. Aus diesen Maßen lassen sich die Volimina der einzelnen Zylinder über die Gleichung \eqref{eqn:Z} berechnen. Die Ergebnisse sind in Tabelle \ref{tab:5} aufgeführt.
+Das Gesamtvolumen der Puppe ist somit $V_{\text{ges}}=\SI{213.991}{\cubic\centi\m}$. 
+Da das Verhältis zwischen Gesamtmasse, Gesamtvolumen und Teilvolumen der einzelnen Körperteile der Puppe bekannt sich, lässt über die Gleichung
+\begin{equation}
+    m_{\text{körperteil}}=\frac{V_{\text{körperteil}}}{V_{\text{ges}}}m_{\text{ges}}
+\end{equation}
+das Gewicht jedes einzelnen Körperteiles bestimmen. 
+Die theoretischen Trägheitsmomente der beiden Puppenpositionen können nun, mit der Kenntnis über die einzelnen Massen der Körperteile, über die Formeln aus Abbildung \ref{fig:probe} bestimmt werden. 
+>>>>>>> 3069aade0fbfa42d88d186b13e9445dcbf1297af
 
