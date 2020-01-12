@@ -44,7 +44,8 @@ b_err=np.sqrt(cov[1,1])
 b=params[1]
 b=ufloat(b,b_err)
 I_D=b*D_u/(4*np.pi**2)
-print(f"Eigenträgheitsmoment = {I_D}")    
+print(f"Eigenträgheitsmoment = {I_D}")  
+print(f"b={b}")  
 
 ##
 
@@ -96,12 +97,16 @@ I_beine1=(I_bein1+m_bein*(0.019-0.0075)**2)*2
 I_rumpf=I_symz(m_rumpf,0.038)
 I_kopf=I_symz(m_kopf,0.021)
 I_puppe1=I_arme1+I_beine1+I_rumpf+I_kopf
+I_data1=([I_kopf,I_rumpf,I_beine1,I_arme1])
+np.savetxt('data/I_Pos1.txt',I_data1)
 print(f"Th. Trägheitsmoment Puppe Pos 1: {I_puppe1}")
 #Pos 2:
 I_arme2=I_arme1
 I_bein2=I_asymz(m_bein,0.015,0.15)
 I_beine2=(I_bein2+m_bein*np.sqrt((0.075**2+(0.019-0.0075)**2))**2)*2
 I_puppe2=I_arme2+I_beine2+I_rumpf+I_kopf
+I_data2=([I_kopf,I_rumpf,I_beine2,I_arme2])
+np.savetxt('data/I_Pos2.txt',I_data2)
 print(f"Th. Trägheitsmoment Puppe Pos 2: {I_puppe2}")
 ################################################
 
@@ -111,9 +116,10 @@ x=np.linspace(r[0],r[np.size(r)-1])
 plt.plot(r**2,T**2,'rx',label='Quadtrat der Messwerte')
 plt.plot(x**2,reg(x**2,params[0],params[1]),'b-',label='Ausgleichsgerade')
 plt.grid()
-plt.xlabel(r'r')  #!!!!
-plt.ylabel(r'T')  #!!!!
+plt.xlabel(r'$r^2\:/\: \si{\m^2}$')  
+plt.ylabel(r'$T^2\:/\: \si{\s^2}$')  
 plt.legend()
+plt.savefig('data/Ausgleichsgerade.pdf')
 
 
 
