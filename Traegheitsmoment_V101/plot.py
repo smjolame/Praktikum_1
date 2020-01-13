@@ -119,7 +119,7 @@ plt.grid()
 plt.xlabel(r'$r^2\:/\: \si{\m^2}$')  
 plt.ylabel(r'$T^2\:/\: \si{\s^2}$')  
 plt.legend()
-plt.savefig('data/Ausgleichsgerade.pdf')
+plt.savefig('build/Ausgleichsgerade.pdf')
 
 
 
