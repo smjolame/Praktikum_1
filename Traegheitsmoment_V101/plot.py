@@ -78,6 +78,7 @@ V_rumpf=V_z(0.038,0.095)
 V_bein=V_z(0.015,0.15)
 V_beine=2*V_bein
 V_puppe=V_arme+V_beine+V_rumpf+V_kopf
+print(f"Volumen Puppe: {V_puppe}")
 def m_z(V):
     return m_puppe*V/V_puppe
 m_arm=m_z(V_arm)
