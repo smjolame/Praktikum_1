@@ -2,9 +2,50 @@
 \label{sec:Theorie}
 
 Bei einem Temperaturunterschied innerhalb eines Materials strebt das System einen thermischen Gleichgewichtszustand an.
-Dabei kann die Wärme auf drei verschiedenen Arten übertragen werden. Wärmestrahung und Konvektion wird in dem Versuches
+Dabei kann die Wärme auf drei verschiedenen Arten übertragen werden:
+\begin{itemize}
+    \item Wärmestrahlung
+    \item Konvektion
+    \item Wärmeleitung
+\end{itemize}
+
+In diesem Versuch wird  nur die Wärmeleitung betrachtet. 
+Die Wärmemenge d$Q$,die in einem ungleichmäßig temperierten Stab in der Zeit d$t$ durch die Querschnittsfläche $A$ fließt lässt sich mit der Wämrmestromdichte 
+\begin{equation}
+    j_{\omega}=-\kappa \frac{\partial T}{\partial x},
+\end{equation}
+über die Gleichung
+\begin{equation}
+    \symup{d}Q=j_{\omega}A\symup{d}t
+\end{equation}
+bestimmen.
+Dabei ist $\kappa$ die materialabhängige Wärmeleitfähigkeit und nach Konvention, da Wärme immer von höherer zu tieferer Temperatur fließt, mit einem negativen Vorzeichen versehen.
 
 
+Da die Gesamtenergie in einem abgeschlossenem System stets konstant bleiben muss, lässt sich mit Hilfe dieser Kontinuitätsbedingung die, für diesen Versuch eindimensionale, Wärmeleitungsgleichung  
+\begin{equation}
+        \frac{\partial T}{\partial t}=\underbrace{\frac{\kappa}{\rho c}}_{\sigma_T}\frac{\partial^2 T}{\partial x^2}
+\end{equation}
+aufstellen.
+$\rho$ stellt hierbei die Massendichte und $c$ die spezifische Wärmekapazität des Materials dar.
+$\sigma_T$ wird Temperaturleitfähigkeit genannt. 
+
+Bei einem sehr langem Stab treten bei periodischem Erhitzen und Abkühlen Temperaturwellen auf, welche sich über die Gleichung
+\begin{equation}
+    T(x,t)=T_{\text{max}}e^{-\sqrt{\frac{\omega \rho c}{2 \kappa}}x}\cos \left(\omega t-\sqrt{\frac{\omega \rho c}{2 \kappa}}x\right)
+\end{equation}
+darstellen lassen.
+Die Phasengeschwindigkeit bestimmt sich somit zu
+\begin{equation}
+    v=\frac{\omega}{k}=\omega / \sqrt{\frac{\omega \rho c}{2 \kappa}}=\sqrt{\frac{2 \kappa \omega}{\rho c}}.
+\end{equation}
+
+Letztendlich kann die Wärmeleitfähigkeit $\kappa$, bei Beachtung des Amplitudenverhältnisses zwischen $A_{\text{nah}}$ und $A_{\text{fern}}$ der Welle an den Orten $x_{\text{nah}}$ und $x_{\text{fern}}$, durch die Gleichung
+\begin{equation}
+    \kappa =\frac{\rho c (\Delta x)^2}{2 \Delta t \ln \left(A_{\text{nah}}/A_{\text{fern}}\right)}
+\end{equation}
+errechnet werden.
+$\Delta x$ ist der Abstand zwischen den beiden Messstellen und $\Delta t$ bezeichnet die Phasendifferenz der Temperaturwellen zwischen den Messstellen.
 %In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
 
 %(eventuell die Aufgaben)
