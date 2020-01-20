@@ -3,6 +3,7 @@ import numpy as np
 from uncertainties import ufloat
 from scipy import stats
 from scipy.optimize import curve_fit
+import uncertainties.unumpy as unp
 
 A1,A2,T21,A5,A6,T65 = np.genfromtxt('data/amp_werte.txt', delimiter=',',unpack=True)
 
@@ -18,10 +19,10 @@ a5 = ufloat(7.7316666666666665,0.16872890814689848)
 a6 = ufloat(15.69,0.1347528602046477)
 t65 = ufloat(7.333333333333333,0.33333333333333337)
 
-def ln(a1,a2):
-    return np.log(a1/a2)
+#def ln(a1,a2):
+#   return np.log(a1/a2)
 
-print(np.mean(ln(a1,a2)))
+print(np.mean(unp.log(a1,a2)))
 
 
 
