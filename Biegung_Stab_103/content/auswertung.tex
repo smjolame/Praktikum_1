@@ -2,11 +2,11 @@
 \label{sec:Auswertung}
 
 Bei dem Versuch wurden zwei verschiedene Stäbe auf ihr jeweiliges Elastizitätsmodul untersucht.
-Beim vermessen und wiegen der beiden Stäbe konnten folgende Dichten ermittelt werden.
+Beim vermessen und wiegen der beiden Stäbe ergeben sich folgende Dichten.
 Der quaderförmige Stab hat eine Dichte von ca. $\rho_Q = 2.9350 \si{\gram\per\cubic\centi\meter}$
 und der zylindrische Stab eine Dichte von $\rho_Z = 8.8554 \si{\gram\per\cubic\centi\meter}$.
-Beim Vergleich mit Dichten von verschiedenen Metallen kann man mit relativer Exaktheit auf das Material
-der Stäbe schließen. Dabei ist es nie sicher, ob es sich wirklich um das Vermutete Material handelt, 
+Beim Vergleich mit Dichten von verschiedenen Metallen kann mit relativer Exaktheit auf das Material
+der Stäbe geschlossen werden. Dabei ist es nie sicher, ob es sich wirklich um das v ermutete Material handelt, 
 da die Probestäbe Legierungen und inhomogone Massenverteilung aufweisen könnten,
 welche in diesem Versuch nicht untersucht werden konnten. So wird unter diesen Annahmen und Annäherungen der quaderförmige Stab als aus Aluminium (Dichte Aluminium: 2.70 \si{\gram\per\cubic\centi\meter}\cite{taschenbuch_physik}) bestehend und der zylindrische Stab als aus Kupfer (Dichte Kupfer: 8.93 \si{\gram\per\cubic\centi\meter}\cite{taschenbuch_physik}) bestehend angenommen und im weiteren Verlauf des Protokolls auch so identifiziert und unterschieden.
 
@@ -61,12 +61,25 @@ Flächenträgheitsmoment des runden Kupferstabes: $I_K = \SI{4.91e-10}{\meter\to
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/ein_k.pdf}
-    \caption{Ausgleichskurve und Messdaten des einseitig eingespannten Kupferstabes.}
+    \caption{Ausgleichsgerade und Messdaten des einseitig eingespannten Kupferstabes.}
 \end{figure}
 
-Bei einseitiger Einspannung lässt sich über eine Ausgleichsrechnung auf Basis der Gleichung \eqref{eqn:D1_gleich} und den Daten der Tabelle \ref{tab:1}
-das Elastizitätsmodul bestimmen.
-Dabei ergibt sich für den Kupferstab ein Elastizitätsmodul von \SI{125.4255(3936)}{\giga\pascal}.
+Bei einseitiger Einspannung, bei der ein Gewicht von von  $m_1 = 1.2096\si{\kilo\gram}$ an das Ende der zu untersuchenden Metallstange gehängt wird, lässt sich über eine Ausgleichsrechnung auf Basis der Gleichung \eqref{eqn:D1_gleich} und den Daten der Tabelle \ref{tab:1}
+das Elastizitätsmodul bestimmen. Dazu wird die Gleichung \ref{eqn:D1_gleich} folgendermaßen linearisiert:
+\begin{equation*}
+     D(x) = \underbrace{\frac{F}{2EI}}_{= a} \underbrace{\Bigl( L x^2 - \frac{x^3}3 \Bigr)}_{= \lambda}.
+\end{equation*}
+So ergeben sich durch die Geradengleichung 
+\begin{equation*}
+    D(\lambda)=a \cdot \lambda + b
+\end{equation*}
+die Parameter $a=\SI{95.14(26)}{\milli\m\per\cubic\m}$ und $b=\SI{0.054(009)}{\milli\m}$.
+Daraus lässt sich dann über 
+\begin{equation*}
+    E=\frac{F}{2aI}
+\end{equation*}
+der Elastizitätsmodul zu $E=\SI{127.04(35)}{\giga\pascal}$
+berechnen.
 
 \begin{table}
     \centering 
@@ -100,10 +113,10 @@ Dabei ergibt sich für den Kupferstab ein Elastizitätsmodul von \SI{125.4255(39
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/ein_a.pdf}
-    \caption{Ausgleichskurve und Messdaten des einseitig eingespannten Aluminiumstabes.}
+    \caption{Ausgleichsgerade und Messdaten des einseitig eingespannten Aluminiumstabes.}
 \end{figure}
 
-Mit Hilfe des gleichen Verfahrens wie beim Kupferstab und der Tabelle \ref{tab:2} ergibt sich das Elastizitätsmodul des Aluminiumstabes zu \SI{70.1001(2918)}{\giga\pascal}.
+Mit Hilfe des gleichen Verfahrens wie beim Kupferstab und der Tabelle \ref{tab:2} ergibt sich mit den Geradenparametern $a=\SI{99.73(28)}{\milli\m\per\cubic\m}$ und $b=\SI{0.081(010)}{\milli\m}$ der Elastizitätsmodul des Aluminiumstabes zu \SI{71.39(20)}{\giga\pascal}.
 
 
 \subsection{Biegung bei beidseitiger Auflage}
@@ -145,13 +158,35 @@ Mit Hilfe des gleichen Verfahrens wie beim Kupferstab und der Tabelle \ref{tab:2
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/bei_k.pdf}
-    \caption{Ausgleichskurve und Messdaten des beidseitig aufliegenden Kupferstabes.}
+    \includegraphics[width=\textwidth]{build/bei_k_l.pdf}
+    \caption{Ausgleichsgerade und Messdaten des beidseitig aufliegenden Kupferstabes links.}
     \label{fig:1mw}
 \end{figure}
 
-Mit Hilfe der Gleichung \eqref{eqn:D2_gleich} für die linke Hälfte des Stabes und der Gleichung \eqref{eqn:D3_gleich} für die rechte Hälfte des Stabes kann man mit den Werten der Tabelle \ref{tab:3} das Elastizitätsmodul des Kupferstabes bestimmen. Dieser ergibt sich auf der linken Hälfte zu \SI{121.3312(2693)}{\giga\pascal} und auf der rechten Hälfte zu \SI{126.2855(4137)}{\giga\pascal}.
-Im Mittel ergibt sich also ein Wert von \SI{123.8083(3415)}{\giga\pascal}.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/bei_k_r.pdf}
+    \caption{Ausgleichsgerade und Messdaten des beidseitig aufliegenden Kupferstabes rechts.}
+    \label{fig:2mw}
+\end{figure}
+
+Das verwendete Gewicht, welches mittig an den Stab gehängt wird, beträgt $m_2 = 4.7166 \si{\kilo\gram}$.
+Mit Hilfe der Gleichung \eqref{eqn:D2_gleich} für die linke Hälfte des Stabes und der Gleichung \eqref{eqn:D3_gleich} für die rechte Hälfte des Stabes kann man mit den Werten der Tabelle \ref{tab:3} das Elastizitätsmodul des Kupferstabes bestimmen. Dazu werden die Gleichungen wieder linearisiert. 
+\begin{equation*}
+    D(x) = \underbrace{\frac{F}{48EI}}_{= a_l} \underbrace{\bigl( 3L^2 x -4x^3 \bigr)}_{= \lambda_l}
+\end{equation*}
+\begin{equation*}
+    D(x) = \underbrace{\frac{F}{48EI}}_{= a_r} \underbrace{\bigl( 4x^3 - 12Lx^2 + 9L^2 x - L^3 \bigr)}_{= \lambda_r}
+\end{equation*}
+Aus den Ausgleichsgeraden, welche jeweils für die linke und rechte Hälfte der Stange verwendet werden und in Abbildung \ref{fig:1mw} und \ref{fig:2mw} dargestellt sind, können die nötigen Parameter ermittelt werden. 
+Die Parameter ergeben sich so zu $a_l=\SI{16.8(4)}{\milli\m\per\cubic\m}$ und $b_l=\SI{-0.09(06)}{\milli\m}$ für die linke Hälfte und zu $a_r=\SI{16.5(6)}{\milli\m\per\cubic\m}$ $b_r=\SI{-0.14(08)}{\milli\m}$ für die rechte Hälfte.
+Damit lassen sich über die Gleichung
+\begin{equation*}
+    E=\frac{F}{48aI}
+\end{equation*}
+die Elastizitätsmodule berechnen.
+So ergibt sich ein Elastizitätsmodul von \SI{116.9(28)}{\giga\pascal} und auf der rechten Hälfte zu \SI{119(4)}{\giga\pascal}.
+Im Mittel ergibt sich also ein Wert von \SI{118.0(25)}{\giga\pascal}.
 
 
 
@@ -193,14 +228,19 @@ Im Mittel ergibt sich also ein Wert von \SI{123.8083(3415)}{\giga\pascal}.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{build/bei_a.pdf}
-    \caption{Ausgleichskurve und Messdaten des beidseitig aufliegenden Aluminiumstabes.}
+    \includegraphics[width=\textwidth]{build/bei_a_l.pdf}
+    \caption{Ausgleichsgerade und Messdaten des beidseitig aufliegenden Aluminiumstabes links.}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/bei_a_r.pdf}
+    \caption{Ausgleichsgerade und Messdaten des beidseitig aufliegenden Aluminiumstabes rechts.}
+\end{figure}
 
-Das Verfahren ist das Gleiche wie bei dem Kupferstab. Mit den Daten der Tabelle \ref{tab:4} ergibt sich aus der linken Hälfte ein Elastizitätsmodul von
-\SI{69.9711(3238)}{\giga\pascal} und aus der rechten Hälfte ein Elastizitätsmodul von \SI{70.1704(1507)}{\giga\pascal}. Im Mittel lässt sich das 
-Elastizitätsmodul des Aluminiumstabes zu \SI{70.0708(2373)}{\giga\pascal} bestimmen.
+Das Verfahren ist das Gleiche wie bei dem Kupferstab. Mit den Daten der Tabelle \ref{tab:4} ergibt sich aus der linken Hälfte, durch die Parametern $a_l=\SI{14.3(6)}{\milli\m\per\cubic\m}$ und $b_l=\SI{0.33(09)}{\milli\m}$, ein Elastizitätsmodul von
+\SI{80.7(34)}{\giga\pascal} und aus der rechten Hälfte, mit den Parametern $a_r=\SI{15.34(20)}{\milli\m\per\cubic\m}$ und $b_r=\SI{0.170(030)}{\milli\m}$, ein Elastizitätsmodul von \SI{75.4(1)}{\giga\pascal}. Im Mittel lässt sich das 
+Elastizitätsmodul des Aluminiumstabes zu \SI{78.1(17)}{\giga\pascal} bestimmen.
 
 
 
@@ -214,8 +254,8 @@ Laut Literatur \cite{taschenbuch_physik} hat Kupfer ein Elastizitätsmodul von $
         &\multicolumn{3}{c}{Elastizitätsmodul \:/\: \si{\giga\pascal}}\\
         {Material}  & {Einseitig} & {Beidseitig} & {Literatur}\\
         \midrule
-        Kupfer & 125.4255(3936) & 123.8083(3415) & 123 \\
-        Aluminium & 70.1001(2918) & 70.0708(2373) & 71 \\
+        Kupfer & 127.04(35) & 118.0(25) & 123 \\
+        Aluminium & 71.39(20) & 78.1(17) & 71 \\
         \bottomrule
     \end{tabular}
     \label{tab:zsmfassung}

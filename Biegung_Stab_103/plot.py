@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
+from uncertainties import ufloat
 
 
 
@@ -85,7 +86,16 @@ D4_l_flip=np.flip(D4_l)
 
 
 
-
+def g(x,a,b):
+    return a*x+b
+def lamb1(x):
+    return L_ein*x**2-(x**3)/3
+def lamb2(x):
+    return 3*L_bei**2*x-4*x**3
+def lamb3(x):
+    return 4*x**3-12*L_bei*x**2+9*L_bei**2*x-L_bei**3
+def g1(x,E):
+    return x*m_ein*9.81/(2*E*I_r)
 
 
 def D_ein_k(x,E):
@@ -104,67 +114,27 @@ def D_bei_a_r(x,E):
 
 
 
-#fit einseitig kupfer
-params_ein_k, cov_ein_k=curve_fit(D_ein_k,x1,D1)
-err_ein_k = np.sqrt(np.diag(cov_ein_k))
-print(params_ein_k)
-print(err_ein_k)
-#fit einseitig alu
-params_ein_a, cov_ein_a=curve_fit(D_ein_a,x2,D2)
-err_ein_a = np.sqrt(np.diag(cov_ein_a))
-print(params_ein_a)
-print(err_ein_a)
-#fit beidseitig links kupfer
-params_bei_k_l, cov_bei_k_l=curve_fit(D_bei_k_l,x3_l_flip,D3_l_flip)
-err_bei_k_l = np.sqrt(np.diag(cov_bei_k_l))
-print(params_bei_k_l)
-print(err_bei_k_l)
-#fit beidseitig rechts kupfer
-params_bei_k_r, cov_bei_k_r=curve_fit(D_bei_k_r,x3_r,D3_r)
-err_bei_k_r = np.sqrt(np.diag(cov_bei_k_r))
-print(params_bei_k_r)
-print(err_bei_k_r)
-#fit beidseitig links alu
-params_bei_a_l, cov_bei_a_l=curve_fit(D_bei_a_l,x4_l_flip,D4_l_flip)
-err_bei_a_l = np.sqrt(np.diag(cov_bei_a_l))
-print(params_bei_a_l)
-print(err_bei_a_l)
-#fit beidseitig rechts alu
-params_bei_a_r, cov_bei_a_r=curve_fit(D_bei_a_r,x4_r,D4_r)
-err_bei_a_r = np.sqrt(np.diag(cov_bei_a_r))
-print(params_bei_a_r)
-print(err_bei_a_r)
-
-print((params_bei_k_r+params_bei_k_l)/2)
-print((err_bei_k_l+err_bei_k_r)/2)
-
-print((params_bei_a_l+params_bei_a_r)/2)
-print((err_bei_a_l+err_bei_a_r)/2)
-
 ###################################################################################################
 #ab hier wieder in D mm und x meter
-x_t=np.linspace(0,0.45)
-x_t_l=np.linspace(0.15,0.27)
-x_t_r=np.linspace(0.28,0.40)
-x1=x1*10**(2)
+
+
 D_01=D_01*10**(3)
 D_m1=D_m1*10**(3)
 D1=D_01-D_m1
 
-x2=x2*10**(2)
+
 D_02=D_02*10**(3)
 D_m2=D_m2*10**(3)
 D2=D_02-D_m2
 
 
-x3=x3*10**(2)
 D_03_l=D_03_l*10**(3)
 D_03_r=D_03_r*10**(3)
 D_m3_l=D_m3_l*10**(3)
 D_m3_r=D_m3_r*10**(3)
 
-x3_l=27.5-x3
-x3_r=27.5+x3
+x3_l=0.275-x3
+x3_r=0.275+x3
 x3_l_flip=np.flip(x3_l)
 
 
@@ -178,14 +148,14 @@ D3_lr=np.append(D3_l_flip,D3_r)
 
 
 
-x4=x4*10**(2)
+
 D_04_l=D_04_l*10**(3)
 D_04_r=D_04_r*10**(3)
 D_m4_l=D_m4_l*10**(3)
 D_m4_r=D_m4_r*10**(3)
 
-x4_l=27.5-x4
-x4_r=27.5+x4
+x4_l=0.275-x4
+x4_r=0.275+x4
 x4_l_flip=np.flip(x4_l)
 
 D4_l=D_04_l-D_m4_l
@@ -195,64 +165,185 @@ D4_l_flip=np.flip(D4_l)
 D4_xlr=np.append(x4_l_flip,x4_r)
 D4_lr=np.append(D4_l_flip,D4_r)
 
+#fit einseitig kupfer
+params_ein_k, cov_ein_k=curve_fit(g,lamb1(x1),D1)
+err_ein_k = np.sqrt(np.diag(cov_ein_k))
+
+a_ein_k=ufloat(params_ein_k[0],err_ein_k[0])
+b_ein_k=ufloat(params_ein_k[1],err_ein_k[1])
+E_ein_k=m_ein*9.81/(2*I_r*a_ein_k)
+print(f"a= {a_ein_k}")
+print(f"b={b_ein_k}")
+print(f"E={E_ein_k}")
 
 
+
+#fit einseitig alu
+params_ein_a, cov_ein_a=curve_fit(g,lamb1(x2),D2)
+err_ein_a = np.sqrt(np.diag(cov_ein_a))
+
+a_ein_a=ufloat(params_ein_a[0],err_ein_a[0])
+b_ein_a=ufloat(params_ein_a[1],err_ein_a[1])
+E_ein_a=m_ein*9.81/(2*I_q*a_ein_a)
+print(f"a={a_ein_a}")
+print(f"b={b_ein_a}")
+print(f"E={E_ein_a}")
+
+#fit beidseitig links kupfer
+params_bei_k_l, cov_bei_k_l=curve_fit(g,lamb2(x3_l_flip),D3_l_flip)
+err_bei_k_l = np.sqrt(np.diag(cov_bei_k_l))
+
+a_l_k=ufloat(params_bei_k_l[0],err_bei_k_l[0])
+b_l_k=ufloat(params_bei_k_l[1],err_bei_k_l[1])
+E_l_k=m_bei*9.81/(48*a_l_k*I_r)
+print(f"a={a_l_k}")
+print(f"b={b_l_k}")
+print(f"E={E_l_k}")
+
+#fit beidseitig rechts kupfer
+params_bei_k_r, cov_bei_k_r=curve_fit(g,lamb3(x3_r),D3_r)
+err_bei_k_r = np.sqrt(np.diag(cov_bei_k_r))
+
+a_r_k=ufloat(params_bei_k_r[0],err_bei_k_r[0])
+b_r_k=ufloat(params_bei_k_r[1],err_bei_k_r[1])
+E_r_k=m_bei*9.81/(48*a_r_k*I_r)
+print(f"a={a_r_k}")
+print(f"b={b_r_k}")
+print(f"E={E_r_k}")
+
+E_m_k=(E_l_k+E_r_k)/2
+print(f"E_m_k={E_m_k}")
+
+#fit beidseitig links alu
+params_bei_a_l, cov_bei_a_l=curve_fit(g,lamb2(x4_l_flip),D4_l_flip)
+err_bei_a_l = np.sqrt(np.diag(cov_bei_a_l))
+
+a_l_a=ufloat(params_bei_a_l[0],err_bei_a_l[0])
+b_l_a=ufloat(params_bei_a_l[1],err_bei_a_l[1])
+E_l_a=m_bei*9.81/(48*a_l_a*I_q)
+print(f"a={a_l_a}")
+print(f"b={b_l_a}")
+print(f"E={E_l_a}")
+
+#fit beidseitig rechts alu
+params_bei_a_r, cov_bei_a_r=curve_fit(g,lamb3(x4_r),D4_r)
+err_bei_a_r = np.sqrt(np.diag(cov_bei_a_r))
+
+a_r_a=ufloat(params_bei_a_r[0],err_bei_a_r[0])
+b_r_a=ufloat(params_bei_a_r[1],err_bei_a_r[1])
+E_r_a=m_bei*9.81/(48*a_r_a*I_q)
+print(f"a={a_r_a}")
+print(f"b={b_r_a}")
+print(f"E={E_r_a}")
+
+E_m_a=(E_l_a+E_r_a)/2
+print(f"E_m_a={E_m_a}")
+
+
+#Abweichungen
+E_k=(1.23*10**8-E_ein_k)/(1.23*10**8)*100
+print(f"E_abweichnung= {E_k}")
+E_a=(0.71*10**8-E_ein_a)/(0.71*10**8)*100
+print(f"E_abweichnung= {E_a}")
+E_k=(1.23*10**8-E_m_k)/(1.23*10**8)*100
+print(f"E_abweichnung= {E_k}")
+E_a=(0.71*10**8-E_m_a)/(0.71*10**8)*100
+print(f"E_abweichnung= {E_a}")
 
 
 #plots
+x1_t_ein=np.linspace(np.min(lamb1(x1)),np.max(lamb1(x1)))
+x2_t_ein=np.linspace(np.min(lamb1(x2)),np.max(lamb1(x2)))
+x3_t_bei_l=np.linspace(np.min(lamb2(x3_l_flip)),np.max(lamb2(x3_l_flip)))
+x3_t_bei_r=np.linspace(np.min(lamb3(x3_r)),np.max(lamb3(x3_r)))
+x4_t_bei_l=np.linspace(np.min(lamb2(x4_l_flip)),np.max(lamb2(x4_l_flip)))
+x4_t_bei_r=np.linspace(np.min(lamb3(x4_r)),np.max(lamb3(x4_r)))
 
-plt.plot(x1,D1,'rx',label='Messwerte')
+
+
+plt.plot(lamb1(x1),D1,'rx',label='Messwerte')
 plt.grid()
 
-plt.plot(x_t*10**2,D_ein_k(x_t,params_ein_k)*10**3,label='Ausgleichskurve')
-plt.plot(x_t*10**2,D_ein_k(x_t,123000000000)*10**3,'k--',label='Theorie')
-plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
+plt.plot(x1_t_ein,g(x1_t_ein,*params_ein_k),label='Ausgleichskurve')
+
+plt.xlabel(r'$\lambda \:/\: \si{\cubic\meter}$')
 plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
 plt.legend()
 plt.savefig('build/ein_k.pdf')
-
+#
 plt.clf()
 
 
 
-plt.plot(x2,D2,'rx',label='Messwerte')
+plt.plot(lamb1(x2),D2,'rx',label='Messwerte')
 plt.grid()
 
-plt.plot(x_t*10**2,D_ein_a(x_t,params_ein_a)*10**3,label='Ausgleichskurve')
-plt.plot(x_t*10**2,D_ein_a(x_t,73000000000)*10**3,'k--',label='Theorie')
-plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
+plt.plot(x2_t_ein,g(x2_t_ein,*params_ein_a),label='Ausgleichsgerade')
+
+plt.xlabel(r'$\lambda \:/\: \si{\cubic\meter}$')
 plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
 plt.legend()
 plt.savefig('build/ein_a.pdf')
 plt.clf()
 
 
-plt.plot(D3_xlr,D3_lr,'rx',label='Messwerte')
+plt.plot(lamb2(x3_l_flip),D3_l_flip,'rx',label='Messwerte')
 plt.grid()
 
-plt.plot(x_t_l*10**2,D_bei_k_l(x_t_l,params_bei_k_l)*10**3,label='Ausgleichskurve links')
-plt.plot(x_t_r*10**2,D_bei_k_r(x_t_r,params_bei_k_r)*10**3,label='Ausgleichskurve rechts')
-plt.plot(x_t_l*10**2,D_bei_k_l(x_t_l,123000000000)*10**3,'k--',label='Theorie')
-plt.plot(x_t_r*10**2,D_bei_k_r(x_t_r,123000000000)*10**3,'k--')
-plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
+plt.plot(x3_t_bei_l,g(x3_t_bei_l,*params_bei_k_l),label='Ausgleichsgerade links')
+
+plt.xlabel(r'$\lambda_l\:/\: \si{\cubic\meter}$')
 plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
 plt.legend()
-plt.savefig('build/bei_k.pdf')
+plt.savefig('build/bei_k_l.pdf')
 
 plt.clf()
 
 
-plt.plot(D4_xlr,D4_lr,'rx',label='Messwerte')
-plt.grid()
 
-plt.plot(x_t_l*10**2,D_bei_a_l(x_t_l,params_bei_a_l)*10**3,label='Ausgleichskurve links')
-plt.plot(x_t_r*10**2,D_bei_a_r(x_t_r,params_bei_a_r)*10**3,label='Ausgleichskurve rechts')
-plt.plot(x_t_l*10**2,D_bei_a_l(x_t_l,73000000000)*10**3,'k--',label='Theorie')
-plt.plot(x_t_r*10**2,D_bei_a_r(x_t_r,73000000000)*10**3,'k--')
-plt.xlabel(r'$x\:/\: \si{\centi\meter}$')
+plt.plot(lamb3(x3_r),D3_r,'rx',label='Messwerte')
+plt.grid()
+plt.plot(x3_t_bei_r,g(x3_t_bei_r,*params_bei_k_r),label='Ausgleichsgerade rechts')
+plt.xlabel(r'$\lambda_r \:/\: \si{\cubic\meter}$')
 plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
+
 plt.legend()
-plt.savefig('build/bei_a.pdf')
+plt.savefig('build/bei_k_r.pdf')
 
 plt.clf()
+
+
+
+plt.plot(lamb2(x4_l_flip),D4_l_flip,'rx',label='Messwerte')
+plt.grid()
+
+plt.plot(x4_t_bei_l,g(x4_t_bei_l,*params_bei_a_l),label='Ausgleichsgerade links')
+
+plt.xlabel(r'$\lambda_l \:/\: \si{\cubic\meter}$')
+plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
+plt.legend()
+plt.savefig('build/bei_a_l.pdf')
+
+plt.clf()
+
+
+
+plt.plot(lamb3(x4_r),D4_r,'rx',label='Messwerte')
+plt.grid()
+plt.plot(x4_t_bei_r,g(x4_t_bei_r,*params_bei_a_r),label='Ausgleichsgerade rechts')
+plt.xlabel(r'$\lambda_r \:/\: \si{\cubic\meter}$')
+plt.ylabel(r'$D \:/\: \si{\milli\meter}$')
+
+plt.legend()
+plt.savefig('build/bei_a_r.pdf')
+
+plt.clf()
+
+
+
+
+
+
+
+
 
