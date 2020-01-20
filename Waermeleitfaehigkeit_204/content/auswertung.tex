@@ -3,8 +3,8 @@
 
 
 \subsection{Statische Methode}
-In den folgenden Plots werden jeweils zwei Temperaturverläufe verglichen. Im Plot[] wird der breite und der schmale 
-Messingstab untersucht, in Plot[] werden Aluminium und Edelstahl auf ihre Temperaturen untersucht. Die Temperaturen werden hier jeweils
+In den folgenden Plots werden jeweils zwei Temperaturverläufe verglichen. Im Plot\ref{fig:t1t4} wird der breite und der schmale 
+Messingstab untersucht, in Plot\ref{fig:t5t8} werden Aluminium und Edelstahl auf ihre Temperaturen untersucht. Die Temperaturen werden hier jeweils
 an den vom Thermoelement weiter entfernten Thermometern gemessen.
 
 \begin{figure}
@@ -34,7 +34,7 @@ T_8(t=385) =& 33.94 \si{\celsius}
 %geschlossen werden, dass Aluminium die höchste Wärmeleitfähigkeit hat.
 
 Zur Berechnung des Wärmestroms wird die Querschnittsfläche $A$ der einzelnen Stäbe aus der Versuchsanleitung entnommen.
-Die Wärmeleitfähigkeiten $\kappa$ sind aus der Literatur[] übernommen und die Entfernung $\Delta x$ der jeweiligen $T$ 
+Die Wärmeleitfähigkeiten $\kappa$ sind aus der Literatur\cite{V204} übernommen und die Entfernung $\Delta x$ der jeweiligen $T$ 
 werden abgemessen.
 
 \begin{align*}
@@ -76,31 +76,11 @@ Temperaturunterschied ist hier für Messing und Edelstahl gezeigt.
 
 \subsection{Dynamische Methode}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{data/T1T2.pdf}
-    \caption{Temperaturunterschied innerhalb des Messingstabes}
-    \label{fig:t1t2}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{data/T5T6.pdf}
-    \caption{Temperaturunterschied innerhalb des Aluminiumstabes}
-    \label{fig:t5t6}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{data/T7T8.pdf}
-    \caption{Temperaturunterschied innerhalb des Edelstahlstabes}
-    \label{fig:t7t8}
-\end{figure}
-
 Im Folgenden wird anhand der Temperaturamplituden $A_i$ und der Phasendifferenzen $\Delta t$ die Wärmeleitfähigkeit $\kappa$
-der verschiedenen Metalle berechnet. Für Messing und Aluminium wird dafür die Messung [], und für Edelstahl die Messung [] verwendet.
-Die Amplituden, sowie die Phasendifferenzen können aus den Messwerten abgelesen werden. Damit kann nach Gleichung[] jeweils $\kappa$ 
-berechnet werden.
+der verschiedenen Metalle berechnet. Für Messing und Aluminium wird dafür die Messung mit 80$\si{\s}$ Periodendauer 
+und für Edelstahl die Messung mit 200$\si{\s}$ Periodendauer verwendet.
+Die Amplituden, sowie die Phasendifferenzen können aus den Messwerten abgelesen werden. Damit kann nach Gleichung\ref{eqn:kappa}
+jeweils $\kappa$ berechnet werden.
 
 \begin{table}
     \centering
@@ -117,6 +97,24 @@ berechnet werden.
     \end{tabular}
 \end{table}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{data/T1T2.pdf}
+    \caption{Temperaturunterschied innerhalb des Messingstabes}
+    \label{fig:t1t2}
+\end{figure}
+
+Die Konstanten für Messing sind:
+\begin{align*}
+    \rho& = 8520\:\si{\kilo\gram\per\meter\cubed} \\
+    c& = 385\:\si{\joule\per\kilo\gram\kelvin}
+\end{align*}
+
+Daraus ergibt sich mit der Gleichung\ref{eqn:kappa} für die Wärmeleitfähigkeit:
+\begin{equation*}
+    \kappa_{\text{Messing}} = \SI{95(7)}{\watt\per\meter\kelvin}
+\end{equation*}   
+
 \begin{table}
     \centering
     \caption{Amplituden und Phasendifferenz der Temperaturverläufe von Aluminium}
@@ -131,6 +129,24 @@ berechnet werden.
         \bottomrule
     \end{tabular}
 \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{data/T5T6.pdf}
+    \caption{Temperaturunterschied innerhalb des Aluminiumstabes}
+    \label{fig:t5t6}
+\end{figure}
+
+Die Konstanten für Aluminium sind:
+\begin{align*}
+    \rho& = 2800\:\si{\kilo\gram\per\meter\cubed} \\
+    c& = 850\:\si{\joule\per\kilo\gram\kelvin}
+\end{align*}
+
+Daraus ergibt sich für die Wärmeleitfähigkeit:
+\begin{equation*}
+    \kappa_{\text{Aluminium}} = \SI{202(11)}{\watt\per\meter\kelvin}
+\end{equation*}
 
 \begin{table}
     \centering
@@ -147,6 +163,24 @@ berechnet werden.
         \bottomrule
     \end{tabular}
 \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{data/T7T8.pdf}
+    \caption{Temperaturunterschied innerhalb des Edelstahlstabes}
+    \label{fig:t7t8}
+\end{figure}
+
+Die konstanten für Edelstahl sind:
+\begin{align*}
+    \rho& = 8000\:\si{\kilo\gram\per\meter\cubed} \\
+    c& = 400\:\si{\joule\per\kilo\gram\kelvin}
+\end{align*}
+
+Daraus ergibt sich für die Wärmeleitfähigkeit:
+\begin{equation*}
+    \kappa = \SI{13.6(11)}{\watt\per\meter\kelvin}
+\end{equation*}
 
 
 
