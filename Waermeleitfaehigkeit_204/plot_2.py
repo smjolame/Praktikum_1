@@ -13,7 +13,7 @@ plt.grid()
 plt.xlabel(r'$t\:/\:\si{\s}$')
 plt.ylabel(r'$T\:/\:\si{\celsius}$')
 plt.legend()
-plt.savefig('data/T5T8.pdf')
+plt.savefig('build/T5T8.pdf')
 
 
 

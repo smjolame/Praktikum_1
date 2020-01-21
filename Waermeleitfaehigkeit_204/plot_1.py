@@ -14,7 +14,7 @@ plt.grid()
 plt.xlabel(r'$t\:/\:\si{\second}$')
 plt.ylabel(r'$T\:/\:\si{\celsius}$')
 plt.legend()
-plt.savefig('data/T1T4.pdf')
+plt.savefig('build/T1T4.pdf')
 
 
 
