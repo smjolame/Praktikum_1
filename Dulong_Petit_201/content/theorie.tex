@@ -1,8 +1,82 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-%In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
 
-%(eventuell die Aufgaben)
+Die Molwärme $C$ beschreibt diejenige Wärmemenge $\symup dQ$, die benötigt wird, um ein Mol eines bestimmten Elements um 
+$\symup dT$ zu erwärmen. Dabei ist zu unterscheiden, ob der Wärmeaustausch bei konstantem Volumen $C_V$ oder konstantem Druck $C_p$
+passiert. Für ein konstantes Volumen gilt:
+\begin{equation}
+    C_V = \frac{\symup dQ}{\symup dT} 
+\end{equation}
 
-%Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
+Im durchzuführenden Versuch ist es nicht möglich, ein konstantes Volumen beizubehalten. Die Beziehung zur Molwärme $C_p$ besteht wie 
+folgt:
+\begin{equation}
+    C_p = C_V + 9 \alpha^2 \kappa V_0 T
+\end{equation}
+Dabei ist $\alpha$ der lineare Ausdehnungskoeffizient, $\kappa$ der Kompressionsmodul und $V_0$ das Molvolumen.
+
+Die Molwärme kann auch über die spezifische Wärmekapazität $c_k$ und die molare Masse $M$ beschrieben werden. Es gilt 
+\begin{equation}
+    C_p = c_k M
+\end{equation},
+wobei $c_k$ der Proportionalitätsfaktor für die Temperaturänderung $\Delta T$ bei einer zugeführten Wärmemenge $\Delta Q$ ist.
+Dieser Zusammenhang wird durch 
+\begin{equation}
+    \Delta Q = m c_k \Delta T
+\end{equation}
+beschrieben.
+
+Das Dulong-Petit'sche Gesetz sagt aus, dass die Atomwärme, unabhängig von den Eigenschaften des Elements, immer den
+konsanten Wert $3\cdot R$ hat, wobei $R$ die allgemeine Gaskonsante ist. 
+
+Der gemittelte Wert für die Gesamtenergie eines Atoms beträgt 
+\begin{equation}
+    \langle E \rangle = \langle E_\text{kin} \rangle + \langle E_\text{pot} \rangle = 2\cdot \langle E_\text{kin} \rangle
+\end{equation}
+
+Die kinetische Energie eines Atoms kann dabei durch 
+\begin{equation}
+    \langle E_\text{kin} \rangle = \frac{1}2 k T
+\end{equation}
+beschrieben werden, wobei $k$ die Boltzmannkonstante ist.
+
+Damit gilt für ein Mol mit $N_L$ Atomen 
+\begin{equation}
+    \langle E \rangle = N_L k T = R T 
+\end{equation}
+
+Ein Atom eines Festkörpers hat drei Freiheitsgrade, wodurch sich für dessen mittlere Gesamtenergie 
+\begin{equation}
+    \langle E \rangle = 3 R T 
+\end{equation},
+und analog dazu 
+\begin{equation}
+    C_V = 3 R
+\end{equation}
+ergibt.
+Wird ein Probekörper der Tempertatur $T_k$ in ein Dewargefäß mit Wasser niedrigerer Tempertatur $T_w$ gelegt, gibt er 
+dabei die Wärmemenge 
+\begin{equation}
+    Q_1 = c_k m_k (T_k - T_m)
+\end{equation}
+ab, während das Wasser die Wärmemenge 
+\begin{equation}
+    Q_2 = c_w m_w + c_g m_g (T_m - T_w)
+\end{equation}
+aufnimmt.
+Dabei ist $c_g m_g$ die Wärmekapazität des Dewargefäßes.
+
+Für die spezifische Wärmekapazität des Probekörpers $c_k$ gilt damit 
+\begin{equation}
+    c_k = \frac{c_w m_w + c_g m_g (T_m - T_w)}{m_k (T_k - T_m)}
+\end{equation}
+
+Bei unbekannter Wärmekapazität des Dewargefäßes lässt sich diese durch die Mischung zweier Wassermengen der Masse $m_1$ und $m_2$
+der Tempertaturen $T_1$ und $T_2$ bestimmen. Die Mischtemperatur dieser beiden Tempertaturen ist als $T_m'$ angegeben.
+Analog zur vorherigen Berechnung gilt dann
+\begin{equation}
+    c_g m_g = \frac{c_w m_2 (T_2 - T_m') - c_w m_1 (T_m' - T_1)}{T_m' - T_1} 
+\end{equation}
+
+
