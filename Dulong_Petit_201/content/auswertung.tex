@@ -15,12 +15,14 @@ Damit im folgenden die einzelnen spezifischen Wärmekapazitäten der verschieden
 \end{align*}
 die Wärmekapazität zu $c_gm_g=\SI{334.23}{\joule\per\g\per\kelvin}$ bestimmt.
 
-\subsection{Bestimmung der Molwärme verschiedener Stoffe}
+\subsection{Bestimmung der spezifische Wärmekapazität verschiedener Stoffe}
  
-Zum Bestimmen der Molwärme $C_V$ wird vorerst die Molwärme $C_p$ berechnet. Mit Kenntnis von $C_p$ kann dann über Gleichung \eqref{eqn:C_V} die Molwärme $C_V$ bestimmt werden. Die Materialeigenschaften der jeweiligen Stoffe können in der Versuchsanleitung \cite{V201} eingesehen werden. 
+Zum Bestimmen der Molwärme $C_V$ wird vorerst die spezifische Wärmekapazität $c_k$ berechnet. Mit Kenntnis von $c_k$ kann dann über Gleichung \eqref{eqn:C_V} die Molwärme $C_V$ bestimmt werden. Die Materialeigenschaften der jeweiligen Stoffe können in der Versuchsanleitung \cite{V201} eingesehen werden.
+
+
 Die spezifische Wärmekapazität der Stoffe wird im folgenden bestimmt.
 
-\subsection{Kupfer}
+\subsubsection{Kupfer}
 
 \begin{table}
     \centering
@@ -43,8 +45,13 @@ Die spezifische Wärmekapazität der Stoffe wird im folgenden bestimmt.
 \text{Messung 2:}c_k = & \SI{0.480}{\joule\per\g\per\kelvin}
 \text{Messung 3:}c_k = & \SI{0.373}{\joule\per\g\per\kelvin}
 \end{align*}
+Über die Gleichungen [REF] und [REF] kann der Mittelwert samt Fehler berechnet werden.
+Daraus ergibt sich eine spezifische Wärmekapazität für Kupfer von $c_k=\SI{0.415(033)
+}{\joule\per\g\per\kelvin}$.
 
+\subsubsection{Graphit}
 
+Da für Graphit nur die Daten einer Messung vorliegen, kann die spezifische Wärmekapazität direkt über Gleichung \eqref{eqn:c_k} bestimmt werden. Die Daten der Messung sind in Tabelle \ref{tab:g} aufgeführt. Damit ergibt sich ein Wert von $c_k=\SI{0.509}{\joule\per\g\per\kelvin}$.
 
 \begin{table}
     \centering
@@ -60,6 +67,9 @@ Die spezifische Wärmekapazität der Stoffe wird im folgenden bestimmt.
     \end{tabular}
 \end{table}
 
+\subsubsection{Zinn}
+
+Das Verfahren zur Bestimmung der spezifischen Wärmekapazität läuft analog zu den anderen Stoffen ab. Die benötigten Messdaten sind in Tabelle \ref{tab:z} dargestellt.
 \begin{table}
     \centering
     \caption{Messdaten Zinn.}
@@ -74,6 +84,46 @@ Die spezifische Wärmekapazität der Stoffe wird im folgenden bestimmt.
         \bottomrule 
     \end{tabular}
 \end{table}
+
+Es ergeben sich durch die drei Messdaten die Wärmekapazitäten:
+\begin{align*}
+\text{Messung 1:}c_k = & \SI{0.094}{\joule\per\g\per\kelvin}    
+\text{Messung 2:}c_k = & \SI{0.098}{\joule\per\g\per\kelvin}
+\text{Messung 3:}c_k = & \SI{0.080}{\joule\per\g\per\kelvin}
+\end{align*}
+
+Im Mittel ergibt sich eine spezifische Wärmekapazität für Zinn von $c_k=\SI{0.091(005)}{\joule\per\g\per\kelvin}$
+
+\subsection{Bestimmung der Molwärme}
+Nach Berechnung aller ,für die Bestimmen der Molwärme, notwendiger Werte kann nun über die Gleichung \eqref{eqn:C_V} die Molwärme der einzelnen Stoffe betimmt werden. 
+
+
+
+
+\begin{table}
+    \centering
+    \caption{Molwärme verschiedener Stoffe.}
+    \label{tab:m}
+    \begin{tabular}{c| S S S }
+        \toprule
+        &\multicolumn{3}{S}{$C_V \:/\: \si{\joule\per\kelvin\per\mol}$} \\
+        & {Kupfer} & {Zinn} & {Graphit} \\
+        \midrule
+        Messung 1 & 24.8 & 11.1 & 6.1 \\
+        Messung 2 & 30.5 & 11.5  &  \\
+        Messung 3 & 23.7 & 9.4 & \\
+        \bottomrule 
+    \end{tabular}
+\end{table}
+
+Mit den bekannten Gleichungen zum Bestimmen des Mittelwertes und des Fehlers ergeben sich die Molwärmen der Stoffe zu:
+\begin{align*}
+\text{Kupfer: } C_V=&\SI{26.3(21)}{\joule\per\kelvin\per\mol}  \\
+\text{Graphit:} C_V=&\SI{6.1}{\joule\per\kelvin\per\mol}  \\
+\text{Zinn: }   C_V=&\SI{10.6(6)}{\joule\per\kelvin\per\mol}
+\end{align*}
+
+
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:
