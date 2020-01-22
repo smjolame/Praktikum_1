@@ -1,0 +1,4 @@
+#gewicht wasser #nacher #gewicht wasser derivat # nacher# temp material# temp deivat# temp nacher
+581.45 , 243.99 , 789.52 , 243.93 , 81.3 , 21.7 , 22.2
+773.26 , 416.72 , 819.83 , 243.98 , 82.0 , 21.3 , 21.8
+605.45 , 244.00 , 822.97 , 244.19 , 80.8 , 21.2 , 21.6

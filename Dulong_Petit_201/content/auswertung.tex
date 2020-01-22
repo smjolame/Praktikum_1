@@ -1,10 +1,83 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+
+\subsection{Bestimmung der Wärmekapazität des Dewargefäßes}
+
+Damit im folgenden die einzelnen spezifischen Wärmekapazitäten der verschiedenen Stoffe bestimmt werden können, muss zuerst die Wärmekapazität des Kalorimeters ermittelt werden. Dazu wird über die Gleichung \eqref{eqn:c_g} und den Werten
+\begin{align*}
+    c_w= & \SI{4.18}{\joule\per\g\per\kelvin} \\
+    m_1= & \SI{276.60}{\g}         \\
+    m_2= & \SI{276.05}{\g}         \\
+    T_1= & \SI{20.7}{\celsius}    \\
+    T_2= & \SI{73.3}{\celsius}    \\
+    T_m= & \SI{44.9}{\celsius}  
+\end{align*}
+die Wärmekapazität zu $c_gm_g=\SI{334.23}{\joule\per\g\per\kelvin}$ bestimmt.
+
+\subsection{Bestimmung der Molwärme verschiedener Stoffe}
+ 
+Zum Bestimmen der Molwärme $C_V$ wird vorerst die Molwärme $C_p$ berechnet. Mit Kenntnis von $C_p$ kann dann über Gleichung \eqref{eqn:C_V} die Molwärme $C_V$ bestimmt werden. Die Materialeigenschaften der jeweiligen Stoffe können in der Versuchsanleitung \cite{V201} eingesehen werden. 
+Die spezifische Wärmekapazität der Stoffe wird im folgenden bestimmt.
+
+\subsection{Kupfer}
+
+\begin{table}
+    \centering
+    \caption{Messdaten Kupfer.}
+    \label{tab:k}
+    \begin{tabular}{c| S S S S }
+        \toprule
+        & $m_\text{D} \:/\: \si{\g}$ & $T_\text{Cu} \:/\: \si{\celsius}$ & $T_\text{D} \:/\: \si{\celsius}$ &  $T_\text{M}\:/\: \si{\celsius}$  \\
+        \midrule
+        Messung 1 & 592.95 & 87.2 & 21.7 & 23.8 \\
+        Messung 2 & 576.26 & 81.6 & 21.6 & 24.0 \\
+        Messung 3 & 568.06 & 84.3 & 21.3 & 23.3 \\
+        \bottomrule 
+    \end{tabular}
+\end{table}
+
+Über die Gleichung \eqref{eqn:c_k} kann mit Hilfe der Werte der Tabelle \ref{tab:k} die spezifische Wärmekapazität von Kupfer berechnet werden. Diese ergeben sich in den drei Messungen zu:
+\begin{align*}
+\text{Messung 1:}c_k = & \SI{0.391}{\joule\per\g\per\kelvin}    
+\text{Messung 2:}c_k = & \SI{0.480}{\joule\per\g\per\kelvin}
+\text{Messung 3:}c_k = & \SI{0.373}{\joule\per\g\per\kelvin}
+\end{align*}
+
+
+
+\begin{table}
+    \centering
+    \caption{Messdaten Graphit.}
+    \label{tab:g}
+    \begin{tabular}{S S S S }
+        \toprule
+         $m_\text{D} \:/\: \si{\g}$ & $T_\text{Gr} \:/\: \si{\celsius}$ & $T_\text{D} \:/\: \si{\celsius}$ &  $T_\text{M}\:/\: \si{\celsius}$  \\
+        \midrule
+         531.39 & 82.2 & 21.7 & 22.2 \\
+
+        \bottomrule 
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Messdaten Zinn.}
+    \label{tab:z}
+    \begin{tabular}{c| S S S S }
+        \toprule
+        & $m_\text{D} \:/\: \si{\g}$ & $T_\text{Sn} \:/\: \si{\celsius}$ & $T_\text{D} \:/\: \si{\celsius}$ &  $T_\text{M}\:/\: \si{\celsius}$  \\
+        \midrule
+        Messung 1 & 545.59 & 81.2 & 21.7 & 22.2 \\
+        Messung 2 & 575.85 & 82.0 & 21.3 & 21.8 \\
+        Messung 3 & 578.78 & 80.8 & 21.2 & 21.6 \\
+        \bottomrule 
+    \end{tabular}
+\end{table}
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:
 %Berechnung der geforderten Endergebnisse
-%mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
+%mit allen Zwischenrechnungen und Fehlerformeln& sodass die Rechnung nachvollziehbar ist.
 %Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 %Graphische Darstellung der Ergebnisse

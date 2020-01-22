@@ -12,20 +12,27 @@ passiert. Für ein konstantes Volumen gilt:
 Im durchzuführenden Versuch ist es nicht möglich, ein konstantes Volumen beizubehalten. Die Beziehung zur Molwärme $C_p$ besteht wie 
 folgt:
 \begin{equation}
-    C_p = C_V + 9 \alpha^2 \kappa V_0 T
+    C_V = C_p - 9 \alpha^2 \kappa V_0 T_m 
 \end{equation}
+
 Dabei ist $\alpha$ der lineare Ausdehnungskoeffizient, $\kappa$ der Kompressionsmodul und $V_0$ das Molvolumen.
 
 Die Molwärme kann auch über die spezifische Wärmekapazität $c_k$ und die molare Masse $M$ beschrieben werden. Es gilt 
 \begin{equation}
     C_p = c_k M
 \end{equation},
-wobei $c_k$ der Proportionalitätsfaktor für die Temperaturänderung $\Delta T$ bei einer zugeführten Wärmemenge $\Delta Q$ ist.
+wobei $c_k$ der Proportionalitätsfaktor für die Temperaturänderung $\Delta T$ bei einer zugeführten Wärmemenge $\Delta Q$ ist. 
 Dieser Zusammenhang wird durch 
 \begin{equation}
     \Delta Q = m c_k \Delta T
 \end{equation}
 beschrieben.
+Alle Werte eingesetz ergeben die Gleichung:
+\begin{equation}
+   C_V = c_k M - 9 \alpha^2 \kappa \frac{M}{\rho} T_m 
+   \label{eqn:C_V}
+\end{equation}
+
 
 Das Dulong-Petit'sche Gesetz sagt aus, dass die Atomwärme, unabhängig von den Eigenschaften des Elements, immer den
 konsanten Wert $3\cdot R$ hat, wobei $R$ die allgemeine Gaskonsante ist. 
@@ -70,6 +77,7 @@ Dabei ist $c_g m_g$ die Wärmekapazität des Dewargefäßes.
 Für die spezifische Wärmekapazität des Probekörpers $c_k$ gilt damit 
 \begin{equation}
     c_k = \frac{c_w m_w + c_g m_g (T_m - T_w)}{m_k (T_k - T_m)}
+    \label{eqn:c_k}
 \end{equation}
 
 Bei unbekannter Wärmekapazität des Dewargefäßes lässt sich diese durch die Mischung zweier Wassermengen der Masse $m_1$ und $m_2$
@@ -77,6 +85,7 @@ der Tempertaturen $T_1$ und $T_2$ bestimmen. Die Mischtemperatur dieser beiden T
 Analog zur vorherigen Berechnung gilt dann
 \begin{equation}
     c_g m_g = \frac{c_w m_2 (T_2 - T_m') - c_w m_1 (T_m' - T_1)}{T_m' - T_1} 
+    \label{eqn:c_g}
 \end{equation}
 
 
