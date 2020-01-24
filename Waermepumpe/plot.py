@@ -1,21 +1,110 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from uncertainties import ufloat
+from scipy import stats
+from scipy.optimize import curve_fit
+import uncertainties.unumpy as unp
 
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
 
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
+t , T_1 , T_2 , p_a , p_b , P = np.genfromtxt('data/daten.txt',delimiter=',', unpack =True)
+p_a=(p_a+1)*10**5 #Atmosphärendruck pascal aufaddiert
+p_b=(p_b+1)*10**5
+t=t*60  #Zeit in Sekunden
+T_1=T_1+273.15 #Temp in Kelvin
+T_2=T_2+273.15
+N=ufloat(np.mean(P),stats.sem(P)) #watt
+cm_w=4.18*9.97*300  #wärmekapazität wasser J/K
+R=8.314462618  # allgm Gaskonstante  J/(mol*K)
+rho_0=5510 #g/m^3
+kappa=1.14
+p_0=100000
 
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
+#funktionen
+def a(t,A,B,C):
+    return A*t**2+B*t+C
+def da(t,A,B):
+    return 2*A*t+B
+def dm(dT,L):
+    return (cm_w+750)*dT/L
 
-# in matplotlibrc leider (noch) nicht möglich
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/plot.pdf')
+
+#Fit temp
+##########################################
+params_T1 ,  cov_T1 =curve_fit(a,t,T_1)
+params_T2 ,  cov_T2 =curve_fit(a,t,T_2)
+
+A1=ufloat(params_T1[0],np.sqrt(np.absolute(cov_T1[0,0])))
+B1=ufloat(params_T1[1],np.sqrt(np.absolute(cov_T1[1,1])))
+C1=ufloat(params_T1[2],np.sqrt(np.absolute(cov_T1[2,2])))
+
+A2=ufloat(params_T2[0],np.sqrt(np.absolute(cov_T2[0,0])))
+B2=ufloat(params_T2[1],np.sqrt(np.absolute(cov_T2[1,1])))
+C2=ufloat(params_T2[2],np.sqrt(np.absolute(cov_T2[2,2])))
+
+
+t_lin=np.linspace(np.min(t),np.max(t))
+
+#Plots
+############################################
+plt.plot(t,T_1,'rx',label='Temp. T1')
+plt.plot(t,T_2,'bx',label='Temp. T2')
+plt.plot(t_lin,a(t_lin,*params_T1),'r-',label='Ausgleich T1')
+plt.plot(t_lin,a(t_lin,*params_T2),'b-',label='Ausgleich T2')
+
+plt.grid()
+plt.legend()
+plt.savefig('build/temp.pdf')
+
+plt.clf()
+#differenzialkoeffizient
+##########################################
+#minute 4(t[5]), 9(t[10]), 14(t[15]), 18(t[19])
+
+dt=np.array([5,10,15,19])
+
+#Ableitung an den Stellen bei T1:
+da1 = da(t[dt],A1,B1)
+
+#Ableitung an den Stellen bei T2:
+da2 = da(t[dt],A2,B2)
+
+
+#güteziffer
+###############################################
+#ideal
+v_id=T_1[dt]/(T_1[dt]-T_2[dt])
+
+#real
+v_re=(cm_w+750)*da1/N 
+
+
+
+#massendurchsatz
+######################################
+T_lin=np.linspace(np.min(1/T_1),np.max(1/T_1))
+
+def l(x,a,b):
+    return (a*x+b)
+
+params_L, cov_L=curve_fit(l,1/T_1,np.log(p_b/p_0))
+
+plt.plot(1/T_1,np.log(p_b/p_0),'rx')
+plt.plot(T_lin,l(T_lin,*params_L),'r-')
+
+plt.grid()
+plt.savefig('build/L.pdf')
+
+
+
+L=ufloat(-params_L[0]*R,np.sqrt(np.absolute(cov_L[0,0]))) #J/mol
+
+dm=dm(da2,L) #mol/s
+dm=dm*0.121 #mit kg/mol multipliziert  #kg/s
+
+rho=rho_0*273.15*p_a[dt]/(T_2[dt]*p_0)
+N_mech=1/(kappa-1)*(p_b[dt]*(p_a[dt]/p_b[dt])**(1/kappa)-p_a[dt])/rho*dm
+
+print(N_mech)
+
+
+
