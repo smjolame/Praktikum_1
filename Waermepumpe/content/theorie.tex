@@ -1,8 +1,79 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-%In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
+Beim Kontakt zwischen zwei Wärmereservoiren unterschiedlicher Temperatur wird nach dem zweiten Hauptsatz der Thermodynamik
+im Normalfall immer Wärme vom wärmeren zum kälteren Reservoir übertragen. Ziel der Wärmepumpe ist es, den Wärmeaustausch umzukehren,
+sodass Wärme vom kälteren Reservoir in das Wärmere übertragen wird. Dazu muss allerding zusätzliche Energie in Form von mechanischer
+Arbeit aufgewendet werden.
 
-%(eventuell die Aufgaben)
+Dabei gibt die Güteziffer $\nu$ Aufschluss über die Effizienz des Wärmetransports, indem die pro Arbeit $A$ abgegebene 
+Wärmemenge $Q_1$ beschrieben wird:
+\begin{equation}
+    \nu = \frac{Q_1}A 
+\end{equation}
+mit
+\begin{equation}
+    Q_1 = Q_2 + A 
+\end{equation}
 
-%Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
+Dabei ist $Q_2$ die vom kälteren Reservoir entnommene Wärmemenge.
+
+Für den Idealfall, dass die Wärmeübertragung komplett reversibel ist, gilt außerdem 
+\begin{equation}
+    \frac{Q_1}{T_1} - \frac{Q_2}{T_2} = 0,
+\end{equation}
+was in der Realität nicht der Fall ist. Dieser Wert ist damit immer größer als null, wodurch auch die Beziehung
+\begin{equation}
+    \nu_{\text{id}} = \frac{T_1}{T_1 - T_2}
+\end{equation}
+zu 
+\begin{equation}
+    \nu_{\text{real}} < \frac{T_1}{T_1 - T_2}
+\end{equation}
+wird.
+
+Die genaue Berechnung der realen Güteziffer berechnet sich über die Gleichung 
+\begin{equation}
+    \nu_\text{real} = \frac{\text{d}Q_1}{\text{d}tN} = (m_1c_w + m_kc_k)\frac{\text{d}T_1}{\text{d}t}\cdot\frac{1}N,
+    \label{eqn:nureal}
+\end{equation}
+wobei $N$ die gemittelte Leistungsaufnahme des Kompressors ist. $m_1c_w$ ist die Wärmekapazität des Wassers in Reservoir 1 und 
+$m_kc_k$ ist die Wärmekapazität der Kupferschlange und des Wasserbehälters. Die genannten Komponenten sind in der folgenden Grafik
+zu sehen. []
+
+Analog zu Gleichung\ref{eqn:nureal} lässt sich auch die pro Zeit abgegebene Wärmemenge durch 
+\begin{equation}
+    \frac{\text{d}Q_2}{\text{d}t} = (m_2c_w + m_kc_k)\frac{\text{d}T_2}{\text{d}t} 
+\end{equation}
+beschreiben. Umgeformt wird dies zu 
+\begin{equation}
+    \frac{\text{d}Q_2}{\text{d}t} = L\frac{\text{d}m}{\text{d}t},
+\end{equation}
+wodurch sich mit bekannter Verdampfungswärme $L$ der Massendurchsatz $\frac{\text{d}m}{\text{d}t}$ berechnen lässt.
+
+Verringert ein Kompressor das Gasvolumenn $V_a$ auf $V_b$, so gilt für die dafür verrichtete Arbeit
+\begin{equation}
+    A_m = - \int_{V_a}^{V_b} p\text{d}V
+\end{equation}
+
+Der Zusammenhang zwischen Druck und Volumen lässt sich dabei durch die Poisson-Gleichung 
+\begin{equation}
+    p_aV_a^\kappa = p_bV_b^\kappa = pV^\kappa
+\end{equation}
+beschreiben. Damit gilt für die Kompressorleistung
+\begin{equation}
+    N_{\text{mech}} = \frac{\text{d}A_m}{\text{d}t} = \frac{1}{\kappa -1} \biggl(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a \biggr)\frac{\text{d}V_a}{\text{d}t}
+    = \frac{1}{\kappa -1} \biggl(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a \biggr)\frac{1}{\rho}\frac{\text{d}m}{\text{d}t},
+\end{equation}
+mit dem Druck $p_a$ und $p_b$ und der Gasdichte $\rho$.
+
+Der Aufbau und die Funktionsweise der Komponenten der Wärmepumpe werden im Folgenden erläutert.
+
+Das Transportgas wird, nachdem es durch $D$ in das Reservoir 2 gelangt, gasförmig, was über den Druck $p_a$ realisiert wird.
+Dabei nimmt das Gas Wärme auf, die dem Wasser aus Reservoir 2 entzogen wird. Das Gas gelangt dann über den Kompressor $K$ in das 
+Reservoir 1, in dem es sich durch den höheren Druck wieder verflüssigt und damit Wärme an das Wasser abgibt. Das Gas verdampft 
+wieder, sobald es durch $D$ in Reservoir 2 gelangt und der Vorang wiederholt sich. So wird kontinuierlich Wärme von Reservoir 2
+and Reservoir 1 übertragen.
+
+
+
