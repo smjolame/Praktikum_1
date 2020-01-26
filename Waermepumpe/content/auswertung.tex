@@ -8,3 +8,279 @@
 %mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
 %Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
 %Graphische Darstellung der Ergebnisse
+Alle gemessenen Daten sind im Anhang des Protokolls einzusehen. Es ist zu Beachten, dass im folgenden, auf die gemessenen Drücke, der Atmosphärendruck von $p_0=\SI{1}{\bar}$ aufaddiert wird, die Temperaturen in Kelvin,die Zeiten in Sekunden und die Drücke in Pascal umgerechnet sind.
+
+\subsection{Gemessene Temperaturverläufe}
+\label{ssec:a}
+
+In der Abbildung \ref{fig:temp} sind die gemessenen Temperaturen der einzelnen Reservoire dargestellt.
+Die Bestimmung der einzelnen Ausgleichskurven wird im nächten Abschnitt behandelt.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/temp.pdf}
+    \caption{Messwerte der Temperaturen $T_1$ und $T_2$}
+    \label{fig:temp}
+\end{figure}
+
+\subsection{Approximation der Temperaturverläufe}
+\label{ssec:b} 
+
+Zur Approximation der gemessenen Temperaturen wird die Gleichung
+
+\begin{equation}
+    T(t) = A \cdot t^2 + B \cdot t + C
+    \label{eq:curvefit}
+\end{equation}
+als Näherungslösung für eine Ausgleichskurve verwendet. Diese Ausgleichskurven werden dann in den folgenden Abschnitten zur Bestimmung der Änderungsrate der Temperaturen verwendet.
+Mithilfe von SciPy \cite{scipy} und Curve Fit Funktionen können diese Ausgleichskurven auf Basis der Messwerte berechnet und erstellt werden. 
+Die jeweiligen Unsicherheiten der Kurvenparameter ergeben sich aus der Gleichung:
+
+\begin{equation}
+    \Delta f = \sqrt{\sum_{i=1}^N \left(\frac{\partial{f}}{\partial{y_\text{i}}} \cdot \Delta y_\text{i} \right)^2}
+    \label{eq:gauß}
+\end{equation}
+
+So ergeben sich die einzelnen Fitparameter zu:
+\begin{align*}
+    A_1=&\num{-2.9(1)e-06}  \\
+    B_1=&\num{0.0286(0012)}  \\
+    C_1=&\num{293.60(32)}
+\end{align*}
+
+\begin{align*}
+    A_2=&\num{8.1(19)e-06}  \\  
+    B_2=&\num{-0.0307(0024)}  \\
+    C_2=&\num{297.3(6)}
+\end{align*}
+
+
+
+
+\subsection{Bestimmung der Differenzialquotienten der Temperaturen}
+\label{ssec:c}
+Es werden nun die Differenzialquotienten der Temperaturen bestimmt.
+Dazu wird die Gleichung \eqref{eq:curvefit}, welche zur Approximation der Temperaturverläufe verwendet wird, differenziert. Es wird also die zeitliche Ableitung
+
+\begin{equation}
+    \dv{T}{t} = 2 \cdot A_1 \cdot t + B_1
+    \label{eq:diffT}
+\end{equation}
+
+gebildet. Über diese Zeitableitungen können die Änderungsraten zu vier bestimmten Zeitpunkten berechnet werden. Die Rechnung zum Bestimmen der Unsicherheiten erfolgt wieder über die Gleichung \eqref{eq:gauß}.
+Die Ergebnisse sind in Tabelle \ref{tab:T1_err} aufgeführt.
+
+
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0]  S[table-format=1.4] S[table-format=1.4] S[table-format=1.4]}
+        \toprule
+        {$t \:/\: \si{\second} $}& {$T_1 \:/\: \si{\kelvin} $}&{ $\dv{T_1}{t} \:/\: \si{\kelvin \per \second} $}&{ $\Delta \dv{T_1}{t} \:/\: \si{\kelvin \per \second} $}\\
+        \midrule
+      300  & 301.35 &  0.0269 &  0.0014\\
+      600  & 309.95 &  0.0252 &  0.0017\\
+      900  & 317.35 &  0.0234 &  0.0022\\
+      1140 & 322.15 &  0.0220 &  0.0026\\
+   
+        \bottomrule
+    \end{tabular}
+    \caption{Differenzialquotienten von $T_1$ zu vier verschiedenen Zeiten}
+    \label{tab:T1_err}
+\end{table}
+
+Analog werden die Differenzialquotienten für $T_2$ bestimmt. Diese sind in Tabelle \ref{tab:T2_err} aufgeführt.
+
+\begin{table}
+    \centering
+    \begin{tabular}{S[table-format=3.0]  S[table-format=1.4] S[table-format=1.4] S[table-format=1.4]}
+        \toprule 
+        {$t \:/\: \si{\second}$} &{$T_2 \si{\kelvin}$} & {$\dv{T_2}{t} \:/\: \si{\kelvin \per \second}$} & {$\Delta \dv{T_2}{t} \:/\: \si{\kelvin \per \second} $} \\
+        \midrule
+
+        300  &  290.05    &  -0.0258  &  0.0026 \\
+        600  &  281.45    &  -0.0209  &  0.0033 \\
+        900  &  275.55    &  -0.0161  &  0.0041 \\
+        1140 &  273.45    &  -0.0122  &  0.0049 \\
+
+        \bottomrule
+    \end{tabular}
+    \caption{Differenzialquotienten von $T_2$ zu vier verschiedenen Zeiten}
+    \label{tab:T2_err}
+\end{table}
+
+\subsection{Bestimmung der Güteziffer für vier Temperaturen}
+\label{ssec:d}
+
+Die Güteziffer wird über die Gleichung \eqref{eqn:nureal} berechnet. Dazu ist vorerst die Bestimmung der elektrischen Leistung des Kompressors und die Wärmekapazität von der Kupferschlange und des Wassers von Nöten. Die elektrische Leistung des Kompressors kann über die gemessenen Daten mit Hilfe der Gleichung
+
+\begin{equation}
+    \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+\end{equation}
+gemittelt werden.
+Der dazugehörige Fehler des Mittelwertes wird über die Gleichung
+
+
+\begin{equation}
+    \Delta\bar{x} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i - \bar{x})^2}
+\end{equation}(1.99+/-0.12)e+04
+ berechnet.
+Auf diese Weise kann die Leistung des Kompressors zu 
+
+\begin{equation}
+   N_\text{el} = \SI{194(10)}{\watt}
+\end{equation}
+
+bestimmt werden.
+Die Wärmekapazität der verwendeten Kupferschlange hat einen Wert von
+
+\begin{equation}
+   m_\text{k} c_\text{k} = \SI{750}{\joule \per \kelvin}.
+\end{equation}
+
+Da sich in dem Reservoire drei Liter Wasser befinden, kann mit Kenntnis der Dichte und der spezifischen Wärmekapazität von Wasser der Wert $m_\text{w} c_\text{w}$ zu
+\begin{equation}
+   m_\text{w} c_\text{w} = \SI{12502.38}{\joule \per \kelvin}.
+\end{equation}
+
+berechnet werden. Als Dichte wurde dabei ein Wert von $\rho_w=\SI{0.997}{\g\per\cubic\centi\m}$ \cite{taschenbuch_physik} und eine spezifische Wärmekapazität von $c_\text{w}=\SI{4.18}{\joule\per\g\per\kelvin}$ \cite{V201} angenommen.
+Da die Fehlerfortpflanzung berücksichtigt werden muss, wird der Fehler über die Gleichung \eqref{eq:gauß}
+in dem Ausdruck 
+
+\begin{equation}
+    \Delta \nu = \sqrt{\left((V_\text{w} \rho _\text{w} c_\text{w} + m_\text{k} c_\text{k}) \frac{1}{N_\text{el}} \Delta \dv{T_1}{t}\right)^2 + \left(-(V_\text{w} \rho _\text{w} c_\text{w} + m_\text{k} c_\text{k}) \dv{T_1}{t} \frac{1}{{N_\text{el}}^2} \Delta N_\text{el}\right)^2}
+    \label{eq:guetefehler}
+\end{equation}
+
+dargestellt und durch ihn berechnet.
+
+
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c c c c}
+        \toprule
+        {$t \:/\: \si{\second}$} & $\nu$ & $\Delta\nu$ & $\nu _\text{ideal}$ & \text{Abweichung} \\
+        \midrule
+        300  &  1.84  &  0.13 & 26.67   &  93.11 \si{\percent}  \\    
+        600  &  1.72  &  0.15 & 10.88   & 84.21  \si{\percent}\\
+        900  &  1.60  &  0.17 & 7.59    &  78.94  \si{\percent}\\    
+        1140 &  1.50  &  0.19 & 6.61    & 77.26 \si{\percent} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Güteziffer zu vier verschiedenen Zeiten.}
+    \label{tab:guete}
+\end{table}
+%Das klappt iwie nicht
+
+\subsection{Bestimmung des Massendurchsatzes von Dichlordifluormethan}
+\label{ssec:e}
+Um den Massendurchsatz berechnen zu können, muss vorerst die Verdampfungswärme bestimmt werden. Dazu werden die Messwerte, wie in Abbildung \ref{fig:dampfdruck_plot} dargestellt, aufgetragen. Es lässt sich mit Hilfe von SciPy \cite{scipy} eine Ausgleichsgerade in die Messwerte legen, aus dieser sich die Verdampfungswärme, über die Steigung dieser Geraden, berechnen lässt. 
+Die Verdampfungswärme ist über die Gleichung
+
+\begin{equation}
+    p = p_0 \cdot \exp{\left(\frac{-L}{R}\frac{1}{T}\right)}
+    \label{eq:L}
+\end{equation}
+
+mit dem Druck verknüpft. Diese lässt sich zu der Gleichung
+
+
+\begin{equation}
+    \ln{\left(\frac{p_b}{p_0}\right)} = \underbrace{\frac{-L}{R}}_{=m} \frac{1}{T}
+    \label{eq:L2}
+\end{equation}
+
+umformen. Dabei ist $m$ die Steigung der Geraden und beträgt in dem Fall 
+\begin{equation*}
+    m=\num{-2.40(14)e+03}.
+\end{equation*}
+So lässt sich über
+\begin{equation}
+    L=-m \cdot R
+\end{equation}
+
+die Verdampfungswärme 
+
+\begin{equation*}
+    L = \SI{1.99(12)e4}{\joule\per\mol}
+    \label{eq:L3}
+\end{equation*}
+
+bestimmen. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/L.pdf}
+    \caption{Dampfkurve für die Berechnung von $L$}
+    \label{fig:dampfdruck_plot}
+\end{figure}
+
+Mit Gleichung \eqref{eqn:mass}, dem berechneten $L$ und den bereits bekannten Werten aus Abschnitt \ref{ssec:d} kann der Massendurchsatz berechnet werden. Die Ergebnisse sind in Tabelle \ref{tab:masse} aufgeführt. Die Umrechnung in Basis SI-Einheiten erfolgt über die molare Masse von Dichlordifluormethan mit $\SI{0.121}{\kilo\g\per\mol}$ \cite{V206}.
+
+Der gaußsche Fehler wird wieder nach Gleichung \eqref{eq:gauß} über den Ausdruck
+
+\begin{equation}
+    \Delta\dv{m}{t} = \sqrt{\left((m_2 c_\text{w} + m_\text{k} c_\text{k}) \frac{1}{L} \Delta \dv{T_2}{t}\right)^2 + \left(-(m_2 c_\text{w} + m_\text{k} c_\text{k}) \frac{1}{L^2} \dv{T_2}{t} \Delta L\right)^2}
+    \label{eq:m_err}m
+\end{equation}
+
+bestimmt.
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        {$t \:/\: \si{\second} $}&{$ \dv{m}{t} \:/\: \si{\kilogram \per \second}$} & {$\Delta \dv{m}{t} \:/\: \si{\kilogram \per \second}$}\\
+        \midrule
+        300  &  -0.0021 &  0.0002   \\
+        600  &  -0.0017 &  0.0003   \\
+        900  &  -0.0013 &  0.0003   \\
+        1140 &  -0.0010 &  0.0004   \\
+        \bottomrule
+    \end{tabular}
+    \caption{Massendurchsatz bei vier verschiedenen Zeiten.}
+    \label{tab:masse}
+\end{table}
+
+
+\subsection{Mechanische Leistung des Kompressors}
+\label{f}
+
+Die mechanische Leistung der Kompressors lässt sich über die Gleichung \eqref{eqn:N_mech} berechnen.
+Dazu wird mit der Dichte von Dichlordifluormethan
+\begin{equation}
+    \rho _0 = \SI{5.51}{\kilogram \per \cubic\meter}
+    \label{eq:dichte}
+\end{equation}
+und den gemessenen Drücken und Temperaturen mit Hilfe der idealen Gasgleichung das Verhältnis
+
+\begin{equation}
+    \rho  = \frac{\rho _0 T_0 p_\text{a}}{T_2 p_0}.
+    \label{eq:dichte2}
+\end{equation}
+aufgestellt und in die Gleichung \eqref{eqn:N_mech} eingesetzt.
+Die Werte $T_0=\SI{273.15}{\kelvin}$, $p_0=\SI{1e5}{\pascal}$, $\kappa=1.14$ werden der Versuchsanleitung \cite{V206} entommen.
+So lässt sich nach Zufügen aller Werte die mechanische Leistung des Kompressors berechnen. Die Ergebnisse sind in Tabelle \ref{tab:leistung} aufgeführt. Der Zugehörige Fehler wird über Gleichung \eqref{eq:gauß}
+zu dem Ausdruck:
+
+\begin{equation}
+    \Delta N _\text{mech} = \sqrt{\left(\frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_\text{a}}{p_\text{b}}} - p_\text{a} \right) \frac{T_2 p_0}{\rho _0 T_0 p_\text{a}} \Delta \dv{m}{t}\right)^2 },
+    \label{eq:n_err}
+\end{equation}
+über den die jeweiligen Fehler berechnet werden.
+\begin{table}
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        {$t \:/\: \si{\second}$} & {$ N _\text{mech} \:/\: \si{\watt} $} & {$\Delta N _\text{mech} \:/\: \si{\watt}$}\\
+        \midrule
+
+        300  &   -36.44  & 4.25  \\
+        600  &   -35.36  & 5.89  \\
+        900  &   -30.21  & 7.98  \\
+        1140 &   -24.46  & 9.97  \\
+        \bottomrule
+    \end{tabular}
+    \caption{Mechanische Leistung des Kompressors bei vier verschiedenen Zeiten.}
+    \label{tab:leistung}
+\end{table}

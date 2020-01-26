@@ -13,11 +13,11 @@ t=t*60  #Zeit in Sekunden
 T_1=T_1+273.15 #Temp in Kelvin
 T_2=T_2+273.15
 N=ufloat(np.mean(P),stats.sem(P)) #watt
-cm_w=4.18*9.97*300  #wärmekapazität wasser J/K
+cm_w=4.18*0.997*3000  #wärmekapazität wasser J/K
 R=8.314462618  # allgm Gaskonstante  J/(mol*K)
-rho_0=5510 #g/m^3
+rho_0=5.510 #kg/m^3
 kappa=1.14
-p_0=100000
+p_0=100000  #atmosphärendruck in Pascal
 
 #funktionen
 def a(t,A,B,C):
@@ -25,7 +25,7 @@ def a(t,A,B,C):
 def da(t,A,B):
     return 2*A*t+B
 def dm(dT,L):
-    return (cm_w+750)*dT/L
+    return ((cm_w+750)*dT/L)
 
 
 #Fit temp
@@ -50,13 +50,15 @@ plt.plot(t,T_1,'rx',label='Temp. T1')
 plt.plot(t,T_2,'bx',label='Temp. T2')
 plt.plot(t_lin,a(t_lin,*params_T1),'r-',label='Ausgleich T1')
 plt.plot(t_lin,a(t_lin,*params_T2),'b-',label='Ausgleich T2')
+plt.ylabel(r'$T \:/\: \si{\kelvin}$')
+plt.xlabel(r'$t \:/\: \si{\s}$')
 
 plt.grid()
 plt.legend()
 plt.savefig('build/temp.pdf')
 
 plt.clf()
-#differenzialkoeffizient
+differenzialkoeffizient
 ##########################################
 #minute 4(t[5]), 9(t[10]), 14(t[15]), 18(t[19])
 
@@ -83,28 +85,51 @@ v_re=(cm_w+750)*da1/N
 ######################################
 T_lin=np.linspace(np.min(1/T_1),np.max(1/T_1))
 
-def l(x,a,b):
-    return (a*x+b)
+def l(t,a,b):
+    return (a*t+b)
 
 params_L, cov_L=curve_fit(l,1/T_1,np.log(p_b/p_0))
 
-plt.plot(1/T_1,np.log(p_b/p_0),'rx')
-plt.plot(T_lin,l(T_lin,*params_L),'r-')
-
+plt.plot(1/T_1,np.log(p_b/p_0),'rx',label='Messwerte')
+plt.plot(T_lin,l(T_lin,*params_L),'r-',label='Ausgleichsgerade')
+plt.xlabel(r'$\frac{1}{T_1} \frac{1}{\si{\s}}$')
+plt.ylabel(r'$log\left(\frac{p_b}{p_0}\right)$')
+plt.legend()
 plt.grid()
 plt.savefig('build/L.pdf')
 
 
+a=ufloat(params_L[0],np.sqrt(np.absolute(cov_L[0,0])))
+L=-a*R #J/mol
 
-L=ufloat(-params_L[0]*R,np.sqrt(np.absolute(cov_L[0,0]))) #J/mol
+
 
 dm=dm(da2,L) #mol/s
-dm=dm*0.121 #mit kg/mol multipliziert  #kg/s
+dm=dm*0.121 #mit kg/mol multipliziert -> #kg/s
+
+
 
 rho=rho_0*273.15*p_a[dt]/(T_2[dt]*p_0)
-N_mech=1/(kappa-1)*(p_b[dt]*(p_a[dt]/p_b[dt])**(1/kappa)-p_a[dt])/rho*dm
+N_mech=1/(kappa-1)*(p_b[dt]*(p_a[dt]/p_b[dt])**(1/kappa)-p_a[dt])/rho*dm #watt
 
-print(N_mech)
+print(f"Wärmekapazität Wasser {cm_w}")
+print(f"Parameter T1: A1: {A1}, B1: {B1}, C1: {C1}")
+print(f"Parameter T2: A2: {A2}, B2: {B2}, C2: {C2}")
+print(f"Ausgewählte Zeiten {t[dt]}")
+print(f"Steigungen für T1: {da1}")
+print(f"Steigungen für T2: {da2}")
+print(f"Güteziffer ideal: {v_id}")
+print(f"Güteziffer real: {v_re}")
+print(f"Steigung für Wärmedruck: {a}")
+print(f"Verdampfungswärme: {L} J/mol")
+print(f"Massendurchsatz: {dm} kg/s")
+print(f"Kompressorleistung: {N_mech} watt")
+print(f"Temperaturn an den Zeitpunkten T1: {T_1[dt]}")
+print(f"Temperaturn an den Zeitpunkten T2: {T_2[dt]}")
+print(f"Leistung des Kompressores: {N}")
+print(f"Steigung der Geraden: {a}")
 
-
-
+#abweichung
+def ab(soll,ist):
+    return (soll-ist)/soll*100
+print(f"Abweichung {ab(v_id,v_re)}")
