@@ -40,6 +40,9 @@ r , T = np.genfromtxt('data/eigentr.txt',delimiter=',',unpack=True)
 r=r*10**(-2)
 
 params, cov = curve_fit(reg,r**2,T**2)
+a_err=np.sqrt(cov[0,0])
+a=params[0]
+a=ufloat(a,a_err)
 b_err=np.sqrt(cov[1,1])
 b=params[1]
 b=ufloat(b,b_err)
@@ -124,3 +127,9 @@ plt.savefig('build/Ausgleichsgerade.pdf')
 
 
 
+print(f"parameter a: {a}")
+v_th=I_puppe1/I_puppe2
+v_ex=I_f1/I_f2
+
+print(f"Verhältnis Träg.theo: {v_th}")
+print(f"Verhältnis Träg. exp: {v_ex}")
