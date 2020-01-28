@@ -129,7 +129,7 @@ plt.savefig('build/Ausgleichsgerade.pdf')
 
 print(f"parameter a: {a}")
 v_th=I_puppe1/I_puppe2
-v_ex=I_f1/I_f2
+v_ex=(I_f1-I_D)/(I_f2-I_D)
 
 print(f"Verhältnis Träg.theo: {v_th}")
 print(f"Verhältnis Träg. exp: {v_ex}")

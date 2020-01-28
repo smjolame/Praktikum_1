@@ -92,9 +92,10 @@ params_L, cov_L=curve_fit(l,1/T_1,np.log(p_b/p_0))
 
 plt.plot(1/T_1,np.log(p_b/p_0),'rx',label='Messwerte')
 plt.plot(T_lin,l(T_lin,*params_L),'r-',label='Ausgleichsgerade')
-plt.xlabel(r'$\frac{1}{T_1} \frac{1}{\si{\s}}$')
-plt.ylabel(r'$log\left(\frac{p_b}{p_0}\right)$')
+plt.xlabel(r'$\frac{1}{T_1} \:/\:  \frac{1}{\si{\s}}$')
+plt.ylabel(r'$\ln\left(\frac{p_b}{p_0}\right)$')
 plt.legend()
+plt.tight_layout()
 plt.grid()
 plt.savefig('build/L.pdf')
 
