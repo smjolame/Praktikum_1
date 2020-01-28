@@ -58,7 +58,7 @@ plt.legend()
 plt.savefig('build/temp.pdf')
 
 plt.clf()
-differenzialkoeffizient
+
 ##########################################
 #minute 4(t[5]), 9(t[10]), 14(t[15]), 18(t[19])
 
