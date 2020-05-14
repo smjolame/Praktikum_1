@@ -1,21 +1,15 @@
 import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
+import scipy.constants as const
+from scipy.optimize import curve_fit
+from uncertainties import ufloat
+from uncertainties.unumpy import uarray
+from uncertainties import unumpy as unp
 
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
+Ergebnisse = json.load(open('data/Ergebnisse.json','r')
+if not 'Name' in Ergebnisse:
+    Ergebnisse['Name'] = {}
+Ergebnisse['Name']['Name des Wertes']=Wert
 
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
-
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
-
-# in matplotlibrc leider (noch) nicht möglich
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/plot.pdf')
+json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
