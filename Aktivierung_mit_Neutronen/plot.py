@@ -27,6 +27,7 @@ N_U_15 = N_U/20 #Impulse pro 15 sek
 N_U_15_err = sem(N_U_15)
 N_U_15 = np.mean(N_U_15)
 N_U_15 = ufloat(N_U_15,N_U_15_err)
+print(N_U_15)
 
 #Halbwertszeit Vanadium
 t_V ,N_V_roh = np.genfromtxt('data/Vanadium.dat',delimiter=',',unpack=True)
@@ -46,8 +47,11 @@ plt.clf()
 
 #Halberwertszeit
 a_V = ufloat(V_params[0],np.sqrt(V_cov[0][0]))
+b_V = ufloat(V_params[1],np.sqrt(V_cov[1][1]))
 T_V = T(-a_V)
 print(T_V)
+print(a_V)
+print(b_V)
 
 
 #Halbertszeit Rhodium
@@ -73,8 +77,7 @@ b_1=ufloat(R_params1[1],np.sqrt(R_cov1[1][1]))
 #Halbertszeit
 T_R_1=T(-a_1)
 T_R_2=T(-a_2)
-print(T_R_1)
-print(T_R_2)
+
 #plot
 plt.plot(t_R,noms(N_R),'bx')
 plt.errorbar(t_R,noms(N_R),yerr = stds(N_R),fmt = 'bx')
@@ -83,8 +86,8 @@ plt.plot(t_R,noms(N_R),'bx')
 plt.errorbar(t_R,noms(N_R),yerr = stds(N_R),fmt = 'kx')
 plt.plot(t_R,np.e**gerade(t_R,*R_params2))
 plt.yscale('log')
-plt.show()
 
+plt.show()
 #Halberwertszeit
 #a_R=ufloat(R_params[0],np.sqrt(R_cov[0][0]))
 #T_R=T(-a_R)
