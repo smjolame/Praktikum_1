@@ -8,6 +8,9 @@ from uncertainties.unumpy import uarray
 from uncertainties import unumpy as unp
 from uncertainties.unumpy import (nominal_values as noms,std_devs as stds)
 
+def abw(exact,approx):
+    return (exact-approx)*100/exact  #Abweichnung
+
 
 ##Curvefit
 #def BeispielFunktion(x,a,b):
@@ -18,7 +21,7 @@ from uncertainties.unumpy import (nominal_values as noms,std_devs as stds)
 #
 #
 ##Json
-#Ergebnisse = json.load(open('data/Ergebnisse.json','r')
+#Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
 #if not 'Name' in Ergebnisse:
 #    Ergebnisse['Name'] = {}
 #Ergebnisse['Name']['Name des Wertes']=Wert

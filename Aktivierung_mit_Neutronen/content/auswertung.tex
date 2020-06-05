@@ -7,29 +7,53 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 
 Aus dem mehrfachen Messen der Untergrundrate ergeben sich die Messwerte $N_U=\{ 129, 143, 144, 136, 139, 126, 158 \}$. Aus diesen Messwerten wird der Mittelwert berechnet. Dieser ergibt sich zu $\num{139(4)}$. Da die Zeit, über die die Impulse gemessen werden, mit den Messintervallen der folgenden Messergebnisse übereinstimmen muss, wird  dieser Mittelwert auf die jeweiligen Messintervalle skaliert. So ergibt sich eine Untergrundrate von $N_{U_V}=\num{14(1)}$ in einem Zeitintervall von $\Delta t=\SI{30}{\s}$ und $N_{U_R}=\num{7(1)}$ in einem Zeitintervall von $\Delta t=\SI{15}{\s}$.
 
-\subsection{Halbertszeit Vanadium}
+\subsection{Halbwertszeit Vanadium}
 
-Die gemessenen Impulse sind in Tablle \ref{tab:V} aufgeführt. Von den gemessenen Impulsmengen muss gemäß Gleichung REFFFFFFFFFFFFF jeweils die Untergrundrate $N_{U_R}$ abgezogen werden. Die dadurch bestimmten Impulsraten sind grafisch in einem Halblogarhythmischen Diagramm REFFFFFFFF dargestellt. Über Gleichung REFFFFFF lässt sich ein linearer Zusmmenhang zwischen $\ln{N}$ und der Zerfallskonstante $\lambda $ feststellen. Wird also eine lineare Regression durchgeführt, so ergibt sich eine Gerade
+Die gemessenen Impulse sind in Tablle \ref{tab:V} aufgeführt. Von den gemessenen Impulsen muss gemäß Gleichung REFFFFFFFFFFFFF jeweils die Untergrundrate $N_{U_R}$ abgezogen werden. Die dadurch bestimmten Impulsraten sind grafisch in einem Halblogarhythmischen Diagramm REFFFFFFFF dargestellt. Über Gleichung REFFFFFF lässt sich ein linearer Zusammenhang zwischen $\ln{N}$ und der Zerfallskonstante $\lambda $ feststellen. Wird also eine lineare Regression durchgeführt, so ergibt sich eine Gerade
 \begin{equation}
-    \ln{N}(t)=a*t + b
+    \ln{N}(t)=at + b
+    \label{eqn:gerade}
 \end{equation}
-mit den Geradenparametern $a=$ und $b=$. 
+mit den Geradenparametern $a_V=\SI[per-mode=reciprocal]{-00323(00011)}{\per\s}$ und $b_V=\num{5.32(04)}$. 
+Aus der Steigung $a$ kann die Zerfallskonstante über $\lambda$
+\begin{equation}
+    \lambda=-a
+\label{eqn:lamb}
+\end{equation}
+berechnet werden. Mit dem $\lambda_V$ ergibt sich über RREFFFF so eine Halbwertszeit von $T_V=\SI{215(7)}{\s}$
+
 
 \begin{table}
 \centering
-\caption{Anzahl registrierter Impulse der Vanadium-Probe.}
 \includegraphics[width=\textwidth]{data/Vanadium.png}
+\caption{Anzahl registrierter Impulse der Vanadium-Probe.}
 \label{tab:V}
 \end{table}
 
+\begin{figure}
+\centering
+\includegraphics{build/Vanadium.pdf}
+\caption{Bereinigte Messdaten und Ausgleichsgerade von Vanadium.}
+\end{figure}
 
-\subsection{Halbertszeit Rhodium}
+\subsection{Halbwertszeit Rhodium}
+Beim Zerfall von Rhodium müssen die beiden überlagerten Zerfälle getrennt analysiert werden. Werden die vom Untergrund bereinigten Impulse grafisch dargestellt \ref{fig:R}, lässt sich der Bereich, in dem nur noch der langsame Zerfall stattfindet, identifizieren. Ab $t=\SI{255}{\s}$ kommen beinahe keine Zerfälle von $\ce{^{104i}Rh}$ vor. In die nachfolgenden Werte wird eine Ausgleichsgerade gelegt und durch Extrapolation die Impulsanteile des langsamen Zerfalls im Bereich $t\leq\SI{210}{\s}$ bestimmt. Diese werden von den Impulsen in diesem Bereich abgezogen und es werden die von dem langsamen Zerfall bereinigten Impulse des schnellen Zerfalls erhalten. Durch diese Werte wird ebenfalls eine Ausgleichsgerade gelegt. Aus den beiden Geraden, die wieder die Form \eqref{eqn:gerade} haben, können die Geradenparameter des schenllen Zerfalls zu $a_{R_s}=\SI{-0.0161(0004)}{\frac{1}{\s}}$ und $b_{R_s}=\num{6.678(025)}$ bestimmt werden. Die Geradenparameter des langsamen Zerfalls ergeben sich zu und $a_{R_l}=\SI{-0.0027(0004)}{\frac{1}{\s}}$ und $b_{R_l}=\num{4.35(17)}$. Über \eqref{eqn:lamb} kann wieder die jeweilge Zerfallskonstante $\lambda$ bestimmt werden. Aus diesen Zerfallskonstanten lässt sich über REFFFF die Halbwertszeit von $\ce{^{104}Rh}$ zu $T_{R_l}=\SI{260(40)}{\s}$ und die Halbwertszeit von $\ce{^{104i}Rh}$ zu $T_{R_s}=\SI{43.0(11)}{\s}$ bestimmen.
+
+
+
 \begin{table}
 \centering
-\caption{Anzahl registrierter Impulse der Rhodium-Probe.}
 \includegraphics[width=\textwidth]{data/Rhodium.png}
+\caption{Anzahl registrierter Impulse der Rhodium-Probe.}
 \label{tab:R}
 \end{table}
+
+\begin{figure}
+\centering
+\includegraphics{build/Rhodium.pdf}
+\caption{Bereinigte Messdaten und Ausgleichsgeraden von Rhodium.}
+\label{fig:R}
+\end{figure}
 
 
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
