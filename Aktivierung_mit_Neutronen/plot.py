@@ -44,7 +44,9 @@ N_V_roh_err = np.sqrt(N_V_roh)
 N_V_roh = uarray(N_V_roh,N_V_roh_err)
 N_V = N_V_roh - N_U_30
 #curve fit
+#E=15 # Wert bis zur doppelten Halbwertszeit
 V_params ,V_cov=curve_fit(gerade, t_V,noms(unp.log(N_V)),sigma=stds(unp.log(N_V)))
+#V_params_2,V_cov_2=curve_fit(gerade, t_V[:E],noms(unp.log(N_V[:E])),sigma=stds(unp.log(N_V[:E])))
 #plot
 plt.plot(t_V,noms(N_V),'bx',label='bereinigte Messwerte')
 plt.errorbar(t_V,noms(N_V),yerr=stds(N_V),fmt='bx',label='Unsicherheit der bereinigten Messwerte')
@@ -61,9 +63,10 @@ plt.clf()
 a_V = ufloat(V_params[0],np.sqrt(V_cov[0][0]))
 b_V = ufloat(V_params[1],np.sqrt(V_cov[1][1]))
 T_V = T(-a_V)
-
-
-
+#a_V_2 = ufloat(V_params_2[0],np.sqrt(V_cov_2[0][0]))
+#b_V_2 = ufloat(V_params_2[1],np.sqrt(V_cov_2[1][1]))
+#T_V_2=T(-a_V_2)
+print(T_V_2)
 #Halbertszeit Rhodium
 t_R ,N_R_roh = np.genfromtxt('data/Rhodium.dat',delimiter=',',unpack=True)
 
