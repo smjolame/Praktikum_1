@@ -10,14 +10,15 @@ nach welcher Zeit bei hinreichend großer Anzahl an gleichartigen Kernen die Hä
     \label{eqn:nt}
 \end{equation}
 kann die Anzahl der zum Zeitpunkt $t$ noch bestehenden Kerne $N(t)$ beschrieben werden. Dabei ist $N_0$ die Anzahl der zum 
-Zeitpunkt $t=0$ vorhandenen Kerne und $\lambda$ die Zerfallskonstante, die je nach Isotop variiert. Nach der bereits geannten 
+Zeitpunkt $t=0$ vorhandenen Kerne und $\lambda$ die Zerfallskonstante, die je nach Isotop variiert. Nach der bereits genannten 
 Halbwertszeit $T$ ergibt sich dann die Gleichung zu 
 \begin{equation}
     \frac{1}{2}N_0 = N_0 e^{-\lambda T}\,,
 \end{equation}
 wodurch sich die Halbwertszeit in Abhängigkeit der Zerfallskonstante $\lambda$ durch 
 \begin{equation}
-    T = \log{\frac{2}{\lambda}}
+    T = \frac{\log{2}}{\lambda}
+    \label{eqn:T}
 \end{equation}
 beschreiben lässt.
 \\
@@ -41,6 +42,7 @@ Es ist problematisch, das in Gleichung \ref{eqn:nt} genannte $N(t)$ zu bestimmen
 $N_{\Delta t}(t)$ der in einem bestimmen Zeitraum zerfallenden Kerne ermitteln. Über die Gleichung 
 \begin{equation}
     \log{N_{\Delta t}(t)} = \log{N_0}(1 - e^{-\lambda\Delta t}) -\lambda t
+    \label{eqn:N}
 \end{equation}
 lässt sich dann mit einer linearen Ausgleichsrechung die Zerfallskonstante $\lambda$ bestimmen, die auf die Halbwertszeit
 zurückzuführen ist. Dabei sollte auf ein geeignetes Zeitintervall $\Delta t$ geachtet werden, da es sonst zu großen systematischen
