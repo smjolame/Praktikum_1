@@ -66,7 +66,7 @@ T_V = T(-a_V)
 #a_V_2 = ufloat(V_params_2[0],np.sqrt(V_cov_2[0][0]))
 #b_V_2 = ufloat(V_params_2[1],np.sqrt(V_cov_2[1][1]))
 #T_V_2=T(-a_V_2)
-print(T_V_2)
+#print(T_V_2)
 #Halbertszeit Rhodium
 t_R ,N_R_roh = np.genfromtxt('data/Rhodium.dat',delimiter=',',unpack=True)
 
