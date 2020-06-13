@@ -41,6 +41,7 @@ t_V ,N_V_roh = np.genfromtxt('data/Vanadium.dat',delimiter=',',unpack=True)
 
 
 N_V_roh_err = np.sqrt(N_V_roh)
+print(N_V_roh_err)
 N_V_roh = uarray(N_V_roh,N_V_roh_err)
 N_V = N_V_roh - N_U_30
 #curve fit
@@ -71,6 +72,7 @@ T_V = T(-a_V)
 t_R ,N_R_roh = np.genfromtxt('data/Rhodium.dat',delimiter=',',unpack=True)
 
 N_R_roh_err = np.sqrt(N_R_roh)
+print(N_R_roh_err)
 N_R_roh = uarray(N_R_roh,N_R_roh_err)
 N_R = N_R_roh - N_U_15
 #curve fit
@@ -99,6 +101,7 @@ plt.plot(t_R[:I+1],np.e**gerade(t_R[:I+1],*R_params1),'r',label='Ausgleichsgerad
 plt.plot(t_R,np.e**gerade(t_R,*R_params2),label='Augleichsgerade langsamer Zerfall')
 plt.plot(t_R[:I],np.e**noms(unp.log(N_R[:I]-unp.exp(N_R_1[:I]))),'bx')
 plt.errorbar(t_R[:I],np.e**noms(unp.log(N_R[:I]-unp.exp(N_R_1[:I]))),yerr=np.e**stds(unp.log(N_R[:I]-unp.exp(N_R_1[:I]))),fmt = 'bx',label='bereinigter schneller Zerfall')
+plt.plot(t_R,np.e**gerade(t_R,*R_params1)+np.e**gerade(t_R,*R_params2),label='Summenkurve beider Zerfälle')
 plt.yscale('log')
 plt.grid()
 plt.legend(fontsize='small')
