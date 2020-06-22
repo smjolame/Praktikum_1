@@ -1,8 +1,40 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-%In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
-
-%(eventuell die Aufgaben)
-
-%Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
+Zwischen einem homogenen Magnetfeld und einem Elektron kommen nur dann Wechselwirkungen zustande, wenn das Elektron bewegt wird
+und dessen Geschwindigkeit $\vec{v}$ eine Komponente senkrecht zum Magnetfeld $\vec{B}$ besitzt. Unter dieser Bedingung wirkt 
+auf das Elektron eine Lorentz-Kraft, die durch 
+\begin{equation}
+    \vec{F_\text{L}} = q\cdot \vec{v} \times \vec{B}
+    \label{eqn:lorentz}
+\end{equation}
+beschrieben werden kann. In einem kartesischen Koordinatensystem, indem sich das Elektron nur in $z$-Richtung bewegt und das
+homogene $B$-Feld in $x$-Richtung verläuft, wirkt also die Lorentz-Kraft zum Zeitpunkt des Eintreffens des Elektrons in 
+$y$-Richtung. Das Elektron bewegt sich folglich auf einer Kreisbahn, wobei $\vec{v} $ immer 
+senkrecht zu $\vec{B} $ und $\vec{F_\text{L}}$ steht. Demnach ist
+\begin{equation}
+    \vec{F_\text{L}} \cdot \symup{d}\vec{s} = 0\,,
+\end{equation}
+mit der Konsequenz, dass die Energie des Elektrons erhalten bleibt, wobei die potentielle und die kinetische Energie jeweils 
+konstant bleiben, woraus folgt, dass $v$ konstant bleibt. Über den Zusammenhang von Lorentz-Kraft und Zentrifugalkraft kann ein 
+Krümmungsradius der Elektronenbahn über 
+\begin{equation}
+    r = \frac{m_0 v}{e_0 B}
+    \label{eqn:radius1}
+\end{equation}
+bestimmt werden.  
+Der Krümmungsradius kann durch den vorliegenden Versuch einfacher über die Gleichung 
+\begin{equation}
+    r = \frac{L^2 + D^2}{2D}
+    \label{eqn:radius2}
+\end{equation}
+ermittelt werden, wobei $L$ die Länge des Einflussbereiches des Magnetfeldes ist, und $D$ die dadurch erzeugte Abweichung des 
+Auftreffpunktes der Elektronen. Unter Berücksichtigung der aus dem Energiesatz folgenden Gleichung 
+\begin{equation}
+    v = \sqrt{\frac{2 U_B e_0}{m_0}}
+\end{equation} 
+lässt sich durch Gleichsetzen von Gleichung \ref{eqn:radius1} und \ref{eqn:radius2} der Zusammenhang 
+\begin{equation}
+    \frac{D}{L^2 + D^2} = \frac{1}{\sqrt{8U_B}} \sqrt{B \frac{e_0}{m_0}}
+\end{equation}
+herstellen, wodurch $e_0$ bestimmt werden kann. 
