@@ -6,6 +6,9 @@ plots: FORCE | build
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python plot.py
 
+	 MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python plot2.py
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: 
 
