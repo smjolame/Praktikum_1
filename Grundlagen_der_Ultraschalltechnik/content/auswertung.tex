@@ -1,10 +1,119 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
-%Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
-%
-%Auswertung:
-%Berechnung der geforderten Endergebnisse
-%mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
-%Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
-%Graphische Darstellung der Ergebnisse
+
+In den foglenden Tabllen \ref{tab:impulsecho} und \ref{tab:durchschallung} sind die Messwerte des Echo-Impuls-Verfahrens und 
+des Durchschallungsverfahrens dargestellt. Die Indices $1$ und $2$ kennzeichnen in zeitlicher Reihenfolge die unterschiedlichen Peaks.
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse des Echo-Impuls-Verfahrens}
+    \begin{tabular}{c c c c c}
+        \toprule
+        $l\,/\,\si{\milli\metre}$ & $U_1\,/\,\si{\volt}$ & $t_1\,/\,\si{\micro\second}$ & $U_2\,/\,\si{\volt}$ & $t_2\,/\,\si{\micro\second}$  \\
+        \midrule
+          40.65 & 0.455 &  1.4 & 0.019 & 30.5 \\
+          80.45 & 1.195 &  1.4 & 0.063 & 59.6 \\
+         120.06 & 1.188 &  1.4 & 0.145 & 88.7 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:impulsecho}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Messergebnisse des Durchschallungsverfahrens}
+    \begin{tabular}{c c}
+        \toprule
+        l\,/\,\si{\milli\metre} & t\,/\,\si{\micro\second} \\
+        \midrule
+         40,65 & 15.8 \\
+         80.45 & 30.4 \\
+        120.06 & 45.0 \\
+        121.10 & 45.1 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:durchschallung}
+\end{table}
+
+Anhand dieser Messwerte kann für beide Verfahren mit einer Ausgleichsrechnung die Schallgeschwindigkeit $c_\text{acryl}$ in Acryl bestimmt werden.
+Die gemessene Zeit $t$ beim Impuls-Echo-Verfahren muss bei der Rechnung halbiert werden, da der Impuls mit dieser Variante erst 
+nach zweifachem Druchlaufen der Länge des Zylinders registriert wird.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/impulsecho.pdf}
+    \caption{Messwerte des Impuls-Echo-Verfahrens mit Ausgleichsgerade}
+    \label{fig:imp}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/durchschallung.pdf}
+    \caption{Messwerte des Durchschallungsverfahrens mit Ausgleichsgerade}
+    \label{fig:durch}
+\end{figure}
+
+Die Funktion der Ausgleichsgerade hat dabei die Form 
+\begin{equation}
+    f(x) = a\cdot x + b 
+\end{equation}
+
+Damit gilt für das Durchschallungsverfahren 
+\begin{equation}
+    t = \frac{1}{c}\cdot s + b\,,
+\end{equation}
+und für das Impuls-Echo-Verfahren
+\begin{equation}
+    \frac{t}{2} = \frac{1}{c}\cdot s + b
+\end{equation}
+
+Die Parameter der Ausgleichsrechnung ergeben sich damit für beide Verfahren zu 
+\begin{align}
+    a_\text{D} &= \SI{365.8(21)e-6}{\s\per\m} \\
+    b_\text{D} &= \SI{0.94(21)e-6}{\s\per\m} \\
+    a_\text{I} &= \SI{366.5(05)e-6}{\s\per\m} \\
+    b_\text{I} &= \SI{0.34(04)e-6}{\s\per\m} 
+\end{align}
+
+Die Schallgeschwindigkeit lässt sich dann durch 
+\begin{equation}
+    c_\text{acryl} = \frac{1}{a}\cdot 10^6
+\end{equation}
+berechnen. Der Parameter $b$ gibt einen systematischen Fehler an, der im Folgenden vernachlässigt werden kann. 
+
+Die Schallgeschwindigkeit ergibt sich nach den beiden Verfahren zu 
+\begin{align}
+    c_\text{D} &= \SI{2734(16)}{\m\per\s} \\
+    c_\text{I} &= \SI{2729(4)}{\m\per\s}
+\end{align}
+
+Desweiteren lässt sich aus den vorliegenden Messwerten der spezifische Schächungskoeffizient $\alpha$ des Acryls ermittelt 
+werden. Dieser lässt sich über den Zusammenhang 
+\begin{equation}
+    \ln{\bigl(\frac{I(l)}{I_0}\bigr)} = - \alpha \cdot l
+\end{equation}
+brechnen. Dabei beschreibt $I(x)$ die Intensität des Impulses an der Stelle $x$. Für die Bestimmung wird wieder eine Ausgleichsrechnung
+durchgeführt, dessen Funktion wieder die Form 
+\begin{equation}
+    f(x) = a\cdot x + b 
+\end{equation}  
+hat. Diese Berechnung wird nur mit den Daten des Echo-Impuls-Verfahren durchgeführt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/durchschallung.pdf}
+    \caption{Ausgleichsrechnung zur Berechnung der Dämpfungskonstante $\alpha$}
+    \label{fig:alpha}
+\end{figure}
+
+Die Parameter der Ausgleichsgerade ergeben sich dann zu 
+\begin{align}
+    a &= \SI{13.5(44)}{\per\metre} \\
+    b &= \SI{-3.8(04)}{\per\metre}\,.
+\end{align}
+Der Parameter $a$ entspricht genau der Dämpfungskonstante $\alpha$, welche damit 
+\begin{equation}
+    \alpha = \SI{13.5(44)}{\per\m}
+\end{equation}
+entspricht. 
