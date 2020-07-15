@@ -7,6 +7,7 @@ from uncertainties import ufloat
 from uncertainties.unumpy import uarray
 from uncertainties import unumpy as unp
 from uncertainties.unumpy import (nominal_values as noms,std_devs as stds)
+from scipy.stats import sem
 
 def abw(exact,approx):
     return (exact-approx)*100/exact  #Abweichnung
