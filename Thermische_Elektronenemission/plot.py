@@ -28,30 +28,36 @@ k_B=1.380662*10**(-23) #J/K
 
 #a)
 gebiet=21
-print(I_nmax[10:20])
-def Saettignug(V,Is,a,b):
-    return Is-a*np.e**(-b*V)
-sa1, cov1 = curve_fit(Saettignug,U_max[22:],I_max[22:])
-sa2, cov2 = curve_fit(Saettignug,U_nmax[10:20],I_nmax[10:20])
+
+def Saettignug(U,Is,a,b):
+    return (Is-a*np.e**(-b*U))
+sa1, cov1 = curve_fit(Saettignug,U_max[18:],I_max[18:],p0=[2.3,2.5,0])
+sa2, cov2 = curve_fit(Saettignug,U_nmax[10:20],I_nmax[10:20],p0=[0.2,10,0])
 Is1=sa1[0]
 Is2=sa2[0]
-
-#print(Is1,Is2)
+Is1=ufloat(Is1,np.sqrt(cov1[0][0]))
+Is2=ufloat(Is2,np.sqrt(cov2[0][0]))
+print(Is1,Is2)
 
 
 #b)
 
 params, cov =curve_fit(I,U_max[:gebiet],I_max[:gebiet])
 n=ufloat(params[1],np.sqrt(cov[1][1]))
-#print(n)
-x=np.linspace(0,U_max[gebiet])
+print(n)
 
+x1=np.linspace(U_max[18],300)
+x2=np.linspace(U_nmax[10],100)
+x=np.linspace(0,U_max[:gebiet])
 plt.plot(U_max,I_max,'kx')
-#plt.show()
+plt.plot(x,I(x,*params))
+plt.plot(x1,Saettignug(x1,*sa1))
+
 plt.clf()
 plt.plot(U_nmax,I_nmax,'bx')
-#plt.show()
-plt.plot(x,I(x,*params))
+plt.plot(x2,Saettignug(x2,*sa2))
+
+
 
 #c)
 I_max=I_max*10**(-3)
@@ -79,18 +85,19 @@ def T(I,U):
     return ((I*U-N_wl)/(f*aether*sigma))**(1/4)
 T1=T(I_f1,V_f1)
 T2=T(I_f2,V_f2)
-
+print(T1,T2)
 #passt
 
 #e)
 def phi(Is,T):
     return-k_B*T/e0*np.log(Is*h**3/(4*np.pi*f*e0*m0*k_B**2*T**2))
 
-phi1=phi(1,T1)
-phi2=phi(0.225,T2)
+phi1=phi(1.6,T1)
+phi2=phi(0.227,T2)
 print(phi1,phi2)
 W1=e0*phi1
 W2=e0*phi2
+print(W1,W2)
 
 W=ufloat(np.mean([W1,W2]),sem([W1,W2]))
 print(W)
