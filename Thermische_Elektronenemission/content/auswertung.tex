@@ -3,12 +3,27 @@
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
 
 
+\subsection{Sättigungsstrom}
+\label{sub:Sättigungsstrom}
+
+Die Messwerte der beiden Messdurchläufe zum Erstellen der Kennlinienschar sind in Tabelle \ref{tab:max} und \ref{tab:nmax} aufgeführt. Hier und im folgenden wird die Kennlinie, welche bei maximalem Heizstrom gemessen wird, mit einem Index $max$ versehen, wobei die Werte, die die zweite Kennlinie betreffen, ohne Index aufgeführt werden. Aus diesen Werten lässt sich der Sättigungsstrom über eine Ausgleichsrechnung bestimmen. Werden die Werte gemäß Abbildung REFF und REFF in ein Diagramm aufgetragen lässt sich in dem Bereich des Sättigungsstromgebietes ein Verlauf festellen, welcher dem Zusammenhang
+\begin{equation}
+    I(U)=I_s-a\cdot e^{-bU}
+    \label{eqn:fit}
+\end{equation}
+ähnlich sieht. Über einen Fit dieser Werte auf Basis von \ref{eqn:fit}, wobei nur die Werte des jeweiligen Sättigungsstromgebietes berücksichtigt werden, lassen sich folgende Sättigungsströme bestimmen:
+\begin{align*}
+I_s^{max}& = \SI{1.7(4)}{\milli\A}  \\
+I_s& = \SI{0.0227(0004)}{\milli\A}
+\end{align*}
+
+
 \begin{table}
 \centering
 \caption{Messwerte bei maximalen Heizstrom $I_f=\SI{2.3}{\A}$.}
 \begin{tabular}[t]{S S}
 \toprule
-{$U_A \:/\: \si{\V} $} & {$I_A \:/\: \si{\A}$}  \\
+{$U_A \:/\: \si{\V} $} & {$I_A \:/\: \si{\milli\A}$}  \\
 \midrule
 0 & 0.000   \\
 2 & 0.004   \\
@@ -28,7 +43,7 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 \end{tabular}
 \begin{tabular}[t]{S S}
 \toprule
-{$U_A \:/\: \si{\V} $} & {$I_A \:/\: \si{\A}$}  \\
+{$U_A \:/\: \si{\V} $} & {$I_A \:/\: \si{\milli\A}$}  \\
 \midrule
 28 & 0.114  \\
 30 & 0.122  \\
@@ -46,6 +61,7 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 150 & 0.906 \\ 
 \bottomrule
 \end{tabular}
+\label{tab:max}
 \end{table}
 
 
@@ -55,7 +71,7 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 \caption{Messwerte bei Heizstrom $I_f=\SI{1.8}{\A}$.}
 \begin{tabular}[t]{S S}
 \toprule
-{$U_A \:/\: \si{\V} $} & {$I_A \:/\: \si{\A}$}  \\
+{$U_A \:/\: \si{\V} $} & {$I_A \:/\: \si{\milli\A}$}  \\
 \midrule
 0 & 0.000    \\
 2 & 0.000    \\
@@ -72,7 +88,7 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 \end{tabular}
 \begin{tabular}[t]{S S}
 \toprule
-{$U_A \:/\: \si{\V} $} & {$I_A \:/\: \si{\A}$}  \\
+{$U_A \:/\: \si{\V} $} & {$I_A \:/\: \si{\milli\A}$}  \\
 \midrule
 22 & 0.016       \\
 24 & 0.016       \\
@@ -86,7 +102,75 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 80 & 0.021       \\
 \bottomrule
 \end{tabular}
+\label{tab:nmax}
 \end{table}
+
+\subsection{Langmuir-Schottkysches Raumladungsgesetz}
+
+Es gilt das Langmuir-Schottkysches Raumladungsgesetz REFFFF zu prüfen. Dazu wird der Gültigsbereich des Gesetztes in der Kennlinie bei maximalen Heizstrom indetifiziert. Aus Abbildung REEFF lässt sich der Gültigkeitsbereich bis zu einer Anodenspannung von $U_A=\SI{70}{\V}$ abschätzen. In die in diesem Bereich befindlichen Messwerte wird eine Ausgleichskurve, der dem Gestz ähnlichen, Form 
+
+\begin{equation}
+    I(U)=a\cdot U^n
+\end{equation}
+
+gelegt. 
+Der Paramter $n$ entspricht dabei dem zu überprüfenden Exponenten des Strom-Spannungsverhältnisses.
+Dieser ergibt sich nach Durchführung der Ausgleichsrechnung zu 
+
+\begin{equation*}
+    n=\num{1.376(012)}.
+\end{equation*}
+
+% subsection  (end)
+
+
+\subsection{Kathodentemperatur}
+\label{sub:Kathodentemperatur}
+
+Die Kathodentemperatur lässt sich aus der Leistungsbilanz des Heizstromkreises abschätzen. Dafür wird REFFF in
+
+\begin{equation}
+    T=\sqrt[4]{\frac{I_fU_f-N_{WL}}{f\eta \sigma}}
+\end{equation}
+
+umgeformt. Aus den in \ref{sub:Sättigungsstrom} verwendeten Heizleistungen lassen sich so die jeweiligen Kathodentemperaturen
+
+\begin{align*}
+T^{max}&=\SI{2129.37}{\kelvin} \\
+T&=\SI{1866.60}{\kelvin}
+\end{align*}
+
+abschätzen.
+
+
+\subsection{Austrittsarbeit für Wolfram}
+
+Um die Austrittsarbeit für Wolfram zu bestimmen, wird die Richardson-Gleichung nach $\phi$ umgestellt.
+Die in \ref{sub:Sättigungsstrom} und  \ref{sub:Kathodentemperatur} bestimmten Wertepaare aus Sättigungsstrom $I_s$ und Kathodentemperatur $T$ können in die dadurch entstehende Gleichung
+
+\begin{equation}
+    \phi(I_s,T)=-\frac{k_BT}{e_0}\ln\left(\frac{I_sh^3}{4\pi f e_0 m_0 k_B^2 T^2}\right)
+\end{equation} 
+
+eingesetz werden. Über die daraus zu erhaltenen $\phi$ lässt sich die Austrittsarbeit über
+
+\begin{equation}
+    W_{aus}=e_0\phi
+\end{equation}
+
+zu
+
+\begin{equation*}
+    W_a^{max}=\SI{6.11(07)e-19}{\eV} 
+\end{equation*}
+
+und
+
+\begin{equation*}
+W_a=\SI{6.392(004)e-19}{\eV}
+\end{equation*}
+
+bestimmen.
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:

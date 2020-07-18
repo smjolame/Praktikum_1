@@ -49,13 +49,18 @@ print(n)
 x1=np.linspace(U_max[18],300)
 x2=np.linspace(U_nmax[10],100)
 x=np.linspace(0,U_max[:gebiet])
-plt.plot(U_max,I_max,'kx')
-plt.plot(x,I(x,*params))
-plt.plot(x1,Saettignug(x1,*sa1))
+plt.plot(U_max,I_max,'kx',label='Messwerte bei max. Heizstrom')
+plt.plot(x,I(x,*params),label='Ausgleichskurve Langmuir-Schottky')
+plt.plot(x1,Saettignug(x1,*sa1),label='Ausgleichskurve Sättigungstrom')
+plt.grid()
+plt.legend()
+
 
 plt.clf()
-plt.plot(U_nmax,I_nmax,'bx')
-plt.plot(x2,Saettignug(x2,*sa2))
+plt.plot(U_nmax,I_nmax,'kx',label='Messwerte bei geringem Heizstrom')
+plt.plot(x2,Saettignug(x2,*sa2),label='Ausgleichskurve Sättigungsstrom')
+plt.grid()
+plt.legend()
 
 
 
@@ -90,16 +95,16 @@ print(T1,T2)
 
 #e)
 def phi(Is,T):
-    return-k_B*T/e0*np.log(Is*h**3/(4*np.pi*f*e0*m0*k_B**2*T**2))
+    return-k_B*T/e0*unp.log(Is*h**3/(4*np.pi*f*e0*m0*k_B**2*T**2))
 
-phi1=phi(1.6,T1)
-phi2=phi(0.227,T2)
+phi1=phi(Is1,T1)
+phi2=phi(Is2,T2)
 print(phi1,phi2)
 W1=e0*phi1
 W2=e0*phi2
 print(W1,W2)
-
-W=ufloat(np.mean([W1,W2]),sem([W1,W2]))
+W=np.mean([W1,W2])
+#W=ufloat(np.mean([W1,W2]),sem([W1,W2]))
 print(W)
 
 
