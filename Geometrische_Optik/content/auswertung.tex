@@ -1,10 +1,164 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
-%Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
-%
-%Auswertung:
-%Berechnung der geforderten Endergebnisse
-%mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
-%Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
-%Graphische Darstellung der Ergebnisse
+
+\subsection{Bestimmung der Brennweite über Relation von Bildweite und Gegenstandsweite}
+
+Die gemessenen Werte für die Bildweite $b$, die Gegenstandsweite $g$ und die über Gleichung \ref{eqn:linsengl} 
+berechnete Brennweite $f$ sind für die beiden unterschiedlichen Linsen in den Tabellen \ref{tab:f150} und \ref{tab:f300} zu sehen.
+
+\begin{table}
+    \centering
+    \caption{Werte von $g$, $b$ und $f$ für Linse 1 $(f_\text{Angabe}=\SI{150}{\mm})$}
+    \begin{tabular}{c c c}
+    \toprule
+    $g\,/\,cm$ & $b\,/\,cm$ & $f\,/\,cm$ \\
+    \midrule
+    20 & 23.1 & 10.71 \\
+    21 & 22.6 & 10.90 \\
+    22 & 22.2 & 11.05 \\
+    23 & 21.9 & 11.22 \\
+    24 & 21.5 & 11.34 \\
+    25 & 21.6 & 11.57 \\
+    26 & 21.1 & 11.65 \\
+    27 & 20.8 & 11.75 \\
+    28 & 20.7 & 11.90 \\
+    29 & 20.5 & 12.01 \\
+    30 & 20.3 & 12.11 \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:f150}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Werte von $g$, $b$ und $f$ für Linse 1 $(f_\text{Angabe}=\SI{300}{\mm})$}
+    \begin{tabular}{c c c}
+    \toprule
+    $g\,/\,cm$ & $b\,/\,cm$ & $f\,/\,cm$ \\
+    \midrule
+    50 & 52.5 & 25.61 \\
+    51 & 52.4 & 25.85 \\
+    52 & 51.5 & 25.87 \\
+    53 & 51.2 & 26.06 \\
+    54 & 50.6 & 26.12 \\
+    55 & 50.0 & 26.19 \\
+    56 & 49.9 & 26.39 \\
+    57 & 49.4 & 26.45 \\
+    58 & 48.9 & 26.53 \\
+    59 & 48.3 & 26.56 \\
+    60 & 48.0 & 26.68 \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:f300}
+\end{table}
+
+Aus den errechneten Brennweiten wird nun für die jeweiligen Linsen der Mittelwert samt Fehler berechnet, wodurch sich die 
+Brennweiten zu
+\begin{align*}
+    f_{150} &= \SI{11.47+-0.14}{\centi\metre} \\
+    f_{300} &= \SI{26.21+-0.10}{\centi\metre} \, .
+\end{align*}
+
+Eine weitere Methode, um aus den gemessenen Daten die Brennweite zu bestimmen, ist es, Wertepaare der jeweils zusammengehörenden
+Bildweiten und Gegenstandsweiten zu bilden. Zwischen diesen Wertepaaren werden jeweils Geraden gezogen und es werden Schnittpunkte
+der Geraden untereinander betrachtet. Theoretisch gäbe es einen Einzigen Schnittpunkt, indem sich alle Geraden schneiden, 
+allerdings ist dies nur bei unendlich genauer Messung der Fall, was in der Realität nicht zu erreichen ist. Daher wird auch ein 
+Mittelwert der Schnittpunkte, bzw. jeweils ein Mittelwert für die $x-$ und $y-$Werte der Schnittpunkte bestimmt. 
+Beide dieser Werte sollten die Brennweite der jeweiligen Linse angeben. In den Plots \ref{fig:150} und \ref{fig:300} sind für 
+beide Linsen die Schnittpunkte der Geraden sichtbar. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_brennweite150.pdf}
+    \caption{Schnittpunkte der Geraden zwischen zusammengehörenden Brennweiten und Gegenstandsweiten für \SI{150}{\mm} Linse }
+    \label{fig:150}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot_brennweite300.pdf}
+    \caption{Schnittpunkte der Geraden zwischen zusammengehörenden Brennweiten und Gegenstandsweiten für \SI{300}{\mm} Linse }
+    \label{fig:300}
+\end{figure}
+
+Daraus ergeben sich für die Brennweiten die Werte 
+\begin{align*}
+    f_{150,x} &= \SI{5.70+-0.18}{\centi\metre} \\
+    f_{150,y} &= \SI{16.48+-0.15}{\centi\metre} \\
+    f_{300,x} &= \SI{18.2+-0.5}{\centi\metre} \\
+    f_{300,y} &= \SI{33.6+-0.5}{\centi\metre} \, .
+\end{align*}
+
+\subsection{Methode von Bessel}
+
+In den Tabellen \ref{tab:besselrot}, \ref{tab:besselblau} und \ref{tab:bessel1} sind die jeweils aufgenommenen Messwerte 
+zu sehen. Über den Abstand 
+\begin{equation}
+    d = g2-g1
+\end{equation} kann mit der Gleichung \ref{eqn:besself} die Brennweite $f$ bestimmt werden. 
+
+\begin{table}
+    \centering
+    \caption{Messwerte für die Messung mit Bessel-Methode mit weißem Licht}
+    \begin{tabular}{c c c c c}
+        \toprule
+        $ e\,/\,cm$ & $g_1\,/\,cm$ & $g_2\,/\,cm$ & $d\,/\,cm$ & $f\,/\,cm$ \\
+        \midrule
+        102 & 37.0 & 47.2 & 10.2 & 25.24 \\
+        104 & 33.8 & 52.7 & 18.9 & 25.14 \\
+        106 & 31.6 & 56.5 & 24.9 & 25.03 \\
+        108 & 30.8 & 59.9 & 29.1 & 25.03 \\
+        110 & 29.1 & 63.1 & 34.0 & 24.86 \\
+        112 & 27.9 & 65.7 & 37.8 & 24.82 \\
+        114 & 27.2 & 68.9 & 41.7 & 24.70 \\
+        116 & 26.6 & 71.7 & 45.1 & 24.62 \\
+        118 & 25.7 & 74.0 & 48.3 & 24.56 \\
+        120 & 25.4 & 76.1 & 50.7 & 24.64 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:bessel1}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Messwerte für die Messung mit Bessel-Methode mit blauem Licht}
+    \begin{tabular}{c c c c c}
+        \toprule
+        $ e\,/\,cm$ & $g_1\,/\,cm$ & $g_2\,/\,cm$ & $d\,/\,cm$ & $f\,/\,cm$ \\
+        \midrule
+        104 & 33.1 & 53.7 & 20.6 & 24.98 \\
+        106 & 31.7 & 57.7 & 26.0 & 24.91 \\
+        108 & 29.6 & 60.9 & 31.3 & 24.73 \\
+        110 & 28.9 & 64.0 & 35.1 & 24.70 \\
+        112 & 27.9 & 65.9 & 38.0 & 24.78 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:besselblau}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Messwerte für die Messung mit Bessel-Methode mit rotem Licht}
+    \begin{tabular}{c c c c c}
+        \toprule
+        $ e\,/\,cm$ & $g_1\,/\,cm$ & $g_2\,/\,cm$ & $d\,/\,cm$ & $f\,/\,cm$ \\
+        \midrule
+        104 & 34.7 & 52.3 & 17.6 & 25.26 \\
+        106 & 32.4 & 55.8 & 23.4 & 25.21 \\
+        108 & 30.6 & 59.4 & 28.8 & 25.08 \\
+        110 & 29.6 & 62.9 & 33.3 & 24.98 \\
+        112 & 28.9 & 66.0 & 37.1 & 24.93 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:besselrot}
+\end{table}
+
+Auch hier werden wieder aus den einzelnen Tabellen für $f$ die Mittelwerte gebildet. Es ergeben sich für die Brennweiten
+die Werte 
+\begin{align*}
+    f_{300,weiß} &= \SI{24.86+-0.08}{\centi\metre} \\
+    f_{300,blau} &= \SI{24.82+-0.05}{\centi\metre} \\
+    f_{300,rot} &= \SI{25.09+-0.06}{\centi\metre} \, .
+\end{align*}
+
