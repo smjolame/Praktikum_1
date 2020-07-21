@@ -6,7 +6,7 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 \subsection{Sättigungsstrom}
 \label{sub:Sättigungsstrom}
 
-Die Messwerte der beiden Messdurchläufe zum Erstellen der Kennlinienschar sind in Tabelle \ref{tab:max} und \ref{tab:nmax} aufgeführt. Hier und im folgenden wird die Kennlinie, welche bei maximalem Heizstrom gemessen wird, mit einem Index $max$ versehen, wobei die Werte, die die zweite Kennlinie betreffen, ohne Index aufgeführt werden. Aus diesen Werten lässt sich der Sättigungsstrom über eine Ausgleichsrechnung bestimmen. Werden die Werte gemäß Abbildung REFF und REFF in ein Diagramm aufgetragen lässt sich in dem Bereich des Sättigungsstromgebietes ein Verlauf festellen, welcher dem Zusammenhang
+Die Messwerte der beiden Messdurchläufe zum Erstellen der Kennlinienschar sind in Tabelle \ref{tab:max} und \ref{tab:nmax} aufgeführt. Hier und im folgenden wird die Kennlinie, welche bei maximalem Heizstrom gemessen wird, mit einem Index $max$ versehen, wobei die Werte, die die zweite Kennlinie betreffen, ohne Index aufgeführt werden. Aus diesen Werten lässt sich der Sättigungsstrom über eine Ausgleichsrechnung bestimmen. Werden die Werte gemäß Abbildung \ref{fig:max} und \ref{fig:nmax} in ein Diagramm aufgetragen lässt sich in dem Bereich des Sättigungsstromgebietes ein Verlauf festellen, welcher dem Zusammenhang
 \begin{equation}
     I(U)=I_s-a\cdot e^{-bU}
     \label{eqn:fit}
@@ -105,8 +105,22 @@ I_s& = \SI{0.0227(0004)}{\milli\A}
 \label{tab:nmax}
 \end{table}
 
-\subsection{Langmuir-Schottkysches Raumladungsgesetz}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/max.pdf}
+    \caption{Messwerte bei maximalem Heizstrom $I_A=\SI{2.3}{\A}$.}
+    \label{fig:max}
+\end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/nmax.pdf}
+    \caption{Messwerte bei Heizstrom $I_A=\SI{1.8}{\A}$.}
+    \label{fig:nmax}
+\end{figure}
+
+\subsection{Langmuir-Schottkysches Raumladungsgesetz}
+\label{sub:Langmuir-Schottkysches Raumladungsgesetz}
 Es gilt das Langmuir-Schottkysches Raumladungsgesetz REFFFF zu prüfen. Dazu wird der Gültigsbereich des Gesetztes in der Kennlinie bei maximalen Heizstrom indetifiziert. Aus Abbildung REEFF lässt sich der Gültigkeitsbereich bis zu einer Anodenspannung von $U_A=\SI{70}{\V}$ abschätzen. In die in diesem Bereich befindlichen Messwerte wird eine Ausgleichskurve, der dem Gestz ähnlichen, Form 
 
 \begin{equation}
@@ -161,16 +175,23 @@ eingesetz werden. Über die daraus zu erhaltenen $\phi$ lässt sich die Austritt
 zu
 
 \begin{equation*}
-    W_a^{max}=\SI{6.11(07)e-19}{\eV} 
+    W_a^{max}=\SI{3.81(04)}{\eV} 
 \end{equation*}
 
 und
 
 \begin{equation*}
-W_a=\SI{6.392(004)e-19}{\eV}
+W_a=\SI{3.9892(0028)}{\eV}
 \end{equation*}
 
 bestimmen.
+
+Im Mittel ergibt sich ein Wert für die Austrittsarbeit für Wolfram von
+\begin{equation}
+   W_{a}=\SI{3.901(021)}{\eV}.
+\end{equation}
+
+
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:

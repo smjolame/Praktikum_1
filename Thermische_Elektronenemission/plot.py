@@ -45,23 +45,28 @@ print(Is1,Is2)
 params, cov =curve_fit(I,U_max[:gebiet],I_max[:gebiet])
 n=ufloat(params[1],np.sqrt(cov[1][1]))
 print(n)
+print(abw(1.5,n))
 
 x1=np.linspace(U_max[18],300)
 x2=np.linspace(U_nmax[10],100)
-x=np.linspace(0,U_max[:gebiet])
+x=np.linspace(0,U_max[gebiet])
 plt.plot(U_max,I_max,'kx',label='Messwerte bei max. Heizstrom')
-plt.plot(x,I(x,*params),label='Ausgleichskurve Langmuir-Schottky')
 plt.plot(x1,Saettignug(x1,*sa1),label='Ausgleichskurve Sättigungstrom')
+plt.plot(x,I(x,*params),label='Ausgleichskurve Langmuir-Schottky')
 plt.grid()
 plt.legend()
-
+plt.xlabel(r'$U_A \:/\: \si{\V}$')
+plt.ylabel(r'$I_A \:/\: \si{\milli\A}$')
+plt.savefig('build/max.pdf')
 
 plt.clf()
 plt.plot(U_nmax,I_nmax,'kx',label='Messwerte bei geringem Heizstrom')
 plt.plot(x2,Saettignug(x2,*sa2),label='Ausgleichskurve Sättigungsstrom')
 plt.grid()
 plt.legend()
-
+plt.xlabel(r'$U_A \:/\: \si{\V}$')
+plt.ylabel(r'$I_A \:/\: \si{\milli\A}$')
+plt.savefig('build/nmax.pdf')
 
 
 #c)
@@ -100,12 +105,13 @@ def phi(Is,T):
 phi1=phi(Is1,T1)
 phi2=phi(Is2,T2)
 print(phi1,phi2)
-W1=e0*phi1
-W2=e0*phi2
+W1=phi1
+W2=phi2
 print(W1,W2)
 W=np.mean([W1,W2])
-#W=ufloat(np.mean([W1,W2]),sem([W1,W2]))
+W=np.mean([W1,W2])
 print(W)
+print(abw(4.54 ,W))
 
 
 
