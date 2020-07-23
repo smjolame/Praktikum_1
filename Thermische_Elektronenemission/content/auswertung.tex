@@ -6,7 +6,7 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 \subsection{Sättigungsstrom}
 \label{sub:Sättigungsstrom}
 
-Die Messwerte der beiden Messdurchläufe zum Erstellen der Kennlinienschar sind in Tabelle \ref{tab:max} und \ref{tab:nmax} aufgeführt. Hier und im folgenden wird die Kennlinie, welche bei maximalem Heizstrom gemessen wird, mit einem Index $max$ versehen, wobei die Werte, die die zweite Kennlinie betreffen, ohne Index aufgeführt werden. Aus diesen Werten lässt sich der Sättigungsstrom über eine Ausgleichsrechnung bestimmen. Werden die Werte gemäß Abbildung \ref{fig:max} und \ref{fig:nmax} in ein Diagramm aufgetragen lässt sich in dem Bereich des Sättigungsstromgebietes ein Verlauf festellen, welcher dem Zusammenhang
+Die Messwerte der beiden Messdurchläufe zum Erstellen der Kennlinienschar sind in Tabelle \ref{tab:max} und \ref{tab:nmax} aufgeführt. Hier und im folgenden wird die Kennlinie, welche bei maximalem Heizstrom gemessen wird, mit einem Index $max$ versehen, wobei die Werte, die die zweite Kennlinie betreffen, ohne Index aufgeführt werden. Aus diesen Werten lässt sich der Sättigungsstrom über eine Ausgleichsrechnung bestimmen. Werden die Werte gemäß Abbildung \ref{fig:max} und \ref{fig:nmax} in ein Diagramm aufgetragen, lässt sich in dem Bereich des Sättigungsstromgebietes ein Verlauf festellen, welcher dem Zusammenhang
 \begin{equation}
     I(U)=I_s-a\cdot e^{-bU}
     \label{eqn:fit}
@@ -121,7 +121,7 @@ I_s& = \SI{0.0227(0004)}{\milli\A}
 
 \subsection{Langmuir-Schottkysches Raumladungsgesetz}
 \label{sub:Langmuir-Schottkysches Raumladungsgesetz}
-Es gilt das Langmuir-Schottkysches Raumladungsgesetz \eqref{eqn:langmuir} zu prüfen. Dazu wird der Gültigsbereich des Gesetztes in der Kennlinie bei maximalen Heizstrom indetifiziert. Aus Abbildung \ref{fig:max} lässt sich der Gültigkeitsbereich bis zu einer Anodenspannung von $U_A=\SI{70}{\V}$ abschätzen. In die in diesem Bereich befindlichen Messwerte wird eine Ausgleichskurve, der dem Gestz ähnlichen, Form 
+Es gilt, das Langmuir-Schottkysches Raumladungsgesetz \eqref{eqn:langmuir} zu prüfen. Dazu wird der Gültigsbereich des Gesetztes in der Kennlinie bei maximalen Heizstrom identifiziert. Aus Abbildung \ref{fig:max} lässt sich der Gültigkeitsbereich bis zu einer Anodenspannung von $U_A=\SI{70}{\V}$ abschätzen. In die in diesem Bereich befindlichen Messwerte wird eine Ausgleichskurve, der dem Gestz ähnlichen, Form 
 
 \begin{equation}
     I(U)=a\cdot U^n
@@ -166,7 +166,7 @@ Die in \ref{sub:Sättigungsstrom} und  \ref{sub:Kathodentemperatur} bestimmten W
     \phi(I_s,T)=-\frac{k_BT}{e_0}\ln\left(\frac{I_sh^3}{4\pi f e_0 m_0 k_B^2 T^2}\right)
 \end{equation} 
 
-eingesetz werden. Über die daraus zu erhaltenen $\phi$ lässt sich die Austrittsarbeit über
+eingesetzt werden. Über die daraus zu erhaltenen $\phi$ lässt sich die Austrittsarbeit über
 
 \begin{equation}
     W_{aus}=e_0\phi
