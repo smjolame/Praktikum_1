@@ -39,7 +39,7 @@ print('Ug_g =', -b1/a1)
 #Ergebnisse['reg_green']['U_g']= -b1/a1
 #json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
 plt.xlabel(r'U\,/\,V')
-plt.ylabel(r'$\sqrt{I}\,/\,mA$')
+plt.ylabel(r'$\sqrt{I}\,/\,\sqrt{mA}$')
 plt.plot(U, np.sqrt(I)*10**6, 'bx', label='Messwerte')
 plt.plot(U_lin, f(U_lin, a1.n, b1.n)*10**6, label='Ausgleichsgerade' )
 plt.legend()
