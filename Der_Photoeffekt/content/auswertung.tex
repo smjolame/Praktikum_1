@@ -1,10 +1,149 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
-%Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
-%
-%Auswertung:
-%Berechnung der geforderten Endergebnisse
-%mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
-%Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
-%Graphische Darstellung der Ergebnisse
+\subsection{Untersuchung des Photostroms bei variabler Spannung für drei Wellenlängen}
+
+In den Tabellen \ref{tab:gelb}, \ref{tab:gruen} und \ref{tab:violet} sind die gemessenen Photoströme abhängig von der angelegten Beschleunigungsspannung zu sehen. 
+\begin{table}
+    \centering
+    \caption{Photoströme bei unterschiedlichen Wellenlängen in Abhängigkeit der Beschleunigungsspannung}
+    \begin{tabular}{S S}
+        \toprule
+        $U_\text{gelb}\,/\,\si{\volt}$ & $I\,/\,\si{\nano\ampere}$ \\
+        \midrule
+           20 & 0.70 \\
+           19 & 0.62 \\
+           18 & 0.72 \\
+           17 & 0.65 \\
+           16 & 0.61 \\
+           15 & 0.60 \\
+           14 & 0.60 \\
+           13 & 0.60 \\
+           12 & 0.58 \\
+           11 & 0.53 \\
+           10 & 0.51 \\
+           09 & 0.50 \\
+           08 & 0.49 \\
+           07 & 0.45 \\
+           06 & 0.41 \\
+           05 & 0.39 \\
+           04 & 0.32 \\
+           03 & 0.24 \\
+           02 & 0.18 \\
+           01 & 0.11 \\
+           00 & 0.01 \\
+        -0.24 & 0.00 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:gelb}
+    \bigskip
+    \begin{tabular}{S S}
+        \toprule
+        $U_\text{grün}\,/\,\si{\volt}$ & $I\,/\,\si{\nano\ampere}$ \\
+        \midrule
+            8 & 0.68 \\
+            7 & 0.70 \\
+            6 & 0.65 \\
+            5 & 0.56 \\
+            4 & 0.42 \\
+            3 & 0.34 \\
+            2 & 0.24 \\
+            1 & 0.12 \\
+            0 & 0.02 \\
+        -0.22 & 0.00 \\
+        \bottomrule        
+    \end{tabular}
+    \label{tab:gruen}
+    \bigskip
+    \begin{tabular}{S S}
+        \toprule
+        $U_\text{violet}\,/\,\si{\volt}$ & $I\,/\,\si{\nano\ampere}$ \\
+        \midrule
+            8 & 2.10 \\
+            7 & 1.95 \\
+            6 & 1.86 \\
+            5 & 1.62 \\
+            4 & 1.20 \\
+            3 & 0.84 \\
+            2 & 0.62 \\
+            1 & 0.36 \\
+            0 & 0.20 \\
+        -0.94 & 0.00 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:violet}
+\end{table}
+\FloatBarrier
+
+Die Grenzspannung $U_g$ wird anhand einer linearen Ausgleichsrechnung 
+\begin{equation}
+    \sqrt{I} = a\cdot U_g + b
+\end{equation}
+berechnet. Die Parameter der Ausgleichsrechnungen für die einzelnen Wellenlängen und die dadurch berechneten Grenzspannungen $U_g$ sind
+in der Tabelle \ref{tab:Ug} dargestellt.
+
+\begin{table}
+    \centering
+    \caption{Per Ausgleichsrechnung berechnete Grenzspannungen für die einzelnen Wellenlängen}
+    \begin{tabular}{S S S S}
+        \toprule
+         $\text{Wellenlänge}$ & $a\,/\,\si{\frac{\sqrt{\ampere}}{\volt}} $ & $b\,/\,\si{\sqrt{\ampere}} $ & $U_g\,/\,\si{\volt} $ \\
+         \midrule
+         578 & 9.7(13)e-07 & 1.07(015)e-05 & -11.1(22) \\
+         546 & 3.0(04)e-06 & 6.30(170)e-06 & -02.1(06) \\
+         434 & 4.8(05)e-06 & 1.26(021)e-05 & -02.6(05) \\
+    \end{tabular}
+\end{table}
+\FloatBarrier
+
+In den Plots \ref{fig:gelb}, \ref{fig:gruen} und \ref{fig:violet} sind die Wurzeln der jeweiligen Photoströme in Abhängigkeit von der 
+Beschleunigungsspannung $U_g$ und jeweils eine Ausgleichsgerade grafisch dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/yellow.pdf}
+  \caption{Abhängigkeit der Wurzel des Photostroms von der angelegten Beschleunigungsspannung $U_g$ für gelbes Licht}
+  \label{fig:gelb}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/green.pdf}
+  \caption{Abhängigkeit der Wurzel des Photostroms von der angelegten Beschleunigungsspannung $U_g$ für grünes Licht}
+  \label{fig:gruen}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/violet.pdf}
+  \caption{Abhängigkeit der Wurzel des Photostroms von der angelegten Beschleunigungsspannung $U_g$ für violetes Licht}
+  \label{fig:violet}
+\end{figure}
+\FloatBarrier
+
+\subsection{Untersuchung des Zusammenhangs von Grenzspannung und }
+
+Im folgenden zu untersuchen ist der Zusammenhang von den bereits bestimmten Grenzspannungen und den dazugehörigen Lichtfrequenzen $\nu$.
+Dafür wird in einem Plot die Grenzspannung gegen die Lichtfrequenz aufgetragen und eine Ausgleichsgerade berechnet. Die Frequenz des Lichts
+lässt sich dabei durch die bekannten Größen
+\begin{equation}
+    \nu = \frac{c}{\lambda}
+\end{equation}
+beschreiben.
+Dies ist im Plot \ref{fig:rip} dargestellt.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/grenz.pdf}
+    \caption{Grenzspannung $U_g$ in Abhängigkeit der Lichtfrequenz mit Ausgleichsgerade.}
+    \label{fig:rip}
+\end{figure}
+\FloatBarrier
+
+Die lineare Ausgleichsrechnung hat dabei die Form 
+\begin{equation}
+    U_g = \nu\cdot \frac{h}{e_0} - \frac{A_K}{e_0}
+\end{equation}
+
+Dadurch ergeben sich die Parameter 
+\begin{align*}
+    \frac{h}{e_0} &= \SI{0.2(21)e-14}{\frac{\joule}{\ampere}} \\
+    A_K           &= \SI{04(13)}{\electronvolt}\,.
+\end{align*}
