@@ -19,34 +19,20 @@ I = I*10**(-9)
 #Curvefit
 def f(x,a,b):
     return a*x+b 
-# params, pcov = curve_fit(f,U,np.sqrt(I))
-# a1 = params[0]
-# b1 = params[1]
-# #Fehler
-# a_err = np.absolute(pcov[0][0])**0.5
-# b_err = np.absolute(pcov[1][1])**0.5
 
-params, pcov = curve_fit(f,U,np.sqrt(I))
+
+params, pcov = curve_fit(f,U[17:],np.sqrt(I[17:]))
 a1=ufloat(params[0],np.absolute(pcov[0][0])**0.5)
 b1=ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 
 
-U_lin = np.linspace(np.min(U),np.max(U), 100)
+U_lin = np.linspace(5,-1, 100)
 
 print('ay =',a1)
 print('by =',b1)
-#print('ay_err =',a_err)
-#print('by_err =',b_err)
+
 print('Uy_g =', -b1/a1)
-#print('Uy_gerr =', -a_err/b_err)
-#Json
-#Ergebnisse = json.load(open('data/Ergebnisse.json','r'))
-#if not 'reg_yellow' in Ergebnisse:
-#    Ergebnisse['reg_yellow'] = {}
-#Ergebnisse['reg_yellow']['ay']= a1
-#Ergebnisse['reg_yellow']['by']= b1
-#Ergebnisse['reg_yellow']['U_g']= -b1/a1
-#json.dump(Ergebnisse,open('data/Ergebnisse.json','w'),indent=4)
+
 plt.xlabel(r'U\,/\,V')
 plt.ylabel(r'$\sqrt{I}\,/\,\sqrt{mA}$')
 plt.plot(U, np.sqrt(I)*10**6, 'bx', label='Messwerte')

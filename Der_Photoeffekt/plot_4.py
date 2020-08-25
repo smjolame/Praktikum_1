@@ -18,7 +18,7 @@ e0 = -1.602 *10**(-19) #C
 
 lamb = np.array([578,546,434])
 lamb = lamb*10**(-9)
-U = uarray([-11.08,-2.08,-2.60],[2.2,0.6,0.5])
+U = uarray([-0.66, -0.48,-1.28],[0.31,0.19,0.35])
 nu = c/lamb
 params, pcov = curve_fit(f,nu, unp.nominal_values(U), sigma=unp.std_devs(U))
 a=ufloat(params[0],np.absolute(pcov[0][0])**0.5)

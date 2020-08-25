@@ -19,11 +19,11 @@ I = I*10**(-9)
 #Curvefit
 def f(x,a,b):
     return a*x+b 
-params, pcov = curve_fit(f,U,np.sqrt(I))
+params, pcov = curve_fit(f,U[6:],np.sqrt(I[6:]))
 a1=ufloat(params[0],np.absolute(pcov[0][0])**0.5)
 b1=ufloat(params[1],np.absolute(pcov[1][1])**0.5)
 
-U_lin = np.linspace(np.min(U),np.max(U), 100)
+U_lin = np.linspace(3,-1, 100)
 
 print('av =',a1)
 print('bv =',b1)

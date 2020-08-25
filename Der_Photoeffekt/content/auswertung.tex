@@ -3,7 +3,7 @@
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
 \subsection{Untersuchung des Photostroms bei variabler Spannung für drei Wellenlängen}
 
-In den Tabellen \ref{tab:gelb}, \ref{tab:gruen} und \ref{tab:violet} sind die gemessenen Photoströme abhängig von der angelegten Beschleunigungsspannung zu sehen. 
+In Tabelle \ref{tab:1} sind die gemessenen Photoströme abhängig von der angelegten Beschleunigungsspannung zu sehen. 
 \begin{table}
     \centering
     \caption{Photoströme bei unterschiedlichen Wellenlängen in Abhängigkeit der Beschleunigungsspannung.}
@@ -35,7 +35,6 @@ In den Tabellen \ref{tab:gelb}, \ref{tab:gruen} und \ref{tab:violet} sind die ge
         -0.24 & 0.00 \\
         \bottomrule
     \end{tabular}
-    \label{tab:gelb}
     \bigskip
     \begin{tabular}{S S}
         \toprule
@@ -51,9 +50,20 @@ In den Tabellen \ref{tab:gelb}, \ref{tab:gruen} und \ref{tab:violet} sind die ge
             1 & 0.12 \\
             0 & 0.02 \\
         -0.22 & 0.00 \\
+              &      \\    
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\    
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\     
         \bottomrule        
     \end{tabular}
-    \label{tab:gruen}
     \bigskip
     \begin{tabular}{S S}
         \toprule
@@ -69,9 +79,21 @@ In den Tabellen \ref{tab:gelb}, \ref{tab:gruen} und \ref{tab:violet} sind die ge
             1 & 0.36 \\
             0 & 0.20 \\
         -0.94 & 0.00 \\
+              &      \\    
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\    
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\     
+              &      \\ 
         \bottomrule
     \end{tabular}
-    \label{tab:violet}
+    \label{tab:1}
 \end{table}
 \FloatBarrier
 
@@ -79,22 +101,27 @@ Die Grenzspannung $U_g$ wird anhand einer linearen Ausgleichsrechnung
 \begin{equation}
     \sqrt{I} = a\cdot U_g + b
 \end{equation}
-berechnet. Die Parameter der Ausgleichsrechnungen für die einzelnen Wellenlängen und die dadurch berechneten Grenzspannungen $U_g$ sind
+berechnet. Die Ausgleichsgeraden werden dabei bei gelbem Licht durch die ersten fünf, bei grünem und violetem Licht durch die ersten vier 
+Messwerte gelegt, da für diese Intervalle jeweils ein näherungsweise linearer Zusammenhang vorliegt. 
+Die Parameter der Ausgleichsrechnungen für die einzelnen Wellenlängen und die dadurch berechneten Grenzspannungen $U_g$ sind
 in der Tabelle \ref{tab:Ug} dargestellt.
 
-\begin{table}
-    \centering
-    \caption{Per Ausgleichsrechnung berechnete Grenzspannungen für die einzelnen Wellenlängen.}
-    \begin{tabular}{S S S S}
-        \toprule
-         $\text{Wellenlänge} \,/\,\si{\nano\m}$ & $a\,/\,\si{\frac{\sqrt{\ampere}}{\volt}} $ & $b\,/\,\si{\sqrt{\ampere}} $ & $U_g\,/\,\si{\volt} $ \\
-         \midrule
-         578 & 9.7(13)e-07 & 1.07(015)e-05 & -11.1(22) \\
-         546 & 3.0(04)e-06 & 6.30(170)e-06 & -02.1(06) \\
-         434 & 4.8(05)e-06 & 1.26(021)e-05 & -02.6(05) \\
-    \end{tabular}
-    \label{tab:Ug}
-\end{table}
+    \begin{table}
+        \centering
+        \caption{Per Ausgleichsrechnung berechnete Grenzspannungen für die einzelnen Wellenlängen.}
+        \scalebox{0.7}{
+        \begin{tabular}{SSSS}
+            \toprule
+             $\text{Wellenlänge} \,/\,\si{\nano\m}$ & $a\,/\,\si{\frac{\sqrt{\ampere}}{\volt}} $ & $b\,/\,\si{\sqrt{\ampere}} $ & $U_g\,/\,\si{\volt} $ \\
+             \midrule
+             578&4.7(08)e-06&3.10(14)e-06 &-0.66(031)\\
+             546&6.6(10)e-06&3.20(12)e-06 &-0.48(019)\\
+             434&8.1(16)e-06&1.04(019)e-05&-1.28(035)\\
+        \end{tabular}
+        }
+        \label{tab:Ug}
+    \end{table}
+
 \FloatBarrier
 
 In den Plots \ref{fig:gelb}, \ref{fig:gruen} und \ref{fig:violet} sind die Wurzeln der jeweiligen Photoströme in Abhängigkeit von der 
@@ -145,6 +172,6 @@ Die lineare Ausgleichsrechnung hat dabei die Form
 
 Dadurch ergeben sich die Parameter 
 \begin{align*}
-    \frac{h}{e_0} &= \SI{0.2(21)e-14}{\frac{\joule}{\ampere}} \\
-    A_K           &= \SI{04(13)}{\electronvolt}\,.
+    \frac{h}{e_0} &= \SI{-4.5(22)e-15}{\frac{\joule}{\ampere}} \\
+    A_K           &= \SI{1.9(13)}{\electronvolt}\,.
 \end{align*}
